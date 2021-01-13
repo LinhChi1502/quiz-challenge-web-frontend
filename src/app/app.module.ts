@@ -9,20 +9,30 @@ import { NavbarComponent } from './user/homepage/navbar/navbar.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './login/layout/layout.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import { SidebarComponent } from './user/homepage/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     NavbarComponent,
-    LayoutComponent
+    LayoutComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
