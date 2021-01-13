@@ -13,7 +13,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './login/layout/layout.component';
 import { LoginComponent } from './login/login/login.component';
 import { LoginRoutingModule } from './login/login-routing.module';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtInterceptor} from "./login/helper/jwt-interceptor";
+import {ErrorInterceptor} from "./login/helper/error-interceptor";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatIconModule,
     LoginRoutingModule, HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
