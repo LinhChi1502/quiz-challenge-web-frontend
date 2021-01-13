@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "quiz-challenge-web"
+  "defaultProject": "quiz-challenge-web",
+  "cli": {
+    "analytics": "9aaa3d85-4a7a-46ba-b7a6-cf1386115f9f"
+  }
 }
