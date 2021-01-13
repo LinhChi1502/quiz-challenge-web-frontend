@@ -10,6 +10,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './login/layout/layout.component';
 import { LoginComponent } from './login/login/login.component';
+import { LoginRoutingModule } from './login/login-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    LoginRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
