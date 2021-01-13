@@ -4,12 +4,12 @@ import {
   CanActivate,
   CanActivateChild,
   Router,
-  RouterStateSnapshot,
+  RouterStateSnapshot
 } from '@angular/router';
 // @ts-ignore
 import {UserToken} from '../model/user-token';
+import {AuthService} from "../../service/auth/auth.service";
 // @ts-ignore
-import {AuthService} from '../service/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(private router: Router,
               private authService: AuthService) {
+    // @ts-ignore
     this.authService.currentUser.subscribe((user: any) => {
       this.currentUser = user;
     });

@@ -11,15 +11,15 @@ const API_URL = environment.apiUrl;
 })
 export class AuthService {
   update = new EventEmitter<string>();
-private currentUserSubject: BehaviorSubject<UserToken> | undefined;
-private currentUser: Observable<UserToken> | undefined;
+currentUserSubject: BehaviorSubject<UserToken> | undefined;
+currentUser: Observable<UserToken> | undefined;
 
   constructor(private http: HttpClient) {
      // @ts-ignore
     this.currentUserSubject = new  BehaviorSubject<UserToken>(JSON.parse(localStorage.getItem('user')));
     this.currentUser= this.currentUserSubject.asObservable();
   }
-  public get curentUserValue(): UserToken {
+  public get currentUserValue(): UserToken {
     // @ts-ignore
     return this.currentUserSubject.value;
   }
