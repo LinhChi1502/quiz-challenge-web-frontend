@@ -1,15 +1,5 @@
-.test {
-  & .big-div {
-    height: auto;
-    padding: 0;
-    border: none;
-    margin: 10px 0 0 0;
-
-    & img {
-      width: 100%;
-      border: none;
-    }
-  }
+.card {
+  height: 420px;
 }
 footer {
   position: fixed;
