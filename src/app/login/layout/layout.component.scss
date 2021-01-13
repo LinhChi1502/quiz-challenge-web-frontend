@@ -1,0 +1,19 @@
+.test {
+  & .big-div {
+    height: auto;
+    padding: 0;
+    border: none;
+    margin: 10px 0 0 0;
+
+    & img {
+      width: 100%;
+      border: none;
+    }
+  }
+}
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}
