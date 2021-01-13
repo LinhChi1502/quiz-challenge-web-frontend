@@ -16,6 +16,7 @@ import { LoginRoutingModule } from './login/login-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./login/helper/jwt-interceptor";
 import {ErrorInterceptor} from "./login/helper/error-interceptor";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import {ErrorInterceptor} from "./login/helper/error-interceptor";
     BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    LoginRoutingModule, HttpClientModule
+    LoginRoutingModule, HttpClientModule, FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
