@@ -18,7 +18,7 @@ import {MaterialModule} from './material/material.module';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { CategoryComponent } from './category/category/category.component';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
-
+import { NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { ListCategoryComponent } from './category/list-category/list-category.co
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxPaginationModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

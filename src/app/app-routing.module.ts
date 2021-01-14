@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login/login.component';
 import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {HomepageComponent} from './user/homepage/homepage.component';
 import {CategoryComponent} from './category/category/category.component';
+import {ListCategoryComponent} from './category/list-category/list-category.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminHomeComponent,
     children: [
-      {path: 'category', component: CategoryComponent}
+      {path: 'category', component: CategoryComponent,
+        children: [{path: 'list-category', component: ListCategoryComponent}]}
     ]
   },
 
