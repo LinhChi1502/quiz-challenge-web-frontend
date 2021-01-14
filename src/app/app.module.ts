@@ -14,6 +14,7 @@ import {ErrorInterceptor} from './login/helper/error-interceptor';
 import {FormsModule} from '@angular/forms';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MaterialModule} from './material/material.module';
     LayoutComponent,
     LayoutComponent,
     LoginComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,
