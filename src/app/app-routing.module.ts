@@ -7,7 +7,7 @@ import {HomepageComponent} from './user/homepage/homepage.component';
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent
+    path: '', component: HomepageComponent
   },
 
   {
