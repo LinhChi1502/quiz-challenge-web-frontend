@@ -6,10 +6,18 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/datatables-bs4/css/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="assets/datatables-responsive/css/responsive.bootstrap4.css">
+  <link rel="stylesheet" href="assets/datatables-buttons/css/buttons.bootstrap4.css">
+
+  <link rel="stylesheet" href="assets/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="assets/dist/css/adminlte.css">
+
 
 </head>
 <body class="mat-typography">
@@ -17,5 +25,38 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="assets/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+  <script src="assets/datatables-responsive/js/dataTables.responsive.js"></script>
+  <script src="assets/datatables-responsive/js/responsive.bootstrap4.js"></script>
+  <script src="assets/datatables-buttons/js/dataTables.buttons.js"></script>
+  <script src="assets/datatables-buttons/js/buttons.bootstrap4.js"></script>
+  <script src="assets/jszip/jszip.js"></script>
+  <script src="assets/pdfmake/pdfmake.min.js"></script>
+  <script src="assets/pdfmake/vfs_fonts.js"></script>
+  <script src="assets/datatables-buttons/js/buttons.html5.js"></script>
+  <script src="assets/datatables-buttons/js/buttons.print.js"></script>
+  <script src="assets/datatables-buttons/js/buttons.colVis.js"></script>
+  <script src="assets/jquery/jquery.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="assets/datatables/jquery.dataTables.js"></script>
+  <script src="assets/dist/js/adminlte.js"></script>
+  <script src="assets/dist/js/demo.js"></script>
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
 </body>
 </html>
