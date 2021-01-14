@@ -3,5 +3,5 @@ export interface Exam {
   countDown?: number;
   date?: Date;
   name?: string;
-questions?: any;
+  questions?: any;
 }

@@ -18,7 +18,8 @@ import {ErrorInterceptor} from "./login/helper/error-interceptor";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from "./login/home/home.component";
 import { RegisterComponent } from './register/register.component';
-
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import {MaterialModule} from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisterComponent } from './register/register.component';
     LayoutComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,8 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule, FormsModule,
+    MaterialModule
   ],
   exports:[FormsModule,ReactiveFormsModule],
   providers: [

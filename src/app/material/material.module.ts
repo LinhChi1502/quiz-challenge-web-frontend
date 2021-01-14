@@ -1,12 +1,31 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatGridListModule} from '@angular/material/grid-list';
 
-
+const MaterialComponents = [
+  MatTabsModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatBadgeModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatGridListModule
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [MaterialComponents],
+  exports: [MaterialComponents]
+
 })
-export class MaterialModule { }
+export class MaterialModule {
+}
