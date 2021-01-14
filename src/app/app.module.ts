@@ -17,6 +17,7 @@ import {JwtInterceptor} from "./login/helper/jwt-interceptor";
 import {ErrorInterceptor} from "./login/helper/error-interceptor";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from "./login/home/home.component";
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {HomeComponent} from "./login/home/home.component";
     NavbarComponent,
     LayoutComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
