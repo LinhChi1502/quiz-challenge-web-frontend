@@ -12,7 +12,6 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './login/layout/layout.component';
 import { LoginComponent } from './login/login/login.component';
-import { LoginRoutingModule } from './login/login-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./login/helper/jwt-interceptor";
 import {ErrorInterceptor} from "./login/helper/error-interceptor";
@@ -32,11 +31,14 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    LoginRoutingModule, HttpClientModule, FormsModule
+    HttpClientModule, FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
+  exports: [
+    LayoutComponent
   ],
   bootstrap: [AppComponent]
 })
