@@ -6,12 +6,17 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './user/homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './user/homepage/navbar/navbar.component';
-import {MatTabsModule} from '@angular/material/tabs';
+// @ts-ignore
+import {MatTabsModule} from "@angular/material/tabs";
+// @ts-ignore
 import {MatIconModule} from '@angular/material/icon';
 import { LayoutComponent } from './login/layout/layout.component';
 import { LoginComponent } from './login/login/login.component';
 import { LoginRoutingModule } from './login/login-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtInterceptor} from "./login/helper/jwt-interceptor";
+import {ErrorInterceptor} from "./login/helper/error-interceptor";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,10 +32,12 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    LoginRoutingModule,
-    HttpClientModule
+    LoginRoutingModule, HttpClientModule, FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
