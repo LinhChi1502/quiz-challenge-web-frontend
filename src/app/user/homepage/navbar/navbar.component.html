@@ -1,37 +1,44 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a mat-button>
+    <a mat-icon-button>
       <mat-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
     </a>
-    <a mat-button>
-      <span class="mat-h2">Home</span>
+    <a mat-icon-button style="padding-left: 20px">
+      <mat-icon>home</mat-icon>
+<!--      <span class="mat-h2"> Home</span>-->
     </a>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
-      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
-      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
-      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
-      <a mat-button [routerLink]="'/activities'"> Activities </a>
-      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+      <a class="hidden-sm" mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </a>
+      <a mat-icon-button>
+        <mat-icon>exit_to_app</mat-icon>
+      </a>
+<!--      <a mat-button [routerLink]="'/accounts'"> Accounts </a>-->
+<!--      <a mat-button [routerLink]="'/create-account'"> Create Account </a>-->
+<!--      <a mat-button [routerLink]="'/contacts'"> Contacts </a>-->
+<!--      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>-->
+<!--      <a mat-button [routerLink]="'/activities'"> Activities </a>-->
+<!--      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>-->
 
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" [(mode)]="sideNavMode" [(opened)]="sideNavOpened" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
     <mat-nav-list>
       <mat-list-item>
-        <a mat-list-item [routerLink]="'/accounts'" *ngIf="isExpanded || isShowing"> Dashboard </a>
+        <a [routerLink]="'/accounts'" *ngIf="isExpanded || isShowing" class="mat-h2"> Dashboard </a>
         <mat-icon mat-list-icon [routerLink]="'/accounts'" class="color_custom">dashboard</mat-icon>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon [routerLink]="'/create-account'" class="color_custom">account_box</mat-icon>
-        <a mat-list-item [routerLink]="'/create-account'" *ngIf="isExpanded || isShowing"> Account </a>
+        <a [routerLink]="'/create-account'" *ngIf="isExpanded || isShowing" class="mat-h2"> Account </a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">history</mat-icon>
-        <a mat-list-item [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing"> Check Result </a>
+        <a [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing" class="mat-h2"> Check Result </a>
       </mat-list-item>
 
     </mat-nav-list>

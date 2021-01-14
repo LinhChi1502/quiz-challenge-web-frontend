@@ -10,5 +10,13 @@
 
 .sidenav {
   padding: 12px;
-  width: 250px;
+}
+
+mat-list-item a{
+  margin: 10px;
+}
+@media screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none;
+  }
 }
