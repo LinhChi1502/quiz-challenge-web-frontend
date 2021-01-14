@@ -3,10 +3,20 @@
 .menu-spacer{
   flex: 1 1 auto;
 }
+.text-center{
+  margin: 0 auto;
+  font-family: Harrington;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.text-center:hover{
+  color: white;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 a:hover{
-  color: bisque;
+  color: cornflowerblue;
   text-decoration: none;
 }

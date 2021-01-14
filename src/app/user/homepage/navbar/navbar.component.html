@@ -1,17 +1,32 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <a mat-icon-button>
+  <mat-toolbar-row >
+    <a mat-icon-button >
       <mat-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
     </a>
-    <a mat-icon-button style="padding-left: 20px">
+    <a mat-icon-button style="margin-left: 20px">
       <mat-icon>home</mat-icon>
 <!--      <span class="mat-h2"> Home</span>-->
     </a>
-    <span class="menu-spacer"></span>
+    <a class="text-center" [routerLink]="'/home'">Quizz Challenge</a>
+<!--    <span class="menu-spacer"></span>-->
     <div>
-      <a class="hidden-sm" mat-icon-button>
+      <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="profile" style="margin-right: 20px">
         <mat-icon>account_circle</mat-icon>
       </a>
+      <mat-menu #profile="matMenu" [overlapTrigger]="false">
+        <a mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span class="mat-body-strong">Profile</span>
+        </a>
+        <a mat-menu-item>
+          <mat-icon>vpn_key</mat-icon>
+          <span class="mat-body-strong">Change password</span>
+        </a>
+        <a mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span class="mat-body-strong">Settings</span>
+        </a>
+      </mat-menu>
       <a mat-icon-button>
         <mat-icon>exit_to_app</mat-icon>
       </a>
@@ -26,7 +41,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" [(mode)]="sideNavMode" [(opened)]="sideNavOpened" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" [(opened)]="sideNavOpened" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
     <mat-nav-list>
       <mat-list-item>
         <a [routerLink]="'/accounts'" *ngIf="isExpanded || isShowing" class="mat-h2"> Dashboard </a>
