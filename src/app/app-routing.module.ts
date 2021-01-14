@@ -4,7 +4,7 @@ import {LayoutComponent} from './login/layout/layout.component';
 import {LoginComponent} from './login/login/login.component';
 import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {HomepageComponent} from './user/homepage/homepage.component';
-import {CategoryComponent} from './admin/category/category.component';
+import {CategoryComponent} from './category/category/category.component';
 
 const routes: Routes = [
   {

@@ -16,7 +16,7 @@ import {FormsModule} from "@angular/forms";
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
-import { CategoryComponent } from './admin/category/category.component';
+import { CategoryComponent } from './category/category/category.component';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
 
 @NgModule({
