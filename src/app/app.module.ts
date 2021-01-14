@@ -9,12 +9,13 @@ import { NavbarComponent } from './user/homepage/navbar/navbar.component';
 import { LayoutComponent } from './login/layout/layout.component';
 import { SidebarComponent } from './user/homepage/sidebar/sidebar.component';
 import { LoginComponent } from './login/login/login.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {JwtInterceptor} from "./login/helper/jwt-interceptor";
-import {ErrorInterceptor} from "./login/helper/error-interceptor";
-import {FormsModule} from "@angular/forms";
+
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {JwtInterceptor} from '@auth0/angular-jwt';
+import {ErrorInterceptor} from './login/helper/error-interceptor';
 
 @NgModule({
   declarations: [

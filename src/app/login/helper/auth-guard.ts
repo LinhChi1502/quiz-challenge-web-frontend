@@ -8,7 +8,8 @@ import {
 } from '@angular/router';
 // @ts-ignore
 import {UserToken} from '../model/user-token';
-import {AuthService} from "../../service/auth/auth.service";
+import {AuthService} from '../../service/auth/auth.service';
+
 // @ts-ignore
 
 @Injectable({
