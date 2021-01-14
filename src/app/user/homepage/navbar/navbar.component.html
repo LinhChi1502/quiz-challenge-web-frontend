@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-button>
-      <mat-icon >menu</mat-icon>
-      <span> SimpleCRM</span>
-    </button>
+    <a mat-button>
+      <mat-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
+    </a>
+    <a mat-button>
+      <span class="mat-h2">Home</span>
+    </a>
     <span class="menu-spacer"></span>
     <div>
       <a mat-button [routerLink]="'/accounts'"> Accounts </a>
@@ -12,11 +14,31 @@
       <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
       <a mat-button [routerLink]="'/activities'"> Activities </a>
       <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+
     </div>
   </mat-toolbar-row>
-
-<!--  <mat-toolbar-row>-->
-<!--    <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>-->
-<!--  </mat-toolbar-row>-->
 </mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <mat-nav-list>
+      <mat-list-item>
+        <a mat-list-item [routerLink]="'/accounts'" *ngIf="isExpanded || isShowing"> Dashboard </a>
+        <mat-icon mat-list-icon [routerLink]="'/accounts'" class="color_custom">dashboard</mat-icon>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon [routerLink]="'/create-account'" class="color_custom">account_box</mat-icon>
+        <a mat-list-item [routerLink]="'/create-account'" *ngIf="isExpanded || isShowing"> Account </a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">history</mat-icon>
+        <a mat-list-item [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing"> Check Result </a>
+      </mat-list-item>
 
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <div class="sidenav-properties">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
