@@ -4,6 +4,8 @@ import {AppUser} from "../../model/app-user";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../service/auth/auth.service";
 import {first} from "rxjs/operators";
+import {FormControl, FormGroup} from "@angular/forms";
+
 
 @Component({
   selector: 'app-login',
@@ -11,13 +13,17 @@ import {first} from "rxjs/operators";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  currentUser: UserToken | undefined;
+  // @ts-ignore
+  currentUser: UserToken ;
   user: AppUser = {
     username: '',
     password: ''
   };
   returnUrl = '';
-
+  // loginForm: FormGroup = new FormGroup({
+  //   username: new FormControl(''),
+  //   password: new FormControl('')
+  // });
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private authService: AuthService) {

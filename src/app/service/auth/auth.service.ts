@@ -27,7 +27,7 @@ currentUser: Observable<UserToken> | undefined;
     return this.http.post(API_URL + "/login", {username, password})
       .pipe(map(user => {
         // @ts-ignore
-        localStorage.setItem('user', user);
+        localStorage.setItem('user', JSON.stringify(user));
         // @ts-ignore
         this.currentUserSubject.next(user);
         this.update.emit('login');
@@ -39,4 +39,16 @@ currentUser: Observable<UserToken> | undefined;
     // @ts-ignore
     this.currentUserSubject.next('null');
   }
+  // register(username: string, password: string, fullname: string ){
+  //   return this.http.post(API_URL + "/register", {username, password, fullname})
+  //     .pipe(map(user => {
+  //       // @ts-ignore
+  //       localStorage.setItem('user', JSON.stringify(user));
+  //       // @ts-ignore
+  //       this.currentUserSubject.next(user);
+  //       this.update.emit('login');
+  //       return user;
+  //     }))
+  // }
+
 }
