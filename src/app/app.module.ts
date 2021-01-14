@@ -32,7 +32,6 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    LoginRoutingModule, HttpClientModule, FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
