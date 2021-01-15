@@ -8,6 +8,7 @@ import {CategoryComponent} from './category/category/category.component';
 import {ListCategoryComponent} from './category/list-category/list-category.component';
 import {CreateCategoryComponent} from './category/create-category/create-category.component';
 import {EditCategoryComponent} from './category/edit-category/edit-category.component';
+import {DeleteCategoryComponent} from './category/delete-category/delete-category.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
         children: [
           {path: 'list-category', component: ListCategoryComponent,outlet:"category"},
           {path: 'create-category', component: CreateCategoryComponent,outlet:"category"},
-          {path: 'edit-category/:id', component: EditCategoryComponent,outlet:"category"}
+          {path: 'edit-category/:id', component: EditCategoryComponent,outlet:"category"},
+          {path: 'delete-category/:id', component: DeleteCategoryComponent,outlet:"category"}
         ]}
     ]
   },

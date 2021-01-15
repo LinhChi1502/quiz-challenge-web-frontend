@@ -21,7 +21,7 @@ totalItems: totalRecords}; let i = index">
           <a [routerLink]="['/admin/category',{outlets:{category:['edit-category', category.id]}}]">
             <i class="fas fa-edit"></i> Edit
           </a>
-          <a style="margin-left: 50px">
+          <a style="margin-left: 50px" [routerLink]="['/admin/category',{outlets:{category:['delete-category', category.id]}}]">
             <i class="fas fa-remove"></i> Delete
           </a>
         </td>

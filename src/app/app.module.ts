@@ -21,6 +21,7 @@ import { ListCategoryComponent } from './category/list-category/list-category.co
 import { NgxPaginationModule} from 'ngx-pagination';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
+import { DeleteCategoryComponent } from './category/delete-category/delete-category.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
     ListCategoryComponent,
     CreateCategoryComponent,
     EditCategoryComponent,
+    DeleteCategoryComponent,
   ],
   imports: [
     BrowserModule,

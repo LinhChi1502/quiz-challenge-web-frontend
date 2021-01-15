@@ -15,11 +15,11 @@ export class EditCategoryComponent implements OnInit {
     name: new FormControl(''),
   });
   // @ts-ignore
-  currentCategory: Category;
+  currentCategory: Category = {
+  };
   // @ts-ignore
   id: number;
   output: string = '';
-
   constructor(private categoryService: CategoryService,
               private activatedRoute: ActivatedRoute
   ) {
@@ -31,13 +31,16 @@ export class EditCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.getCategoryById(this.id);
   }
 
   getCategoryById(id: number) {
-    this.categoryService.getCategoryById(id).subscribe(category => this.currentCategory = category);
+    debugger
+    this.categoryService.getCategoryById(id).subscribe(category => this.currentCategory =  category);
   }
 
-  editProduct(id: number) {
+  editCategory(id: number) {
     const category: Category = {
       name: this.categoryForm.value.name === "" ? this.currentCategory.name : this.categoryForm.value.name,
     };

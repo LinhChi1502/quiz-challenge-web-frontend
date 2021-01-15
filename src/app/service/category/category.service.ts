@@ -22,10 +22,14 @@ export class CategoryService {
   }
 
   getCategoryById(id: number): Observable<Category> {
-    return this.http.get<Category>(API_URL + `/categories/${id}`);
+    return this.http.get<Category>(API_URL + `/api/categories/${id}`);
   }
 
   editCategory(id: number, category: Category): Observable<Category> {
-    return this.http.put<Category>(API_URL + `/categories/${id}`, category);
+    return this.http.put<Category>(API_URL + `/api/categories/${id}`, category);
+  }
+
+  deleteCategory(id: number): Observable<Category> {
+    return this.http.delete<Category>(API_URL + `/api/categories/${id}`);
   }
 }
