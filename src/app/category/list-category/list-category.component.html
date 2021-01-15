@@ -18,7 +18,7 @@ totalItems: totalRecords}; let i = index">
         <td style="text-align: center" width="150px">{{i + 1}}</td>
         <td style="text-align: center">{{category.name}}</td>
         <td style="text-align: center">
-          <a>
+          <a [routerLink]="['/admin/category',{outlets:{category:['edit-category', category.id]}}]">
             <i class="fas fa-edit"></i> Edit
           </a>
           <a style="margin-left: 50px">
@@ -38,4 +38,3 @@ totalItems: totalRecords}; let i = index">
     </ul>
   </div>
 </div>
-

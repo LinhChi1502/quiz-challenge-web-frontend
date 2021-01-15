@@ -7,6 +7,7 @@ import {HomepageComponent} from './user/homepage/homepage.component';
 import {CategoryComponent} from './category/category/category.component';
 import {ListCategoryComponent} from './category/list-category/list-category.component';
 import {CreateCategoryComponent} from './category/create-category/create-category.component';
+import {EditCategoryComponent} from './category/edit-category/edit-category.component';
 
 const routes: Routes = [
   {
@@ -22,8 +23,9 @@ const routes: Routes = [
     children: [
       {path: 'category', component: CategoryComponent,
         children: [
-          {path: 'list-category', component: ListCategoryComponent},
-          {path: 'create-category', component: CreateCategoryComponent}
+          {path: 'list-category', component: ListCategoryComponent,outlet:"category"},
+          {path: 'create-category', component: CreateCategoryComponent,outlet:"category"},
+          {path: 'edit-category/:id', component: EditCategoryComponent,outlet:"category"}
         ]}
     ]
   },

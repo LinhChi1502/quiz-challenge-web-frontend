@@ -1,0 +1,16 @@
+<form [formGroup]="categoryForm" (ngSubmit)="editProduct(id)" style="width: 50%; margin: auto; margin-top: 50px">
+  <span style="text-align: center;color: green">{{output}}</span>
+
+  <div class="card-body">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Category Name:</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" formControlName="name" [value]="currentCategory.name" name="name">
+    </div>
+    <span style="color: red">{{message}}</span>
+  </div>
+  <!-- /.card-body -->
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary" style="margin-left: 180px">Create</button>
+  </div>
+</form>
