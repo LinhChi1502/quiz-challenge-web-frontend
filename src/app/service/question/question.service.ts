@@ -16,4 +16,12 @@ export class QuestionService {
   getAllQuestion(): Observable<Question[]> {
     return this.http.get<Question[]>(API_URL + `/api/questions`);
   }
+
+  searchQuestions(searchText: string, questType: string, category: string): Observable<Question[]> {
+    return this.http.get<Question[]>(API_URL + `/api/questions/search`, {params: {
+        searchText: searchText,
+        questType: questType,
+        category: category
+      }})
+  }
 }
