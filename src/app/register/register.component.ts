@@ -48,4 +48,8 @@ export class RegisterComponent implements OnInit {
     };
     return user;
   }
+
+  get registerFormControl() {
+    return this.registerForm.controls;
+  }
 }
