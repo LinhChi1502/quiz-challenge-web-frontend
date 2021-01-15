@@ -7,7 +7,7 @@
 <div class="form-group inline" style="width: 20%">
   <label for="category" style="margin-left: 100px">Category</label>
   <select id="category" class="form-control select2" style="width: 100%;" [(ngModel)]="selectedCategory" (ngModelChange)="searchQuestion()">
-    <option selected="selected" value="">None</option>
+    <option selected="selected" value="">All</option>
     <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
   </select>
 </div>
@@ -15,7 +15,7 @@
 <div class="form-group inline" style="width: 20%">
   <label for="type" style="margin-left: 100px">Type</label>
   <select class="form-control select2" style="width: 100%;" id="type" [(ngModel)]="selectedType" (ngModelChange)="searchQuestion()">
-    <option selected="selected" value="">None</option>
+    <option selected="selected" value="">All</option>
     <option *ngFor="let type of types" [value]="type.name">{{type.name}}</option>
     <option></option>
   </select>
