@@ -1,6 +1,6 @@
 export interface Question {
   id?: number;
-  is_active?: boolean;
+  active?: boolean;
   title?: string;
   category?: any;
   type?: any;
