@@ -18,6 +18,7 @@ import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.componen
 import { CategoryComponent } from './category/category/category.component';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
 import { NgxPaginationModule} from 'ngx-pagination';
+import {SidebarComponent} from "./user/homepage/sidebar/sidebar.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { NgxPaginationModule} from 'ngx-pagination';
     AdminNavbarComponent,
     CategoryComponent,
     ListCategoryComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
