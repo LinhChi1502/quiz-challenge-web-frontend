@@ -22,6 +22,14 @@ import { NgxPaginationModule} from 'ngx-pagination';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './category/delete-category/delete-category.component';
+import { QuestionComponent } from './question/question/question.component';
+import { ListQuestionComponent } from './question/list-question/list-question.component';
+import { EditQuestionComponent } from './question/edit-question/edit-question.component';
+import { DeleteQuestionComponent } from './question/delete-question/delete-question.component';
+import { CreateQuestionMultipleOneAnsComponent } from './question/create-question-multiple-one-ans/create-question-multiple-one-ans.component';
+import { CreateQuestionMultipleMulAnsComponent } from './question/create-question-multiple-mul-ans/create-question-multiple-mul-ans.component';
+import { CreateQuestionTruefalseComponent } from './question/create-question-truefalse/create-question-truefalse.component';
+import { CreateQuestionInputComponent } from './question/create-question-input/create-question-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +46,14 @@ import { DeleteCategoryComponent } from './category/delete-category/delete-categ
     CreateCategoryComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
+    QuestionComponent,
+    ListQuestionComponent,
+    EditQuestionComponent,
+    DeleteQuestionComponent,
+    CreateQuestionMultipleOneAnsComponent,
+    CreateQuestionMultipleMulAnsComponent,
+    CreateQuestionTruefalseComponent,
+    CreateQuestionInputComponent,
   ],
   imports: [
     BrowserModule,
