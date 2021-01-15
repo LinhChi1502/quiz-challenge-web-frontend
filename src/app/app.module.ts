@@ -15,7 +15,9 @@ import {FormsModule} from '@angular/forms';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
-
+import { CategoryComponent } from './category/category/category.component';
+import { ListCategoryComponent } from './category/list-category/list-category.component';
+import { NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.componen
     LoginComponent,
     AdminHomeComponent,
     AdminNavbarComponent,
+    CategoryComponent,
+    ListCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.componen
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxPaginationModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

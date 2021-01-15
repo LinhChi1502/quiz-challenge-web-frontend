@@ -1,0 +1,41 @@
+<div class="card">
+
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th style="width: 10px; text-align: center">#</th>
+        <th style="text-align: center;">Category</th>
+        <th style="text-align: center">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of categories | paginate: { id: 'listing_pagination',
+itemsPerPage: 5,
+currentPage: page,
+totalItems: totalRecords}; let i = index">
+        <td style="text-align: center" width="150px">{{i + 1}}</td>
+        <td style="text-align: center">{{category.name}}</td>
+        <td style="text-align: center">
+          <a>
+            <i class="fas fa-edit"></i> Edit
+          </a>
+          <a style="margin-left: 50px">
+            <i class="fas fa-remove"></i> Delete
+          </a>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer clearfix">
+    <ul class="pagination pagination-sm m-0 float-right">
+      <pagination-controls id="listing_pagination"  (pageChange)="page = $event">
+      </pagination-controls>
+    </ul>
+  </div>
+</div>
+
