@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Category} from '../../model/category';
+import {Question} from '../../model/question';
 
 const API_URL = `${environment.apiUrl}`
 
@@ -13,7 +13,7 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
 
-  getAllQuestion(): Observable<Category[]> {
-    return this.http.get<Category[]>(API_URL + `/api/categories`);
+  getAllQuestion(): Observable<Question[]> {
+    return this.http.get<Question[]>(API_URL + `/api/questions`);
   }
 }
