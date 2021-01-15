@@ -1,11 +1,27 @@
-{{output}}
 
-<form [formGroup]="categoryForm" (ngSubmit)="createNewCategory()" style="width: 50%; margin: auto">
+<!--<form [formGroup]="categoryForm" (ngSubmit)="createNewCategory()" style="width: 50%; margin: auto">-->
 
-    <label class="col-form-label" for="inputSuccess"></label>
-    <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter name" required>
+<!--    <label class="col-form-label" for="inputSuccess"></label>-->
+<!--    <input type="text" class="form-control is-valid" id="inputSuccess" formControlName="name" placeholder="Enter name" required>-->
 
-<div>{{message}}</div>
-  <button type="submit">Submit</button>
+<!--<div style="color: red">{{message}}</div>-->
+<!--  <button type="submit" style="margin-top: 40px">Create</button>-->
+<!--</form>-->
+
+<form [formGroup]="categoryForm" (ngSubmit)="createNewCategory()" style="width: 50%; margin: auto; margin-top: 50px">
+  <span style="text-align: center;color: green">{{output}}</span>
+
+  <div class="card-body">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email category name</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name" formControlName="name">
+    </div>
+    <span style="color: red">{{message}}</span>
+  </div>
+  <!-- /.card-body -->
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary" style="margin-left: 180px">Create</button>
+  </div>
 </form>
 

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {CategoryService} from '../../service/category/category.service';
 import {Category} from '../../model/category';
-import { Validators } from '@angular/forms';
+import {Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-category',
@@ -10,16 +11,16 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./create-category.component.scss']
 })
 export class CreateCategoryComponent implements OnInit {
+  categoryForm: FormGroup = new FormGroup({
+    name: new FormControl('', Validators.required)
+  });
+  output: string = '';
+  message: string = '';
 
-output: string = '';
-message: string = ''
   constructor(private categoryService: CategoryService,
-              private formBuilder: FormBuilder
-  ) { }
+              private router: Router) {
+  }
 
-  categoryForm = this.formBuilder.group({
-    name: ['', Validators.required]
-  })
   ngOnInit(): void {
   }
 
@@ -28,7 +29,13 @@ message: string = ''
       name: this.categoryForm.value.name,
     };
 
-    this.categoryService.createNewCategory(category).subscribe(output => {this.output = 'Tạo mới category thành công'} ,
-      message => {this.message = 'Category đã tồn tại'})
+    this.categoryService.createNewCategory(category).subscribe(output => {
+      this.output = 'Tạo mới category thành công';
+      this.message = '';
+    }, message => {
+      this.message = 'Mời nhập lại category chưa tồn tại';
+    });
+    this.categoryForm.reset();
   }
+
 }
