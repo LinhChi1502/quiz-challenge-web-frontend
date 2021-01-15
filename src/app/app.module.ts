@@ -17,9 +17,10 @@ import {JwtInterceptor} from "./login/helper/jwt-interceptor";
 import {ErrorInterceptor} from "./login/helper/error-interceptor";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HomeComponent} from "./login/home/home.component";
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './login/register/register.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
+import { ChangepassComponent } from './login/changepass/changepass.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MaterialModule} from './material/material.module';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    ChangepassComponent
   ],
   imports: [
     BrowserModule,

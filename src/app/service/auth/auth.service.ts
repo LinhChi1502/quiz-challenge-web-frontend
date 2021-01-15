@@ -43,5 +43,7 @@ currentUser: Observable<UserToken> | undefined;
   register(user: AppUser): Observable<AppUser> {
     return this.http.post<AppUser>(API_URL + '/register', user);
   }
-
+newpass(user: AppUser, id: number){
+    return this.http.post<AppUser>(API_URL +'/new-password/{id}', user);
+}
 }
