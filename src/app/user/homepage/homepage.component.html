@@ -1,10 +1,11 @@
 <app-navbar (isExpandedPassOut)="isExpandedGet($event)"></app-navbar>
-<mat-sidenav-container>
+<mat-sidenav-container autosize>
   <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" [(opened)]="sideNavOpened" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
     <app-sidebar [isExpanded]="isExpanded" [isShowing]="isShowing"></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content >
     <div class="sidenav-properties">
+      Giờ thì viết cái gì vào đây cho ngầu??
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
