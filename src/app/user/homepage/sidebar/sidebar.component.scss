@@ -1,10 +1,6 @@
-.sidenav-properties{
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-}
+.material-icons.color_custom { color: #6495ED; }
+//.material-icons.color_custom:hover { color: #1E90FF; }
 
-.sidenav {
-  padding: 12px;
+mat-list-item a{
+  margin: 10px;
 }
