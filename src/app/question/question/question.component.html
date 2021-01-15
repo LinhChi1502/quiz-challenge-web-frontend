@@ -7,23 +7,27 @@
             <li class="nav-item">
               <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true" [routerLink]="['/admin/question',{outlets:{question:['list-question']}}]">List Question</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-question-mul-one']}}]">Multiple Choice One Answer Question</a>
+
+            <li class="nav-item ">
+              <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill"  role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-ques-mul-one']}}]">Mul-One Question</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-question-mul-mul']}}]">Multiple Choice Mul Answer Question</a>
+              <a class="nav-link" id="custom-tabs-two-profile-tab" data-toggle="pill" href="#custom-tabs-two-profile" role="tab" aria-controls="custom-tabs-two-profile" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-ques-mul-mul']}}]">Mul-mul Question</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-question-truefalse']}}]">True False Question</a>
+              <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-question-truefalse']}}]">True False Question</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link active" id="custom-tabs-two-home-tab" data-toggle="pill" href="#custom-tabs-two-home" role="tab" aria-controls="custom-tabs-two-home" aria-selected="true" [routerLink]="['/admin/question',{outlets:{question:['create-question-input']}}]">FillInTheBlank Question</a>
+              <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false" [routerLink]="['/admin/question',{outlets:{question:['create-question-input']}}]">FillInTheBlank Question</a>
             </li>
           </ul>
         </div>
         <div class="card-body">
           <div class="tab-content" id="custom-tabs-one-tabContent">
-            <router-outlet name="category"></router-outlet>
+            <router-outlet name="question"></router-outlet>
           </div>
         </div>
         <!-- /.card -->

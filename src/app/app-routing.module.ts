@@ -13,10 +13,10 @@ import {QuestionComponent} from './question/question/question.component';
 import {ListQuestionComponent} from './question/list-question/list-question.component';
 import {EditQuestionComponent} from './question/edit-question/edit-question.component';
 import {DeleteQuestionComponent} from './question/delete-question/delete-question.component';
-import {CreateQuestionMultipleOneAnsComponent} from './question/create-question-multiple-one-ans/create-question-multiple-one-ans.component';
-import {CreateQuestionMultipleMulAnsComponent} from './question/create-question-multiple-mul-ans/create-question-multiple-mul-ans.component';
 import {CreateQuestionTruefalseComponent} from './question/create-question-truefalse/create-question-truefalse.component';
 import {CreateQuestionInputComponent} from './question/create-question-input/create-question-input.component';
+import {CreateQuesMulOneComponent} from './question/create-ques-mul-one/create-ques-mul-one.component';
+import {CreateQuesMulMulComponent} from './question/create-ques-mul-mul/create-ques-mul-mul.component';
 
 const routes: Routes = [
   {
@@ -45,8 +45,8 @@ const routes: Routes = [
         path: 'question', component: QuestionComponent,
         children: [
           {path: 'list-question', component: ListQuestionComponent, outlet: 'question'},
-          {path: 'create-question-mul-one', component: CreateQuestionMultipleOneAnsComponent, outlet: 'question'},
-          {path: 'create-question-mul-mul', component: CreateQuestionMultipleMulAnsComponent, outlet: 'question'},
+          {path: 'create-ques-mul-one', component: CreateQuesMulOneComponent, outlet: 'question'},
+          {path: 'create-ques-mul-mul', component: CreateQuesMulMulComponent, outlet: 'question'},
           {path: 'create-question-truefalse', component: CreateQuestionTruefalseComponent, outlet: 'question'},
           {path: 'create-question-input', component: CreateQuestionInputComponent, outlet: 'question'},
           {path: 'edit-question/:id', component: EditQuestionComponent, outlet: 'question'},

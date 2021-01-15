@@ -26,10 +26,10 @@ import { QuestionComponent } from './question/question/question.component';
 import { ListQuestionComponent } from './question/list-question/list-question.component';
 import { EditQuestionComponent } from './question/edit-question/edit-question.component';
 import { DeleteQuestionComponent } from './question/delete-question/delete-question.component';
-import { CreateQuestionMultipleOneAnsComponent } from './question/create-question-multiple-one-ans/create-question-multiple-one-ans.component';
-import { CreateQuestionMultipleMulAnsComponent } from './question/create-question-multiple-mul-ans/create-question-multiple-mul-ans.component';
 import { CreateQuestionTruefalseComponent } from './question/create-question-truefalse/create-question-truefalse.component';
 import { CreateQuestionInputComponent } from './question/create-question-input/create-question-input.component';
+import { CreateQuesMulOneComponent } from './question/create-ques-mul-one/create-ques-mul-one.component';
+import { CreateQuesMulMulComponent } from './question/create-ques-mul-mul/create-ques-mul-mul.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +50,10 @@ import { CreateQuestionInputComponent } from './question/create-question-input/c
     ListQuestionComponent,
     EditQuestionComponent,
     DeleteQuestionComponent,
-    CreateQuestionMultipleOneAnsComponent,
-    CreateQuestionMultipleMulAnsComponent,
     CreateQuestionTruefalseComponent,
     CreateQuestionInputComponent,
+    CreateQuesMulOneComponent,
+    CreateQuesMulMulComponent,
   ],
   imports: [
     BrowserModule,
