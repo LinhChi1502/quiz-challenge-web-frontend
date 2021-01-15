@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./login/helper/jwt-interceptor";
 import {ErrorInterceptor} from "./login/helper/error-interceptor";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
@@ -42,7 +42,8 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
     HttpClientModule,
     FormsModule,
     MaterialModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

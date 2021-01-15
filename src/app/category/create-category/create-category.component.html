@@ -1,1 +1,11 @@
-<p>create-category works!</p>
+{{output}}
+
+<form [formGroup]="categoryForm" (ngSubmit)="createNewCategory()" style="width: 50%; margin: auto">
+
+    <label class="col-form-label" for="inputSuccess"></label>
+    <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter name" required>
+
+<div>{{message}}</div>
+  <button type="submit">Submit</button>
+</form>
+
