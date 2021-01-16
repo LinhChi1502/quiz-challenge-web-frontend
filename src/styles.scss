@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.menu-spacer{
+  flex: 1 1 auto;
+}
+.text-center{
+  margin: 0 auto;
+  font-family: Harrington;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+.text-center:hover{
+  color: white;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a:hover{
+  color: cornflowerblue;
+  text-decoration: none;
+}
