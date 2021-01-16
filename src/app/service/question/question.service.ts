@@ -24,4 +24,9 @@ export class QuestionService {
         category: category
       }})
   }
+  insertQuestions(question: Question ): Observable<Question> {
+    console.log(this.http.post<Question>(API_URL + `/api/questions`, question));
+    return  this.http.post<Question>(API_URL + `/api/questions`, question);
+
+  }
 }

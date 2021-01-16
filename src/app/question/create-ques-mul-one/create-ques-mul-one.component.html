@@ -1,1 +1,51 @@
-<p>create-ques-mul-one works!</p>
+<form (ngSubmit)="submit()" >
+<div class="form-group">
+  <label>Question</label>
+  <input type="text" class="form-control" placeholder="Enter question" name="title" formControlName="title" >
+</div>
+<div class="form-group">
+  <label>Answer A</label>
+  <input type="text" class="form-control" placeholder="Enter Answer A" name="answer1" formControlName="answer1">
+</div>
+<div class="form-group">
+  <label>Answer B</label>
+  <input type="text" class="form-control" placeholder="Enter Answer B"  name="answer2" formControlName="answer2">
+</div>
+<div class="form-group">
+  <label>Answer C</label>
+  <input type="text" class="form-control" placeholder="Enter Answer C" name="answer3" formControlName="answer3">
+</div>
+<div class="form-group">
+  <label>Answer D</label>
+  <input type="text" class="form-control" placeholder="Enter Answer D" name="answer4" formControlName="answer4" >
+</div>
+<div class="form-group">
+  <label>Category</label>
+  <select class="form-control" name="category" formControlName="category">
+    <option *ngFor="let category of categoryList" value="{{category.id}}" >{{category.name}}</option>
+  </select>
+</div>
+  <div class="form-group clearfix">
+    <div class="icheck-primary d-inline">
+      <input type="radio" id="radioPrimary1" name="r1" [checked]="answer1.correct" (change)="selectedA()">
+      <label for="radioPrimary1">A</label>
+    </div>
+    <div class="icheck-primary d-inline">
+      <input type="radio" id="radioPrimary2" name="r1" [checked]="answer2.correct" (change)="selectedB()">
+      <label for="radioPrimary2">B</label>
+    </div>
+    <div class="icheck-primary d-inline">
+      <input type="radio" id="radioPrimary3" name="r1" [checked]="answer3.correct" (change)="selectedC()">
+      <label for="radioPrimary2">C</label>
+    </div>
+    <div class="icheck-primary d-inline">
+      <input type="radio" id="radioPrimary4" name="r1" [checked]="answer4.correct" (change)="selectedD()">
+      <label for="radioPrimary2">D</label>
+    </div>
+    <br/>
+    <button mat-raised-button color="primary" class="example-margin" type="submit">Submit</button>
+    <button mat-raised-button color="primary" class="example-margin" (click)="cancel()" type="submit" >Cancel</button>
+  </div>
+  </form>
+
+

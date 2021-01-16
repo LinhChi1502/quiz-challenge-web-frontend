@@ -22,11 +22,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
 import { ChangepassComponent } from './login/changepass/changepass.component';
-
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { CategoryComponent } from './category/category/category.component';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
-import { NgxPaginationModule} from 'ngx-pagination';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './category/delete-category/delete-category.component';
@@ -38,6 +36,7 @@ import { CreateQuestionTruefalseComponent } from './question/create-question-tru
 import { CreateQuestionInputComponent } from './question/create-question-input/create-question-input.component';
 import { CreateQuesMulOneComponent } from './question/create-ques-mul-one/create-ques-mul-one.component';
 import { CreateQuesMulMulComponent } from './question/create-ques-mul-mul/create-ques-mul-mul.component';
+import {NgxPaginationModule} from "ngx-pagination";
 @NgModule({
   declarations: [
     AppComponent,
