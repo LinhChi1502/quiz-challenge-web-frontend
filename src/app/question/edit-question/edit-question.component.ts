@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Question} from '../../model/question';
 import {Category} from '../../model/category';
 import {CategoryService} from '../../service/category/category.service';
 import {ActivatedRoute} from '@angular/router';
 import {QuestionService} from '../../service/question/question.service';
+import {Answer} from '../../model/answer';
 
 @Component({
   selector: 'app-edit-question',
@@ -11,7 +12,7 @@ import {QuestionService} from '../../service/question/question.service';
   styleUrls: ['./edit-question.component.scss']
 })
 export class EditQuestionComponent implements OnInit {
-
+  answers: Answer[] = [];
   question: Question = {
     category: {
       id: 0
@@ -30,21 +31,29 @@ export class EditQuestionComponent implements OnInit {
 
   categories: Category[] = [];
 
+  valueSelected: string = '';
+  answer: Answer = {};
   // @ts-ignore
   id: number;
-  constructor( private categoryService: CategoryService,
-               private questionService:QuestionService,
-               private activatedRoute: ActivatedRoute) {
+
+  constructor(private categoryService: CategoryService,
+              private questionService: QuestionService,
+              private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe(async paramMap => {
       // @ts-ignore
       this.id = +paramMap.get('id');
       this.questionService.getQuestionById(this.id);
+      this.answers = this.question.answers;
+      console.log('àdadsfadsfsdafdsafd');
+      console.log(this.answers);
     });
   }
 
   ngOnInit(): void {
     this.getAllCategories();
     this.getQuestionById(this.id);
+
+
   }
 
   getAllCategories() {
@@ -54,6 +63,21 @@ export class EditQuestionComponent implements OnInit {
   }
 
   getQuestionById(id: number) {
-    this.questionService.getQuestionById(id).subscribe(question => this.question =  question);
+    this.questionService.getQuestionById(id).subscribe(question => this.question = question);
+  }
+
+  editQuestion(id: number) {
+
+
+    this.questionService.editQuestion(id, this.question).subscribe(() => alert("Success"),
+      () => alert('Fail'));
+  }
+
+  changeAnswer(event: any, index: number) {
+    this.question.answers[index].content = event.target.value;
+
+    console.log(this.question);
+
+    console.log(this.answers[index].content);
   }
 }
