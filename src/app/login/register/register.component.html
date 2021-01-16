@@ -15,16 +15,16 @@
           <input type="text" class="form-control" formControlName="username" id="exampleInputEmail1"
                  aria-describedby="emailHel"
                  placeholder="Enter username" required>
-<!--          <div *ngIf="registerFormControl.username.invalid && (registerFormControl.username.dirty || registerFormControl.username.touched)"-->
-<!--               class="text-danger">-->
+          <div *ngIf="registerFormControl.username.invalid && (registerFormControl.username.dirty || registerFormControl.username.touched)"
+               class="text-danger">
 
-<!--            <div *ngIf="registerFormControl.username.errors.required">-->
-<!--              Name is required.-->
-<!--            </div>-->
-<!--            <div *ngIf="registerFormControl.username.errors.minlength">-->
-<!--              Name must be at least 6 characters long.-->
-<!--            </div>-->
-<!--          </div>-->
+            <div *ngIf="registerFormControl.username.errors.required">
+              Name is required.
+            </div>
+            <div *ngIf="registerFormControl.username.errors.minlength">
+              Name must be at least 6 characters long.
+            </div>
+          </div>
         </div>
         <div class="text-left">
           <label>Password</label>
@@ -32,14 +32,14 @@
         <div class="form-group">
           <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1"
                  placeholder="Password" required>
-<!--          <span class="text-danger"-->
-<!--                *ngIf="(registerFormControl.password.touched ) && registerFormControl.password.errors?.required">-->
-<!--                                Password is required-->
-<!--                            </span>-->
-<!--          <span class="text-danger"-->
-<!--                *ngIf="registerFormControl.password.touched && registerFormControl.password.errors.minlength">-->
-<!--                                Password should have minimum 6 characters-->
-<!--                            </span>-->
+          <span class="text-danger"
+                *ngIf="(registerFormControl.password.touched ) && registerFormControl.password.errors?.required">
+                                Password is required
+                            </span>
+          <span class="text-danger"
+                *ngIf="registerFormControl.password.touched && registerFormControl.password.errors.minlength">
+                                Password should have minimum 6 characters
+                            </span>
         </div>
         <div class="text-left">
           <label>Confirm Password</label>
@@ -47,14 +47,14 @@
         <div class="form-group">
           <input type="password" class="form-control" formControlName="confirmPassword" id="exampleInputConfirmPassword1"
                  placeholder="Confirm Password" required>
-<!--          <span class="text-danger"-->
-<!--                *ngIf="(registerFormControl.confirmPassword.touched ) && registerFormControl.confirmPassword.errors?.required">-->
-<!--                                Confirm Password is required-->
-<!--                            </span>-->
-<!--          <span class="text-danger"-->
-<!--                *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors.minlength">-->
-<!--                                ConfirmPassword should have minimum 6 characters-->
-<!--                            </span>-->
+          <span class="text-danger"
+                *ngIf="(registerFormControl.confirmPassword.touched ) && registerFormControl.confirmPassword.errors?.required">
+                                Confirm Password is required
+                            </span>
+          <span class="text-danger"
+                *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors.minlength">
+                                ConfirmPassword should have minimum 6 characters
+                            </span>
         </div>
         <div class="text-left">
           <label>Full name</label>
@@ -62,14 +62,14 @@
         <div class="form-group">
           <input type="text" class="form-control" formControlName="fullname" id="exampleInputFirstName"
                  placeholder="Full Name">
-<!--          <span class="text-danger"-->
-<!--                *ngIf="(registerFormControl.fullname.touched ) && registerFormControl.fullname.errors?.required">-->
-<!--                                Full name is required-->
-<!--                            </span>-->
-<!--          <span class="text-danger"-->
-<!--                *ngIf="registerFormControl.fullname.touched && registerFormControl.fullname.errors.minlength">-->
-<!--                                Full name should have minimum 6 characters-->
-<!--                            </span>-->
+          <span class="text-danger"
+                *ngIf="(registerFormControl.fullname.touched ) && registerFormControl.fullname.errors?.required">
+                                Full name is required
+                            </span>
+          <span class="text-danger"
+                *ngIf="registerFormControl.fullname.touched && registerFormControl.fullname.errors.minlength">
+                                Full name should have minimum 6 characters
+                            </span>
         </div>
         <button type="submit" class="btn btn-success nutPhai mr-2">Register</button>
       </form>
