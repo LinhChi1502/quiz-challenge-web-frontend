@@ -29,4 +29,8 @@ export class QuestionService {
   editQuestion(id: number, question: Question): Observable<Question> {
     return this.http.put<Question>(API_URL + `/api/questions/${id}`, question);
   }
+
+  getQuestionById(id: number): Observable<Question> {
+    return this.http.get<Question>(API_URL + `/api/questions/${id}`);
+  }
 }
