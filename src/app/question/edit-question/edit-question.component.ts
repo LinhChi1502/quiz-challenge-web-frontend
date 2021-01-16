@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Question} from '../../model/question';
+import {Category} from '../../model/category';
+import {CategoryService} from '../../service/category/category.service';
 
 @Component({
   selector: 'app-edit-question',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditQuestionComponent implements OnInit {
 
-  constructor() { }
+  question: Question = {};
+
+  categories: Category[] = [];
+
+  // @ts-ignore
+  id: number;
+  constructor( private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+    this.categoryService.getAllCategories();
   }
 
 }

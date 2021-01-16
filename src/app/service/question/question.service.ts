@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Question} from '../../model/question';
+import {Category} from '../../model/category';
 
 const API_URL = `${environment.apiUrl}`
 
@@ -23,5 +24,9 @@ export class QuestionService {
         questType: questType,
         category: category
       }})
+  }
+
+  editQuestion(id: number, question: Question): Observable<Question> {
+    return this.http.put<Question>(API_URL + `/api/questions/${id}`, question);
   }
 }

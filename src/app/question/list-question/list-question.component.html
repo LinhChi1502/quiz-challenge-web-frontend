@@ -24,7 +24,7 @@
 </div>
 
 
-<div class="container mt-sm-5 my-1 inline" *ngFor="let question of questions">
+<div class="container mt-sm-5 my-1" *ngFor="let question of questions">
 
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
 
@@ -67,10 +67,10 @@
   </div>
 
 
-  <div class="inline">
+  <div>
     <ul style="list-style: none">
-      <li><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-      <li><a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+      <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+      <li class="inline"><a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></li>
     </ul>
   </div>
 </div>
