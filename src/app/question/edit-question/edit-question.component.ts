@@ -13,6 +13,7 @@ import {Answer} from '../../model/answer';
 })
 export class EditQuestionComponent implements OnInit {
   answers: Answer[] = [];
+
   question: Question = {
     category: {
       id: 0
@@ -31,8 +32,6 @@ export class EditQuestionComponent implements OnInit {
 
   categories: Category[] = [];
 
-  valueSelected: string = '';
-  answer: Answer = {};
   // @ts-ignore
   id: number;
 
@@ -44,8 +43,6 @@ export class EditQuestionComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.questionService.getQuestionById(this.id);
       this.answers = this.question.answers;
-      console.log('àdadsfadsfsdafdsafd');
-      console.log(this.answers);
     });
   }
 
@@ -75,9 +72,5 @@ export class EditQuestionComponent implements OnInit {
 
   changeAnswer(event: any, index: number) {
     this.question.answers[index].content = event.target.value;
-
-    console.log(this.question);
-
-    console.log(this.answers[index].content);
   }
 }

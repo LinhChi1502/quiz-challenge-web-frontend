@@ -26,6 +26,7 @@
 
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions">
 
+  <div *ngIf="question.active === true">
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
 
       <div class="py-2 h5"><b>{{question.title}}</b></div>
@@ -58,20 +59,24 @@
         <div *ngFor="let answer of question.answers">
           <!--      form multiple choice with many answers-->
           <div class="form-group">
-           <textarea id="text-area" class="form-control" [value]="answer.content" disabled style="width: 50%"></textarea>
+            <textarea id="text-area" class="form-control" [value]="answer.content" disabled
+                      style="width: 50%"></textarea>
           </div>
           <!--     form multiple choice with many answers-->
         </div>
       </div>
 
+    </div>
   </div>
-
 
   <div>
     <ul style="list-style: none">
-      <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-      <li class="inline"><a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+      <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i
+        class="fa fa-pencil" aria-hidden="true"></i></a></li>
+      <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['delete-question', question.id]}}]"><i
+        class="fa fa-trash" aria-hidden="true"></i></a></li>
     </ul>
   </div>
+
 </div>
 

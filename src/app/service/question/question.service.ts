@@ -33,4 +33,13 @@ export class QuestionService {
   getQuestionById(id: number): Observable<Question> {
     return this.http.get<Question>(API_URL + `/api/questions/${id}`);
   }
+
+  deleteQuestion(id:number): Observable<Question> {
+    return this.http.delete<Question>(API_URL + `/api/questions/${id}`)
+  }
+
+
+  createNewQuestion(question: Question): Observable<Question> {
+    return this.http.post<Question>(API_URL + `/api/questions`, question);
+  }
 }
