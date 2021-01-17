@@ -62,7 +62,7 @@ const routes: Routes = [
 
       {path:'exam', component: ExamComponent,
         children:[
-          {path: '',component: ExamComponent,outlet: 'exam'},
+          {path: '',component: ExamListComponent,outlet: 'exam'},
           {path: 'exam-list',component:ExamListComponent ,outlet: 'exam'},
           {path: 'create-exam',component: CreateExamComponent,outlet: 'exam'},
           {path: 'exam-detail/:id',component: ExamDetailComponent,outlet: 'exam'},
