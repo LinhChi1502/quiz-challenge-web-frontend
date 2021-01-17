@@ -30,6 +30,10 @@ import { CreateQuestionTruefalseComponent } from './question/create-question-tru
 import { CreateQuestionInputComponent } from './question/create-question-input/create-question-input.component';
 import { CreateQuesMulOneComponent } from './question/create-ques-mul-one/create-ques-mul-one.component';
 import { CreateQuesMulMulComponent } from './question/create-ques-mul-mul/create-ques-mul-mul.component';
+import { ExamComponent } from './exam/exam.component';
+import { ExamListComponent } from './exam/exam-list/exam-list.component';
+import { CreateExamComponent } from './exam/create-exam/create-exam.component';
+import { ExamDetailComponent } from './exam/exam-detail/exam-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +58,10 @@ import { CreateQuesMulMulComponent } from './question/create-ques-mul-mul/create
     CreateQuestionInputComponent,
     CreateQuesMulOneComponent,
     CreateQuesMulMulComponent,
+    ExamComponent,
+    ExamListComponent,
+    CreateExamComponent,
+    ExamDetailComponent,
   ],
   imports: [
     BrowserModule,

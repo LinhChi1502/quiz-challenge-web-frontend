@@ -17,6 +17,10 @@ import {CreateQuestionTruefalseComponent} from './question/create-question-truef
 import {CreateQuestionInputComponent} from './question/create-question-input/create-question-input.component';
 import {CreateQuesMulOneComponent} from './question/create-ques-mul-one/create-ques-mul-one.component';
 import {CreateQuesMulMulComponent} from './question/create-ques-mul-mul/create-ques-mul-mul.component';
+import {ExamComponent} from './exam/exam.component';
+import {CreateExamComponent} from './exam/create-exam/create-exam.component';
+import {ExamListComponent} from './exam/exam-list/exam-list.component';
+import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 
 const routes: Routes = [
   {
@@ -34,6 +38,7 @@ const routes: Routes = [
       {
         path: 'category', component: CategoryComponent,
         children: [
+          {path: '', component: ListCategoryComponent, outlet: 'category'},
           {path: 'list-category', component: ListCategoryComponent, outlet: 'category'},
           {path: 'create-category', component: CreateCategoryComponent, outlet: 'category'},
           {path: 'edit-category/:id', component: EditCategoryComponent, outlet: 'category'},
@@ -44,6 +49,7 @@ const routes: Routes = [
       {
         path: 'question', component: QuestionComponent,
         children: [
+          {path: '', component: ListQuestionComponent, outlet: 'question'},
           {path: 'list-question', component: ListQuestionComponent, outlet: 'question'},
           {path: 'create-ques-mul-one', component: CreateQuesMulOneComponent, outlet: 'question'},
           {path: 'create-ques-mul-mul', component: CreateQuesMulMulComponent, outlet: 'question'},
@@ -53,6 +59,17 @@ const routes: Routes = [
           {path: 'delete-question/:id', component: DeleteQuestionComponent, outlet: 'question'}
         ]
       },
+
+      {path:'exam', component: ExamComponent,
+        children:[
+          {path: '',component: ExamComponent,outlet: 'exam'},
+          {path: 'exam-list',component:ExamListComponent ,outlet: 'exam'},
+          {path: 'create-exam',component: CreateExamComponent,outlet: 'exam'},
+          {path: 'exam-detail/:id',component: ExamDetailComponent,outlet: 'exam'},
+
+        ]
+
+      }
 
     ]
   },
