@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Question} from '../../model/question';
 import {Category} from '../../model/category';
 import {Answer} from '../../model/answer';
@@ -11,7 +11,7 @@ import {CategoryService} from '../../service/category/category.service';
   styleUrls: ['./create-question-truefalse.component.scss']
 })
 export class CreateQuestionTruefalseComponent implements OnInit {
-
+  currentIndex: Number = 0;
   question: Question = {
     category: {
       id: null
@@ -28,22 +28,23 @@ export class CreateQuestionTruefalseComponent implements OnInit {
       {
         id: null
       }
-      ]
+    ]
   };
 
   categories: Category[] = [];
 
   answer: Answer = {};
 
-  array = ['True', 'False']
+  array = ['True', 'False'];
 
   constructor(private questionService: QuestionService,
-              private categoryService: CategoryService) { }
+              private categoryService: CategoryService) {
+  }
 
   ngOnInit(): void {
     this.getAllCategories();
     for (let i = 0; i < this.question.answers.length; i++) {
-      this.question.answers[i].correct=false;
+      this.question.answers[i].correct = false;
     }
   }
 
@@ -62,14 +63,17 @@ export class CreateQuestionTruefalseComponent implements OnInit {
 
   createAnswer(event: any, index: number) {
     this.question.answers[index].content = event.target.value;
-    this.chooseCorrectAnswer(event,index);
+    this.chooseCorrectAnswer(event, index);
   }
 
 
-  chooseCorrectAnswer(event:any, index:number) {
+  chooseCorrectAnswer(event: any, index: number) {
+    
     for (let i = 0; i < this.question.answers.length; i++) {
       this.question.answers[i].correct = false;
     }
-    this.question.answers[index].correct=true;
+    this.question.answers[index].correct = true;
+    this.question.answers[index].content = event.target.value;
+
   }
 }
