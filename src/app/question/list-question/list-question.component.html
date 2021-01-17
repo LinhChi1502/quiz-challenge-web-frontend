@@ -26,7 +26,7 @@
 
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions">
 
-  <div *ngIf="question.active === true">
+  <div *ngIf="question.active == true">
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
 
       <div class="py-2 h5"><b>{{question.title}}</b></div>
@@ -56,11 +56,13 @@
       </div>
 
       <div *ngIf="question.type.name == 'fillInBank'">
-        <div *ngFor="let answer of question.answers">
+        <div>
           <!--      form multiple choice with many answers-->
           <div class="form-group">
-            <textarea id="text-area" class="form-control" [value]="answer.content" disabled
-                      style="width: 50%"></textarea>
+            <textarea  id="text-area" class="form-control" disabled
+                      style="width: 50%" *ngFor="let answer of question.answers" [value]="answer.content">
+
+            </textarea>
           </div>
           <!--     form multiple choice with many answers-->
         </div>

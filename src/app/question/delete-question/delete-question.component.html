@@ -13,13 +13,25 @@
 
       <h2>Answers:</h2>
 
-      <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">
+      <div *ngIf="question.type.name == 'multipleChoice'">
         <div *ngFor="let answer of question.answers">
           <!--      form multiplechoice &btruefalse-->
           <div class="custom-control custom-radio">
-            <input class="custom-control-input" type="radio" id="{{answer.id}}" [(ngModel)]="answer.content"[checked]="(answer.correct == true)"
+            <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
                    disabled>
             <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>
+          </div>
+          <!--      form multiplechoice &btruefalse finish-->
+        </div>
+      </div>
+
+      <div *ngIf="question.type.name == 'trueOrFalse'">
+        <div *ngFor="let answer of question.answers; let i = index">
+          <!--      form multiplechoice &btruefalse-->
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="{{i}}" [(ngModel)]="answer.content"[checked]="(answer.correct == true)"
+                   disabled>
+            <label for="{{i}}" class="custom-control-label">{{answer.content}}</label>
           </div>
           <!--      form multiplechoice &btruefalse finish-->
         </div>
@@ -30,7 +42,7 @@
         <div *ngFor="let answer of question.answers">
           <!--      form multiple choice with many answers-->
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" [(ngModel)]="answer.content" [checked]="(answer.correct == true)" disabled>
+            <input class="form-check-input" type="checkbox"  [checked]="(answer.correct == true)" disabled>
             <label class="form-check-label">{{answer.content}}</label>
           </div>
           <!--     form multiple choice with many answers-->

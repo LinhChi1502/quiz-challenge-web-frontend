@@ -22,12 +22,6 @@ export class DeleteQuestionComponent implements OnInit {
     type: {
       id: 0
     },
-
-    answers: [
-      {
-        id: 0
-      }
-    ]
   };
 
   // @ts-ignore
@@ -39,16 +33,12 @@ export class DeleteQuestionComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(async paramMap => {
       // @ts-ignore
       this.id = +paramMap.get('id');
-      console.log("adfadffffffffff");
-      console.log(this.id);
       this.questionService.getQuestionById(this.id);
     });
   }
 
   ngOnInit(): void {
     this.getQuestionById(this.id);
-    console.log("RRRRRRRRRRRRRRRRRRRRRRRRR")
-    console.log(this.question)
   }
 
   getQuestionById(id: number) {
@@ -56,9 +46,9 @@ export class DeleteQuestionComponent implements OnInit {
   }
 
   deleteQuestion(id: number) {
-    console.log(this.question);
     if (confirm("Are you sure?")) {
       this.questionService.deleteQuestion(id).subscribe(() => alert("Success"), () => alert("Cau hoi da co trong bai thi"))
     }
   }
+
 }

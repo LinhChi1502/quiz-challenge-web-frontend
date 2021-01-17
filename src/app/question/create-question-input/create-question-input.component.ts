@@ -13,25 +13,25 @@ import {AnswerService} from '../../service/answer/answer.service';
 })
 export class CreateQuestionInputComponent implements OnInit {
   answer: Answer = {
-    id:0,
     content: '',
-    correct:true
+    correct: true
   };
 
-
+  nextAnswer: Answer = {};
 
   answers: Answer[] = [];
 
   question: Question = {
-    id:0,
-    active:true,
+
+    active: true,
     category: {
       id: null
     },
-    type:{
-      id:3
+    type: {
+      id: 3
     },
-    title:'',
+    title: '',
+    answers: []
   };
 
   categories: Category[] = [];
@@ -43,7 +43,6 @@ export class CreateQuestionInputComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCategories();
-
   }
 
   getAllCategories() {
@@ -52,18 +51,23 @@ export class CreateQuestionInputComponent implements OnInit {
     });
   }
 
-
   createNewQuestion() {
-
+    for (let i = 0; i < this.answers.length; i++) {
+      this.question.answers.push(this.answers[i]);
+    }
+    this.question.active = true;
+    this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
+      () => alert('Fail'));
   }
+
   createNewAnswer() {
+    this.answer.content = this.nextAnswer.content;
     this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
   }
 
   addAnswerToArray() {
     this.createNewAnswer();
-    console.log(this.answer);
     this.answers.push(this.answer);
-    console.log(this.answers);
+    this.nextAnswer.content = '';
   }
 }
