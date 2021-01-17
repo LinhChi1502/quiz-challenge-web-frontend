@@ -42,13 +42,13 @@ export class EditQuestionComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.questionService.getQuestionById(this.id);
       this.answers = this.question.answers;
-
     });
   }
 
   ngOnInit(): void {
     this.getAllCategories();
     this.getQuestionById(this.id);
+    console.log(this.question)
   }
 
   getAllCategories() {
@@ -81,6 +81,14 @@ export class EditQuestionComponent implements OnInit {
 
   chooseCorrectAnswerMulMul(event: any, index: number) {
     this.question.answers[index].correct = !this.question.answers[index].correct;
-    console.log(this.question);
+    console.log(this.question)
+  }
+
+  chooseCorrectAnswerTrueFalse(event: any, index: number) {
+
+    for (let i = 0; i < this.question.answers.length; i++) {
+      this.question.answers[i].correct = false;
+    }
+    this.question.answers[index].correct = true;
   }
 }
