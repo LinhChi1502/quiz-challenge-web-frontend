@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Exam} from '../../model/exam';
@@ -12,10 +12,15 @@ const API_URL = `${environment.apiUrl}`;
 })
 export class ExamService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  getExamList():Observable<Exam[]>{
+  getExamList(): Observable<Exam[]> {
     return this.httpClient.get<Exam[]>(API_URL + `/api/exams`);
+  }
+
+  saveExam(exam: Exam): Observable<Exam> {
+    return this.httpClient.post<Exam>(`http://localhost:8080/api/exams`,exam);
   }
 
   // getExamById(id: number): Observable<Exam> {

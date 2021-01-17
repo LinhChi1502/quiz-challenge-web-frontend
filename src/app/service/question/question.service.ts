@@ -51,5 +51,7 @@ export class QuestionService {
     return this.http.get<Question[]>(`http://localhost:8080/api/questions/quest-list/${id}`);
   }
 
-
+  transerQuest(question: any): Observable<Question> {
+    return this.http.put<Question>(`http://localhost:8080/api/questions/transer`, question);
+  }
 }
