@@ -36,7 +36,6 @@ export class EditCategoryComponent implements OnInit {
   }
 
   getCategoryById(id: number) {
-    debugger
     this.categoryService.getCategoryById(id).subscribe(category => this.currentCategory =  category);
   }
 

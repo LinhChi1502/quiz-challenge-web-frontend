@@ -47,9 +47,9 @@
         <mat-icon mat-list-icon class="color_custom">question_answer</mat-icon>
         <a *ngIf="isExpanded || isShowing" class="mat-h2"> Question </a>
       </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">speaker_notes</mat-icon>
-        <a [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing" class="mat-h2">Exam</a>
+      <mat-list-item routerLink="/admin/exam">
+        <mat-icon mat-list-icon  class="color_custom">speaker_notes</mat-icon>
+        <a  *ngIf="isExpanded || isShowing" class="mat-h2">Exam</a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">date_range</mat-icon>
@@ -63,7 +63,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div>
+    <div class="sidenav-properties">
       <main class="main-container">
         <router-outlet></router-outlet>
       </main>
