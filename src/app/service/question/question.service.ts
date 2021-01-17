@@ -50,4 +50,6 @@ export class QuestionService {
   getAllQuestionByExamId(id: number): Observable<Question[]> {
     return this.http.get<Question[]>(`http://localhost:8080/api/questions/quest-list/${id}`);
   }
+
+
 }
