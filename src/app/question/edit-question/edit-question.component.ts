@@ -13,6 +13,7 @@ import {AnswerService} from '../../service/answer/answer.service';
   styleUrls: ['./edit-question.component.scss']
 })
 export class EditQuestionComponent implements OnInit {
+
   answers: any = [];
 
   question: Question = {
