@@ -18,4 +18,8 @@ export class AnswerService {
     return this.http.post<Answer>(API_URL + '/api/answers', answer);
   }
 
+  deleteAnswer(id: number): Observable<Answer> {
+    return this.http.delete<Answer>(API_URL + `/api/answers/${id}`);
+  }
+
 }
