@@ -20,10 +20,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
   returnUrl = '';
-  // loginForm: FormGroup = new FormGroup({
-  //   username: new FormControl(''),
-  //   password: new FormControl('')
-  // });
+
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private authService: AuthService) {

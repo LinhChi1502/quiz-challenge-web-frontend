@@ -4,7 +4,7 @@ import {Question} from "../../model/question";
 import {Category} from "../../model/category";
 import {CategoryService} from "../../service/category/category.service";
 import {Answer} from "../../model/answer";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -19,25 +19,25 @@ categoryList: Category[]=[];
     id: 0,
     content: '',
     // @ts-ignore
-    status: false
+    correct: false
   };
   answer2: Answer = {
     id: 0,
     content: '',
     // @ts-ignore
-    status: false
+    correct: false
   };
   answer3: Answer = {
     id: 0,
     content: '',
     // @ts-ignore
-    status: false
+    correct: false
   };
   answer4: Answer = {
     id: 0,
     content: '',
     // @ts-ignore
-    status: false
+    correct: false
   };
 
   typeCheckBox = 1;
@@ -55,7 +55,15 @@ categoryList: Category[]=[];
   };
   message = '';
   // @ts-ignore
-  questionForm: FormGroup;
+  questionForm: FormGroup = new FormGroup({
+    title: new FormControl(''),
+    answer1: new FormControl(''),
+    answer2: new FormControl(''),
+    answer3: new FormControl(''),
+    answer4: new FormControl(''),
+    category: new FormControl(''),
+    correct: new FormControl(''),
+  });
   private formDirective: any;
   cateadd = "/admin/categories/add" ;
   constructor(private fb: FormBuilder,
@@ -65,28 +73,11 @@ categoryList: Category[]=[];
 
   ngOnInit(): void {
     this.getcategoryList();
-    this.createForm();
   }
   submit() {
     debugger // @ts-ignore
-    console.log("ko vào")
-      this.question.title = this.questionForm.get('title').value;
-      console.log(this.question.title);
-      this.answer1.content = this.questionForm.get('answer1').value;
-      console.log(this.answer1.content);
-      this.answer2.content = this.questionForm.get('answer2').value;
-      console.log(this.answer2.content);
-      this.answer3.content = this.questionForm.get('answer3').value;
-      console.log(this.answer3.content);
-      this.answer4.content = this.questionForm.get('answer4').value;
-      console.log(this.answer4.content);
-      this.question.category = this.questionForm.get('category').value;
-      this.question.type = 1;
-      this.question.active = true;
-      this.service.insertQuestions(this.question)
-        .subscribe(() => {
-          this.message = 'Success!';
-        });
+      this.createQuestion();
+
   }
 
   selectedA(): void{
@@ -105,16 +96,32 @@ categoryList: Category[]=[];
   cancel() {
     this.router.navigate(['admin/questions/list'])
   }
-  createForm() {
-    this.questionForm = this.fb.group({
-      title: ['', Validators.required],
-      answer1: ['', Validators.required],
-      answer2: ['', Validators.required],
-      answer3: ['', Validators.required],
-      answer4: ['', Validators.required],
-      category: ['', Validators.required]
-    });
+  createQuestion() {
+    const question = {
+      title: this.questionForm.value.title,
+      answers: [this.questionForm.value.answer1, this.questionForm.value.answer2,
+        this.questionForm.value.answer3,this.questionForm.value.answer4],
+      category: {
+        id: this.questionForm.value.category
+      },
+      active: true,
+      type: {
+        id: 1
+      },
+    }
+    console.log(question);
+    this.service.insertQuestions(question)
+      .subscribe(() => {
+        this.message = 'Success!';
+      });
   }
+
+  //id?: number;
+  //   active?: boolean;
+  //   title?: string;
+  //   category?: any;
+  //   type?: any;
+  //   answers?: any;
   getcategoryList(){
     this.categoryService.getAllCategories().subscribe(categoryList =>{
       this.categoryList= categoryList;

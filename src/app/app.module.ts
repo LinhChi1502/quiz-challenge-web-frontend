@@ -37,6 +37,7 @@ import { CreateQuestionInputComponent } from './question/create-question-input/c
 import { CreateQuesMulOneComponent } from './question/create-ques-mul-one/create-ques-mul-one.component';
 import { CreateQuesMulMulComponent } from './question/create-ques-mul-mul/create-ques-mul-mul.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { LogoutComponent } from './login/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     CreateQuestionInputComponent,
     CreateQuesMulOneComponent,
     CreateQuesMulMulComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
