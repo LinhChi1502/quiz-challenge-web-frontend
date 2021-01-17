@@ -21,19 +21,17 @@ export class EditQuestionComponent implements OnInit {
 
     type: {
       id: 0
-    },
-
-    answers: [
-      {
-        id: 0
-      }
-    ]
+    }
   };
 
   categories: Category[] = [];
 
   // @ts-ignore
   id: number;
+  trueAnswerIndex: any[] = [];
+  answer: Answer = {};
+
+  array = ['A', 'B', 'C', 'D'];
 
   constructor(private categoryService: CategoryService,
               private questionService: QuestionService,
@@ -42,6 +40,9 @@ export class EditQuestionComponent implements OnInit {
       // @ts-ignore
       this.id = +paramMap.get('id');
       this.questionService.getQuestionById(this.id);
+      for (let i = 0; i < this.question.answers.length; i++) {
+        this.trueAnswerIndex.push(i);
+      }
       this.answers = this.question.answers;
     });
   }
@@ -72,5 +73,12 @@ export class EditQuestionComponent implements OnInit {
 
   changeAnswer(event: any, index: number) {
     this.question.answers[index].content = event.target.value;
+  }
+
+  chooseCorrectAnswer(event: any, index: number) {
+    for (let i = 0; i < this.question.answers.length; i++) {
+      this.question.answers[i].correct = false;
+    }
+    this.question.answers[index].correct = true;
   }
 }
