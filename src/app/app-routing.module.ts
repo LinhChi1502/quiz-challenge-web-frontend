@@ -17,6 +17,10 @@ import {CreateQuestionTruefalseComponent} from './question/create-question-truef
 import {CreateQuestionInputComponent} from './question/create-question-input/create-question-input.component';
 import {CreateQuesMulOneComponent} from './question/create-ques-mul-one/create-ques-mul-one.component';
 import {CreateQuesMulMulComponent} from './question/create-ques-mul-mul/create-ques-mul-mul.component';
+import {ExamComponent} from './exam/exam.component';
+import {CreateExamComponent} from './exam/create-exam/create-exam.component';
+import {ExamListComponent} from './exam/exam-list/exam-list.component';
+import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 
 const routes: Routes = [
   {
@@ -55,6 +59,17 @@ const routes: Routes = [
           {path: 'delete-question/:id', component: DeleteQuestionComponent, outlet: 'question'}
         ]
       },
+
+      {path:'exam', component: ExamComponent,
+        children:[
+          {path: '',component: ExamListComponent,outlet: 'exam'},
+          {path: 'exam-list',component:ExamListComponent ,outlet: 'exam'},
+          {path: 'create-exam',component: CreateExamComponent,outlet: 'exam'},
+          {path: 'exam-detail/:id',component: ExamDetailComponent,outlet: 'exam'},
+
+        ]
+
+      }
 
     ]
   },
