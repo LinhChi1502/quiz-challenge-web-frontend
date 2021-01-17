@@ -32,6 +32,7 @@ export class EditQuestionComponent implements OnInit {
   answer: Answer = {};
 
   array = ['A', 'B', 'C', 'D'];
+  arrayTF = ['True', 'False'];
 
   constructor(private categoryService: CategoryService,
               private questionService: QuestionService,

@@ -44,7 +44,7 @@ const routes: Routes = [
       {
         path: 'question', component: QuestionComponent,
         children: [
-          {path: 'list-question', component: ListQuestionComponent, outlet: 'question'},
+          {path: '', component: ListQuestionComponent, outlet: 'question'},
           {path: 'create-ques-mul-one', component: CreateQuesMulOneComponent, outlet: 'question'},
           {path: 'create-ques-mul-mul', component: CreateQuesMulMulComponent, outlet: 'question'},
           {path: 'create-question-truefalse', component: CreateQuestionTruefalseComponent, outlet: 'question'},

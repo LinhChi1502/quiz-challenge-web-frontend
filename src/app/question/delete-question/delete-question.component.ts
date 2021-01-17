@@ -61,4 +61,5 @@ export class DeleteQuestionComponent implements OnInit {
       this.questionService.deleteQuestion(id).subscribe(() => alert("Success"), () => alert("Cau hoi da co trong bai thi"))
     }
   }
+
 }

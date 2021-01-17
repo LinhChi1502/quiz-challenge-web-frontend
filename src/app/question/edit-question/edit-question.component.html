@@ -34,33 +34,37 @@
         </div>
       </div>
 
-<!--      <div *ngIf="question.type.name == 'trueOrFalse'">-->
-<!--        <div class="form-group clearfix">-->
-<!--          <div class="icheck-success d-inline" *ngFor="let i of array; let k = index">-->
-<!--            <input type="radio" name="r3" [id]="k" [value]="i" (click)="createAnswer($event,k)">-->
-<!--            <label [for]="k">{{i}}-->
-<!--            </label>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div *ngIf="question.type.name == 'trueOrFalse'">
+        <div *ngFor="let answer of question.answers; let i = index">
+          <!--      form multiplechoice &btruefalse-->
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input" type="radio" id="i" [checked]="(answer.correct == true)"
+                   (click)="chooseCorrectAnswerMulOne($event,k)">
+            <label for="i" class="custom-control-label">{{answer.content}}</label>
+          </div>
+          <!--      form multiplechoice &btruefalse finish-->
+        </div>
+      </div>
 
-            <div *ngIf="question.type.name == 'multichoicemultianswer'">
-              <div *ngFor="let answer of question.answers">
-                <!--      form multiple choice with many answers-->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
-                  <label class="form-check-label">{{answer.content}}</label>
-                </div>
-                <!--     form multiple choice with many answers-->
-              </div>
+      <div *ngIf="question.type.name == 'multichoicemultianswer'">
+        <div *ngFor="let answer of question.answers">
+          <!--      form multiple choice with many answers-->
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
+            <label class="form-check-label">{{answer.content}}</label>
+          </div>
+          <!--     form multiple choice with many answers-->
+        </div>
 
-              <div class="form-group clearfix">
-                <div class="icheck-primary d-inline" *ngFor="let i of array; let k = index">
-                  <input type="checkbox" [id]="k" [checked]="(question.answers[k].correct == true)" (click)="chooseCorrectAnswerMulMul($event,k)">
-                  <label [for]="k">{{i}}</label>
-                </div>
-              </div>
-            </div>
+        <div class="form-group clearfix">
+          <div class="icheck-primary d-inline" *ngFor="let i of array; let k = index">
+            <input type="checkbox" [id]="k" [checked]="(question.answers[k].correct == true)"
+                   (click)="chooseCorrectAnswerMulMul($event,k)">
+            <label [for]="k">{{i}}</label>
+          </div>
+        </div>
+      </div>
+
 
       <!--      <div *ngIf="question.type.name == 'fillInBank'">-->
       <!--        <div *ngFor="let answer of question.answers">-->
