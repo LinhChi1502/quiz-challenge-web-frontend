@@ -40,18 +40,14 @@ export class EditQuestionComponent implements OnInit {
       // @ts-ignore
       this.id = +paramMap.get('id');
       this.questionService.getQuestionById(this.id);
-      for (let i = 0; i < this.question.answers.length; i++) {
-        this.trueAnswerIndex.push(i);
-      }
       this.answers = this.question.answers;
+
     });
   }
 
   ngOnInit(): void {
     this.getAllCategories();
     this.getQuestionById(this.id);
-
-
   }
 
   getAllCategories() {
@@ -67,7 +63,7 @@ export class EditQuestionComponent implements OnInit {
   editQuestion(id: number) {
 
 
-    this.questionService.editQuestion(id, this.question).subscribe(() => alert("Success"),
+    this.questionService.editQuestion(id, this.question).subscribe(() => alert('Success'),
       () => alert('Fail'));
   }
 
@@ -75,10 +71,15 @@ export class EditQuestionComponent implements OnInit {
     this.question.answers[index].content = event.target.value;
   }
 
-  chooseCorrectAnswer(event: any, index: number) {
+  chooseCorrectAnswerMulOne(event: any, index: number) {
     for (let i = 0; i < this.question.answers.length; i++) {
       this.question.answers[i].correct = false;
     }
     this.question.answers[index].correct = true;
+  }
+
+  chooseCorrectAnswerMulMul(event: any, index: number) {
+    this.question.answers[index].correct = !this.question.answers[index].correct;
+    console.log(this.question);
   }
 }

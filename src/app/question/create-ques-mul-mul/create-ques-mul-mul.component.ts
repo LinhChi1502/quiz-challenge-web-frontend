@@ -78,6 +78,5 @@ export class CreateQuesMulMulComponent implements OnInit {
 
   chooseCorrectAnswer(event:any, index:number) {
     this.question.answers[index].correct=!this.question.answers[index].correct;
-    console.log(this.question)
   }
 }

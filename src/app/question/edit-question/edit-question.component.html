@@ -27,7 +27,7 @@
         <div class="form-group clearfix">
           <div class="icheck-success d-inline" *ngFor="let i of array; let k = index">
             <input type="radio" name="r3" [id]="k" [checked]="(answer.correct == true)"
-                   (click)="chooseCorrectAnswer($event,k)">
+                   (click)="chooseCorrectAnswerMulOne($event,k)">
             <label [for]="k">{{i}}
             </label>
           </div>
@@ -56,7 +56,7 @@
 
               <div class="form-group clearfix">
                 <div class="icheck-primary d-inline" *ngFor="let i of array; let k = index">
-                  <input type="checkbox" [id]="k" (click)="chooseCorrectAnswer($event,k)">
+                  <input type="checkbox" [id]="k" [checked]="(question.answers[k].correct == true)" (click)="chooseCorrectAnswerMulMul($event,k)">
                   <label [for]="k">{{i}}</label>
                 </div>
               </div>
