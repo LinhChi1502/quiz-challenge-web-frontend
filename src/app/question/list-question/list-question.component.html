@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <div>
+  <div *ngIf="question.active === true">
     <ul style="list-style: none">
       <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i
         class="fa fa-pencil" aria-hidden="true"></i></a></li>

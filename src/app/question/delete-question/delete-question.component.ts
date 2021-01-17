@@ -39,12 +39,15 @@ export class DeleteQuestionComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(async paramMap => {
       // @ts-ignore
       this.id = +paramMap.get('id');
+      console.log("adfadffffffffff");
+      console.log(this.id);
       this.questionService.getQuestionById(this.id);
     });
   }
 
   ngOnInit(): void {
-    this.questionService.getQuestionById(this.id);
+    this.getQuestionById(this.id);
+    console.log("RRRRRRRRRRRRRRRRRRRRRRRRR")
     console.log(this.question)
   }
 
@@ -53,8 +56,9 @@ export class DeleteQuestionComponent implements OnInit {
   }
 
   deleteQuestion(id: number) {
+    console.log(this.question);
     if (confirm("Are you sure?")) {
-      this.questionService.deleteQuestion(id).subscribe(() => alert("Success"), () => alert("Fail"))
+      this.questionService.deleteQuestion(id).subscribe(() => alert("Success"), () => alert("Cau hoi da co trong bai thi"))
     }
   }
 }
