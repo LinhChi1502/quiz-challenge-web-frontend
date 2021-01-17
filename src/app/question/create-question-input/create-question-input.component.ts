@@ -17,8 +17,6 @@ export class CreateQuestionInputComponent implements OnInit {
     correct: true
   };
 
-  nextAnswer: Answer = {};
-
   answers: Answer[] = [];
 
   question: Question = {
@@ -35,6 +33,8 @@ export class CreateQuestionInputComponent implements OnInit {
   };
 
   categories: Category[] = [];
+
+  onChangeValue: string = '';
 
   constructor(private questionService: QuestionService,
               private categoryService: CategoryService,
@@ -56,18 +56,36 @@ export class CreateQuestionInputComponent implements OnInit {
       this.question.answers.push(this.answers[i]);
     }
     this.question.active = true;
-    this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
+    this.questionService.createNewQuestion(this.question).subscribe(question => {
+        this.question = question;
+        alert('Success');
+      },
       () => alert('Fail'));
+    console.log(this.question);
   }
 
   createNewAnswer() {
-    this.answer.content = this.nextAnswer.content;
-    this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
+    // this.answer.content = this.nextAnswer.content;
+    let answer1 = {
+      id: null,
+      content: '',
+      correct: true
+    };
+    // @ts-ignore
+    answer1.content = this.onChangeValue;
+    // @ts-ignore
+    this.answerService.createNewAnswer(this.answer).subscribe(answer => answer1 = answer);
+    // @ts-ignore
+    this.answer = answer1;
   }
 
   addAnswerToArray() {
     this.createNewAnswer();
     this.answers.push(this.answer);
-    this.nextAnswer.content = '';
+  }
+
+  getValue(event: any) {
+    this.onChangeValue = event.target.value;
+    event.target.value = '';
   }
 }
