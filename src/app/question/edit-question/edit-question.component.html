@@ -66,16 +66,16 @@
       </div>
 
 
-      <!--      <div *ngIf="question.type.name == 'fillInBank'">-->
-      <!--        <div *ngFor="let answer of question.answers">-->
-      <!--          &lt;!&ndash;      form multiple choice with many answers&ndash;&gt;-->
-      <!--          <div class="form-group">-->
-      <!--            <textarea id="text-area" class="form-control" [value]="answer.content" disabled-->
-      <!--                      style="width: 50%"></textarea>-->
-      <!--          </div>-->
-      <!--          &lt;!&ndash;     form multiple choice with many answers&ndash;&gt;-->
-      <!--        </div>-->
-      <!--      </div>-->
+            <div *ngIf="question.type.name == 'fillInBank'">
+              <div *ngFor="let answer of question.answers">
+                <!--      form multiple choice with many answers-->
+                <div class="form-group">
+                  <textarea id="text-area" class="form-control" [value]="answer.content" name="content" [(ngModel)]="answer.content"
+                            style="width: 50%"></textarea>
+                </div>
+                <!--     form multiple choice with many answers-->
+              </div>
+            </div>
 
 
       <div class="form-group">
