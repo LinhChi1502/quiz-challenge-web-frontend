@@ -34,6 +34,7 @@ const routes: Routes = [
       {
         path: 'category', component: CategoryComponent,
         children: [
+          {path: '', component: ListCategoryComponent, outlet: 'category'},
           {path: 'list-category', component: ListCategoryComponent, outlet: 'category'},
           {path: 'create-category', component: CreateCategoryComponent, outlet: 'category'},
           {path: 'edit-category/:id', component: EditCategoryComponent, outlet: 'category'},
