@@ -26,7 +26,7 @@
 
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions">
 
-  <div *ngIf="question.active === true">
+  <div *ngIf="question.active == true">
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
 
       <div class="py-2 h5"><b>{{question.title}}</b></div>
