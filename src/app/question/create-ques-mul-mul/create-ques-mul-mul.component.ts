@@ -44,7 +44,6 @@ export class CreateQuesMulMulComponent implements OnInit {
 
   array = ['A', 'B', 'C', 'D']
 
-  iscorrect: boolean = false;
 
   constructor(private questionService: QuestionService,
               private categoryService: CategoryService,
@@ -78,7 +77,7 @@ export class CreateQuesMulMulComponent implements OnInit {
 
 
   chooseCorrectAnswer(event:any, index:number) {
-    this.iscorrect = !this.iscorrect;
-    this.question.answers[index].correct=this.iscorrect;
+    this.question.answers[index].correct=!this.question.answers[index].correct;
+    console.log(this.question)
   }
 }
