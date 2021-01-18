@@ -21,12 +21,15 @@ import {ExamComponent} from './exam/exam.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
+import {ChangePassComponent} from './change-pass/change-pass.component';
 
 const routes: Routes = [
   {
     path: '', component: LayoutComponent
   },
-
+  {
+    path: 'change-pass', component: ChangePassComponent
+  },
   {
     path: 'login', component: LoginComponent
   },

@@ -3,8 +3,8 @@
   <div class="card-body">
     <div class="form-group">
       <label for="exampleInputEmail1">Category Name:</label>
-      <input type="text" class="form-control" name="name" id="exampleInputEmail1" formControlName="name"
-             [(ngModel)]="currentCategory.name" disabled>
+      <input type="text" class="form-control" id="exampleInputEmail1"
+             [value]="currentCategory.name" disabled>
     </div>
     <!--    <span style="color: red">{{message}}</span>-->
   </div>
