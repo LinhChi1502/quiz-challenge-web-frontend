@@ -3,6 +3,7 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   Router,
+  CanActivateChild,
   RouterStateSnapshot
 } from '@angular/router';
 // @ts-ignore

@@ -33,8 +33,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: LayoutComponent,
-    canActivate: [AuthGuard]
+    component: LayoutComponent
   },
   {
     path: 'login',

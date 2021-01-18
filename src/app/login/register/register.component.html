@@ -1,78 +1,49 @@
-<!--<app-carousel></app-carousel>-->
-<div class="row container-fluid mt-3 ml-1" >
-  <div class="col-2 test"></div>
-  <div class="card text-center register col-lg-8 " style="background: white !important;">
-    <div class=" text-center mt-2">
-      <h2>Register</h2>
-    </div>
-    <div class="card-body">
-      <!-- Login-->
-      <form formGroup="registerForm" (ngSubmit)="register()">
-        <div class="text-left">
-          <label>User name</label>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" formControlName="username" id="exampleInputEmail1"
-                 aria-describedby="emailHel"
-                 placeholder="Enter username" required>
-          <div *ngIf="registerFormControl.username.invalid && (registerFormControl.username.dirty || registerFormControl.username.touched)"
-               class="text-danger">
-
-            <div *ngIf="registerFormControl.username.errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="registerFormControl.username.errors.minlength">
-              Name must be at least 6 characters long.
-            </div>
+<div class="card">
+  <div class="card-body register-card-body">
+   <h2>Register</h2>
+    <form role="form" [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="username" placeholder="User name" formControlName="username">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
           </div>
         </div>
-        <div class="text-left">
-          <label>Password</label>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
         </div>
-        <div class="form-group">
-          <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1"
-                 placeholder="Password" required>
-          <span class="text-danger"
-                *ngIf="(registerFormControl.password.touched ) && registerFormControl.password.errors?.required">
-                                Password is required
-                            </span>
-          <span class="text-danger"
-                *ngIf="registerFormControl.password.touched && registerFormControl.password.errors.minlength">
-                                Password should have minimum 6 characters
-                            </span>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" name="confirmPassword" placeholder="confirmPassword" formControlName="confirmPassword"><br>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
         </div>
-        <div class="text-left">
-          <label>Confirm Password</label>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="fullname" placeholder="Fullname" formControlName="fullname">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
         </div>
-        <div class="form-group">
-          <input type="password" class="form-control" formControlName="confirmPassword" id="exampleInputConfirmPassword1"
-                 placeholder="Confirm Password" required>
-          <span class="text-danger"
-                *ngIf="(registerFormControl.confirmPassword.touched ) && registerFormControl.confirmPassword.errors?.required">
-                                Confirm Password is required
-                            </span>
-          <span class="text-danger"
-                *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors.minlength">
-                                ConfirmPassword should have minimum 6 characters
-                            </span>
+      </div>
+      <div class="row">
+        <div class="col-8">
         </div>
-        <div class="text-left">
-          <label>Full name</label>
+        <!-- /.col -->
+        <div class="col-4">
+          <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control" formControlName="fullname" id="exampleInputFirstName"
-                 placeholder="Full Name">
-          <span class="text-danger"
-                *ngIf="(registerFormControl.fullname.touched ) && registerFormControl.fullname.errors?.required">
-                                Full name is required
-                            </span>
-          <span class="text-danger"
-                *ngIf="registerFormControl.fullname.touched && registerFormControl.fullname.errors.minlength">
-                                Full name should have minimum 6 characters
-                            </span>
-        </div>
-        <button type="submit" class="btn btn-success nutPhai mr-2">Register</button>
-      </form>
-    </div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <a [routerLink]="['/login']" class="text-center">Tôi đã có tài khoản</a>
   </div>
 </div>

@@ -32,14 +32,6 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
   }
 
-  // login() {
-  //   // @ts-ignore
-  //   this.authService.login(this.user.username, this.user.password)
-  //     .pipe(first())
-  //     .subscribe(data => {
-  //       this.router.navigate([this.returnUrl]);
-  //     });
-  // }
   login() {
     // @ts-ignore
     this.authService.login(this.user.username, this.user.password)
@@ -48,4 +40,12 @@ export class LoginComponent implements OnInit {
         this.router.navigate([this.returnUrl]);
       });
   }
+  // login() {
+  //   // @ts-ignore
+  //   this.authService.login(this.user.username, this.user.password)
+  //     .pipe(first())
+  //     .subscribe(data => {
+  //       this.router.navigate([this.returnUrl]);
+  //     });
+  // }
 }

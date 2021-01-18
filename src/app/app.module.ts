@@ -39,6 +39,7 @@ import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 import {LogoutComponent} from "./login/logout/logout.component";
+import {RegisterComponent} from "./login/register/register.component";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {LogoutComponent} from "./login/logout/logout.component";
     ExamDetailComponent,
     QuestionList2Component,
     LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
