@@ -2,9 +2,9 @@
 
   <!-- /.card-header -->
   <div class="card-body">
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="border: #1E90FF solid thick" >
       <thead>
-      <tr>
+      <tr style="border: #1E90FF solid thick">
         <th style="width: 10px; text-align: center">#</th>
         <th style="text-align: center;">Name</th>
         <th style="text-align: center">Time</th>
@@ -17,7 +17,7 @@
 itemsPerPage: 5,
 currentPage: page,
 totalItems: totalRecords}; let i = index">
-        <td style="text-align: center" width="150px">{{i + 1}}</td>
+        <td style="text-align: center " width="150px">{{i + 1}}</td>
         <td style="text-align: center">{{exam.name}}</td>
         <td style="text-align: center">{{exam.countDown}}</td>
         <td style="text-align: center">{{exam.date}}</td>
