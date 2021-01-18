@@ -39,7 +39,7 @@
           <!--      form multiplechoice &btruefalse-->
           <div class="form-check">
             <input class="form-check-input" type="radio" name="radio1" [checked]="(answer.correct == true)"
-                   (change)="chooseCorrectAnswerTrueFalse($event, i)">
+                   (change)="chooseCorrectAnswerTrueFalse($event, i)" [value]="answer.content">
             <label class="form-check-label">{{answer.content}}</label>
           </div>
           <!--      form multiplechoice &btruefalse finish-->
