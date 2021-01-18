@@ -24,7 +24,10 @@
 </div>
 
 
-<div class="container mt-sm-5 my-1" *ngFor="let question of questions">
+<div class="container mt-sm-5 my-1" *ngFor="let question of questions | paginate: { id: 'listing_pagination',
+itemsPerPage: 5,
+currentPage: page,
+totalItems: totalRecords}">
 
   <div *ngIf="question.active == true">
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
@@ -82,3 +85,9 @@
 
 </div>
 
+<div class="card-footer clearfix">
+  <ul class="pagination pagination-sm m-0 float-right">
+    <pagination-controls id="listing_pagination"  (pageChange)="page = $event">
+    </pagination-controls>
+  </ul>
+</div>

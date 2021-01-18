@@ -120,27 +120,10 @@ export class EditQuestionComponent implements OnInit {
     this.question.answers[index].correct = true;
   }
 
-  // createNewAnswer() {
-  //   this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
-  //   // @ts-ignore
-  //   this.answer.id = null;
-  // }
 
   deleteAnswer(id: number) {
     this.answerService.deleteAnswer(id).subscribe(() => console.log('a'));
   }
-
-  // addQuestionToArray(event: any) {
-  //   this.createNewAnswer();
-  //   this.answer.content = this.nextAnswer.content;
-  //   this.answers.push(this.answer);
-  //   this.question.answers = this.answers;
-  // }
-
-
-
-
-
 
   createNewAnswer() {
     // this.answer.content = this.nextAnswer.content;
