@@ -7,6 +7,7 @@ import {QuestionService} from '../../service/question/question.service';
 import {Answer} from '../../model/answer';
 import {AnswerService} from '../../service/answer/answer.service';
 import {any} from 'codelyzer/util/function';
+import {EditInputQuestService} from '../../service/question/edit-input-quest.service';
 
 @Component({
   selector: 'app-edit-question',
@@ -22,12 +23,11 @@ export class EditQuestionComponent implements OnInit {
     category: {
       id: 0
     },
-    type:  {
+    type: {
       id: 0,
     },
     answers: any
   };
-
   categories: Category[] = [];
 
   // @ts-ignore
@@ -44,29 +44,32 @@ export class EditQuestionComponent implements OnInit {
 
   nextAnswer: Answer = {};
 
-  constructor(private categoryService: CategoryService,
-              private questionService: QuestionService,
-              private activatedRoute: ActivatedRoute,
-              private answerService: AnswerService) {
+  constructor(public categoryService: CategoryService,
+              public questionService: QuestionService,
+              public activatedRoute: ActivatedRoute,
+              public answerService: AnswerService,
+              public editInputQuestService: EditInputQuestService) {
     this.activatedRoute.paramMap.subscribe(async paramMap => {
       // @ts-ignore
       this.id = +paramMap.get('id');
-      this.questionService.getQuestionById(this.id);
+
+      this.questionService.getQuestionById(this.id).subscribe(value =>{
+          this.question.id=value.id
+        this.question.title=value.title
+        this.question.type=value.type
+        this.question.answers=value.answers
+        this.question.category=value.category
+        this.question.active=value.active
+      }
+
+      )
     });
   }
 
   ngOnInit(): void {
+    console.log(this.question);
     this.getAllCategories();
-    this.getQuestionById(this.id);
-    // console.log(this.question)
-    if (this.question.type.name == 'fillInBank') {
-      console.log("vao vong for")
-      for (let i = 0; i < this.question.answers; i++) {
-        this.answers.push(this.question.answers[i]);
-        console.log(this.question.answers[i])
-      }
-    }
-    console.log(this.answers)
+
   }
 
   getAllCategories() {
@@ -76,8 +79,10 @@ export class EditQuestionComponent implements OnInit {
   }
 
   getQuestionById(id: number) {
-    this.questionService.getQuestionById(id).subscribe(question => this.question = question);
-    console.log(this.question);
+    this.questionService.getQuestionById(id).subscribe(question => {
+        this.question = question;
+      }
+    );
   }
 
   editQuestion(id: number) {
@@ -107,13 +112,13 @@ export class EditQuestionComponent implements OnInit {
     this.question.answers[index].correct = true;
   }
 
-  // createNewAnswer() {
-  //   this.answer.content = this.nextAnswer.content;
-  //   this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
-  // }
+  createNewAnswer() {
+    this.answer.content = this.nextAnswer.content;
+    this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
+  }
 
   deleteAnswer(id: number) {
-      this.answerService.deleteAnswer(id).subscribe(()=>console.log("a"));
+    this.answerService.deleteAnswer(id).subscribe(() => console.log('a'));
   }
 
   // addAnswerToArray() {
@@ -124,4 +129,13 @@ export class EditQuestionComponent implements OnInit {
   //   }
   //   this.nextAnswer.content = '';
   // }
+
+
+  addQuestionToArray(event: MouseEvent) {
+    this.createNewAnswer();
+    this.answers.push(this.answers)
+    this.question.answers=[];
+
+    console.log(this.question.answers);
+  }
 }

@@ -76,7 +76,9 @@
           <label for="a">Create new </label>
           <input type="text" class="form-control" id="a" name="content"
                  [(ngModel)]="nextAnswer.content">
-          <button type="button" class="btn btn-block btn-primary" style="width: 10%;font-size: small;margin-top: 5px">
+          <button type="button" class="btn btn-block btn-primary" style="width: 10%;font-size: small;margin-top: 5px"
+          (mouseout)="addQuestionToArray($event)"
+          >
             Add Answer
           </button>
           <span *ngFor="let answer of answers">{{answer.content + ', '}}</span>

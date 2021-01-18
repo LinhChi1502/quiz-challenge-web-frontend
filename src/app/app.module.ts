@@ -64,7 +64,8 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
     ExamListComponent,
     CreateExamComponent,
     ExamDetailComponent,
-    QuestionList2Component
+    QuestionList2Component,
+
 
   ],
   imports: [
