@@ -24,11 +24,14 @@ export class CreateExamComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  exam:Exam={};
+
+  exam: Exam = {
+    examQuestions: []
+  };
   currentQuestion: any;
   questions: Question[] = [];
-  check:Boolean = false;
-  time: number[] = [5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
+  check: Boolean = false;
+  time: number[] = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
 
 
   // @ts-ignore
@@ -36,30 +39,27 @@ export class CreateExamComponent implements OnInit {
     this.currentQuestion = $event;
     for (let i = 0; i < this.questions.length; i++) {
       if (this.questions[i].id == this.currentQuestion.id) {
-        this.check=true;
+        this.check = true;
         break;
       } else {
-        this.check=false;
+        this.check = false;
       }
     }
-    if (this.check==false){
+    if (this.check == false) {
       this.questions.push(this.currentQuestion);
-      console.log(this.questions);
     }
   }
 
 
   Submit($event: MouseEvent) {
-    this.exam.examQuestions=this.questions;
-    console.log(this.exam.examQuestions);
-this.examService.saveExam(this.exam).subscribe(value =>
-    alert("thanh cong"),error => alert("that bai")
-);
+
+    this.examService.saveExam(this.exam).subscribe(value =>
+      alert('thanh cong'), error => alert('that bai')
+    );
 
   }
 
   REMOVE($event: MouseEvent, i: number) {
-   this.questions.splice(i,1);
-
+    this.questions.splice(i, 1);
   }
 }
