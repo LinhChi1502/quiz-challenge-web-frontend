@@ -14,18 +14,18 @@
         <mat-icon>account_circle</mat-icon>
       </a>
       <mat-menu #profile="matMenu" [overlapTrigger]="false">
-        <a mat-menu-item>
-          <mat-icon>person</mat-icon>
-          <span class="mat-body-strong">Profile</span>
-        </a>
-        <a mat-menu-item>
+<!--        <a mat-menu-item>-->
+<!--          <mat-icon>person</mat-icon>-->
+<!--          <span class="mat-body-strong">Profile</span>-->
+<!--        </a>-->
+        <a mat-menu-item routerLink="/change-pass">
           <mat-icon>vpn_key</mat-icon>
           <span class="mat-body-strong">Change password</span>
         </a>
-        <a mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span class="mat-body-strong">Settings</span>
-        </a>
+<!--        <a mat-menu-item>-->
+<!--          <mat-icon>settings</mat-icon>-->
+<!--          <span class="mat-body-strong">Settings</span>-->
+<!--        </a>-->
       </mat-menu>
       <a mat-icon-button>
         <mat-icon>exit_to_app</mat-icon>
@@ -55,9 +55,9 @@
         <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">date_range</mat-icon>
         <a [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing" class="mat-h2">Result</a>
       </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">supervisor_account</mat-icon>
-        <a [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing" class="mat-h2">Manage Account</a>
+      <mat-list-item routerLink="/admin/list-user">
+        <mat-icon mat-list-icon class="color_custom">supervisor_account</mat-icon>
+        <a *ngIf="isExpanded || isShowing" class="mat-h2">Manage Account</a>
       </mat-list-item>
 
     </mat-nav-list>

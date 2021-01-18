@@ -22,6 +22,7 @@ import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {ChangePassComponent} from './change-pass/change-pass.component';
+import {ListUserComponent} from './admin/list-user/list-user.component';
 
 const routes: Routes = [
   {
@@ -72,7 +73,10 @@ const routes: Routes = [
 
         ]
 
-      }
+      },
+      {
+        path: 'list-user', component: ListUserComponent
+      },
 
     ]
   },

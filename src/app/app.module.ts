@@ -36,6 +36,7 @@ import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
+import { ListUserComponent } from './admin/list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
     ExamDetailComponent,
     QuestionList2Component,
     ChangePassComponent,
+    ListUserComponent,
 
 
   ],
