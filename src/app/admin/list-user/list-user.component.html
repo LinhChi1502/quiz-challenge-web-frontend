@@ -15,14 +15,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of users | paginate: { id: 'listing_pagination',
+      <tr *ngFor="let appUser of appUsers | paginate: { id: 'listing_pagination',
 itemsPerPage: 5,
 currentPage: page,
 totalItems: totalRecords}; let i = index">
         <td style="text-align: center" width="150px">{{i + 1}}</td>
-        <td style="text-align: center">{{user.username}}</td>
-        <td style="text-align: center">{{user.fullname}}</td>
-        <td style="text-align: center" *ngIf="user.roles.length ==  2">
+        <td style="text-align: center">{{appUser.username}}</td>
+        <td style="text-align: center">{{appUser.fullname}}</td>
+
+        <td style="text-align: center" *ngIf="appUser.roles.length ==  2">
           <i class="fa fa-user inline" aria-hidden="true"
              aria-hidden="true" data-toggle="tooltip"
              data-placement="bottom" title="User"></i>
@@ -30,21 +31,23 @@ totalItems: totalRecords}; let i = index">
              aria-hidden="true" data-toggle="tooltip"
              data-placement="bottom" title="Admin"></i>
         </td>
-        <td style="text-align: center" *ngIf="user.roles.length ==  1">
-          <i class="fa fa-user inline" aria-hidden="true" *ngIf="user.roles[0].name == 'ROLE_USER'"
+
+        <td style="text-align: center" *ngIf="appUser.roles.length ==  1">
+          <i class="fa fa-user inline" aria-hidden="true" *ngIf="appUser.roles[0].name == 'ROLE_USER'"
              aria-hidden="true" data-toggle="tooltip"
              data-placement="bottom" title="User"></i>
-          <i class="fa fa-cogs inline" aria-hidden="true" *ngIf="user.roles[0].name == 'ROLE_ADMIN'"
+          <i class="fa fa-cogs inline" aria-hidden="true" *ngIf="appUser.roles[0].name == 'ROLE_ADMIN'"
              aria-hidden="true" data-toggle="tooltip"
              data-placement="bottom" title="Admin"></i>
         </td>
 
         <td style="text-align: center">
-          <i class="fa fa-user-plus" aria-hidden="true"></i>
+          <i class="fa fa-user-plus" aria-hidden="true" (click)="addUser(appUser.id)"></i>
         </td>
         <td style="text-align: center">
           <i class="fa fa-history" aria-hidden="true"></i>
         </td>
+
       </tr>
       </tbody>
     </table>
