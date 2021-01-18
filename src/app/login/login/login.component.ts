@@ -115,7 +115,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('ACCESS_TOKEN', data.accessToken);
           const roleList = data.roles;
           for (const role of roleList) {
-            if (role.name === 'ROLE_ADMIN') {
+            if (role.authority === 'ROLE_ADMIN') {
               this.returnUrl = "/admin";
             }else {
               this.returnUrl= "/home"
