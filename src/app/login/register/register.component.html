@@ -1,49 +1,74 @@
 <div class="card">
   <div class="card-body register-card-body">
    <h2>Register</h2>
-    <form role="form" [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" name="username" placeholder="User name" formControlName="username">
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-envelope"></span>
-          </div>
+<!--    <form role="form" [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">-->
+<!--      <div class="input-group mb-3">-->
+<!--        <input type="text" class="form-control" name="username" placeholder="User name" formControlName="username">-->
+<!--        <div class="input-group-append">-->
+<!--          <div class="input-group-text">-->
+<!--            <span class="fas fa-envelope"></span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="input-group mb-3">-->
+<!--        <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">-->
+<!--        <div class="input-group-append">-->
+<!--          <div class="input-group-text">-->
+<!--            <span class="fas fa-lock"></span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="input-group mb-3">-->
+<!--        <input type="password" class="form-control" name="confirmPassword" placeholder="confirmPassword" formControlName="confirmPassword"><br>-->
+<!--        <div class="input-group-append">-->
+<!--          <div class="input-group-text">-->
+<!--            <span class="fas fa-lock"></span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="input-group mb-3">-->
+<!--        <input type="text" class="form-control" name="fullname" placeholder="Fullname" formControlName="fullname">-->
+<!--        <div class="input-group-append">-->
+<!--          <div class="input-group-text">-->
+<!--            <span class="fas fa-user"></span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-8">-->
+<!--        </div>-->
+<!--        &lt;!&ndash; /.col &ndash;&gt;-->
+<!--        <div class="col-4">-->
+<!--          <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; /.col &ndash;&gt;-->
+<!--      </div>-->
+<!--    </form>-->
+    <div class="container">
+      <form action="" method="post" [formGroup]="registerForm" (ngSubmit)="register()"  id="register-form">
+        <div class="form-group">
+          <label>User Name</label>
+          <input type="text" name="username" class="form-control" formControlName="username">
         </div>
-      </div>
-      <div class="input-group mb-3">
-        <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-lock"></span>
-          </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"  class="form-control" id="password" formControlName="password" name="password">
         </div>
-      </div>
-      <div class="input-group mb-3">
-        <input type="password" class="form-control" name="confirmPassword" placeholder="confirmPassword" formControlName="confirmPassword"><br>
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-lock"></span>
-          </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input  type="password"  class="form-control" formControlName="confirmPassword" name="confirmPassword">
         </div>
-      </div>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" name="fullname" placeholder="Fullname" formControlName="fullname">
-        <div class="input-group-append">
-          <div class="input-group-text">
-            <span class="fas fa-user"></span>
-          </div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="fullname" class="form-control" formControlName="fullname">
         </div>
-      </div>
-      <div class="row">
-        <div class="col-8">
+        <div style="text-align: center">
+          <button type="submit" class="btn btn-default" >Register</button>
         </div>
-        <!-- /.col -->
-        <div class="col-4">
-          <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
-    <a [routerLink]="['/login']" class="text-center">Tôi đã có tài khoản</a>
+
+      </form>
+      <a [routerLink]="['/login']">Tôi đã có tài khoản</a>
+    </div>
   </div>
 </div>
+

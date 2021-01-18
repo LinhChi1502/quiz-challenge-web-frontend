@@ -77,6 +77,11 @@ export class RegisterComponent implements OnInit {
           confirmPassword: {
             required: true,
             equalTo: '#password'
+          },
+          fullname: {
+            required: true,
+            minlength: 6,
+            maxlength: 20
           }
         },
         messages: {
@@ -87,6 +92,11 @@ export class RegisterComponent implements OnInit {
           },
           password: {
             required: 'Hãy nhập password',
+            minlength: 'Bạn phải nhập tối thiểu 6 ký tự',
+            maxlength: 'Bạn chỉ được nhập tối đa 20 ký tự'
+          },
+          fullname: {
+            required: 'Hãy nhập tên tài khoản',
             minlength: 'Bạn phải nhập tối thiểu 6 ký tự',
             maxlength: 'Bạn chỉ được nhập tối đa 20 ký tự'
           },
