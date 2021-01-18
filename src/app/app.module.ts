@@ -19,12 +19,12 @@ import { CategoryComponent } from './category/category/category.component';
 import { ListCategoryComponent } from './category/list-category/list-category.component';
 import { NgxPaginationModule} from 'ngx-pagination';
 import {SidebarComponent} from './user/homepage/sidebar/sidebar.component';
+import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { ListExamComponent } from './user/examination/list-exam/list-exam.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
-    NavbarComponent,
     LayoutComponent,
     LayoutComponent,
     LoginComponent,
@@ -32,7 +32,7 @@ import {SidebarComponent} from './user/homepage/sidebar/sidebar.component';
     AdminNavbarComponent,
     CategoryComponent,
     ListCategoryComponent,
-    SidebarComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

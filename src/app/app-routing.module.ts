@@ -9,7 +9,9 @@ import {ListCategoryComponent} from './category/list-category/list-category.comp
 
 const routes: Routes = [
   {
-    path: '', component: HomepageComponent
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
 
   {
@@ -26,6 +28,10 @@ const routes: Routes = [
 
   {
     path: 'home', component: HomepageComponent
+  },
+
+  {
+    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule)
   }
 ];
 
