@@ -118,6 +118,7 @@ export class EditQuestionComponent implements OnInit {
       this.question.answers[i].correct = false;
     }
     this.question.answers[index].correct = true;
+    this.question.answers[index].content = event.target.value;
   }
 
 
