@@ -6,6 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import {QuestionService} from '../../service/question/question.service';
 import {Answer} from '../../model/answer';
 import {AnswerService} from '../../service/answer/answer.service';
+import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-edit-question',
@@ -14,7 +15,7 @@ import {AnswerService} from '../../service/answer/answer.service';
 })
 export class EditQuestionComponent implements OnInit {
 
-  answers: any = [];
+  answers: any[] = [];
 
   question: Question = {
     title: '',
@@ -22,9 +23,9 @@ export class EditQuestionComponent implements OnInit {
       id: 0
     },
     type:  {
-      id: null,
+      id: 0,
     },
-    answers: []
+    answers: any
   };
 
   categories: Category[] = [];
@@ -57,7 +58,15 @@ export class EditQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCategories();
     this.getQuestionById(this.id);
-    console.log(this.question);
+    // console.log(this.question)
+    if (this.question.type.name == 'fillInBank') {
+      console.log("vao vong for")
+      for (let i = 0; i < this.question.answers; i++) {
+        this.answers.push(this.question.answers[i]);
+        console.log(this.question.answers[i])
+      }
+    }
+    console.log(this.answers)
   }
 
   getAllCategories() {
@@ -68,6 +77,7 @@ export class EditQuestionComponent implements OnInit {
 
   getQuestionById(id: number) {
     this.questionService.getQuestionById(id).subscribe(question => this.question = question);
+    console.log(this.question);
   }
 
   editQuestion(id: number) {
@@ -102,10 +112,8 @@ export class EditQuestionComponent implements OnInit {
   //   this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
   // }
 
-  deleteAnswer() {
-    for (let i = 0; i < this.question.answers.length; i++) {
-      this.answerService.deleteAnswer(this.question.answers[i].id).subscribe(answer => this.question.answers[i] = answer);
-    }
+  deleteAnswer(id: number) {
+      this.answerService.deleteAnswer(id).subscribe(()=>console.log("a"));
   }
 
   // addAnswerToArray() {

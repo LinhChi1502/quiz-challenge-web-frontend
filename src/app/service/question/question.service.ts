@@ -34,7 +34,7 @@ export class QuestionService {
   }
 
   getQuestionById(id: number): Observable<Question> {
-    return this.http.get<Question>(API_URL + `/api/questions/${id}`);
+    return this.http.get<Question>(API_URL + `/api/questions/${id}`,{responseType:"json"});
   }
 
   deleteQuestion(id: number): Observable<Question> {
