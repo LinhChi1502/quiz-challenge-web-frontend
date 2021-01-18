@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     fullname: new FormControl('', [Validators.required, Validators.minLength(2)])
   });
 
+
   constructor(private userService: AuthService,
               private router: Router) {
   }

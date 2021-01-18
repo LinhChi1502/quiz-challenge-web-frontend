@@ -23,6 +23,7 @@ import {ExamComponent} from './exam/exam.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
+import {LayoutComponent} from "./login/layout/layout.component";
 
 const routes: Routes = [
   {
@@ -30,7 +31,11 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-
+  {
+    path: '',
+    component: LayoutComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -42,7 +47,6 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminHomeComponent,
     children: [
-
       {
         path: 'category', component: CategoryComponent,
         children: [
