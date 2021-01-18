@@ -61,7 +61,6 @@ export class CreateQuestionInputComponent implements OnInit {
         alert('Success');
       },
       () => alert('Fail'));
-    console.log(this.question);
   }
 
   createNewAnswer() {
