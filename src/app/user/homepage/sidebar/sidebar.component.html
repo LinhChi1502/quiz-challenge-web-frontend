@@ -1,14 +1,14 @@
 <mat-nav-list>
-  <mat-list-item>
-    <mat-icon mat-list-icon [routerLink]="'/accounts'" class="color_custom">dashboard</mat-icon>
-    <a [routerLink]="'/accounts'" *ngIf="isExpanded || isShowing" class="mat-h2 "> Dashboard </a>
+  <mat-list-item [routerLink]="'/dashboard'">
+    <mat-icon mat-list-icon class="color_custom">dashboard</mat-icon>
+    <a *ngIf="isExpanded || isShowing" class="mat-h2 "> Dashboard </a>
   </mat-list-item>
-  <mat-list-item>
-    <mat-icon mat-list-icon [routerLink]="'/examination'" class="color_custom" >account_box</mat-icon>
-    <a [routerLink]="'/examination'" *ngIf="isExpanded || isShowing" class="mat-h2 "> Examination </a>
+  <mat-list-item [routerLink]="'/examination'">
+    <mat-icon mat-list-icon class="color_custom" >account_box</mat-icon>
+    <a *ngIf="isExpanded || isShowing" class="mat-h2 "> Examination </a>
   </mat-list-item>
-  <mat-list-item>
-    <mat-icon mat-list-icon [routerLink]="'/contacts'" class="color_custom">history</mat-icon>
-    <a [routerLink]="'/contacts'" *ngIf="isExpanded || isShowing" class="mat-h2 "> Check Result </a>
+  <mat-list-item [routerLink]="'/checkresult'">
+    <mat-icon mat-list-icon class="color_custom">history</mat-icon>
+    <a *ngIf="isExpanded || isShowing" class="mat-h2 "> Check Result </a>
   </mat-list-item>
 </mat-nav-list>
