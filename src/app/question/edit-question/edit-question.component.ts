@@ -13,6 +13,7 @@ import {AnswerService} from '../../service/answer/answer.service';
   styleUrls: ['./edit-question.component.scss']
 })
 export class EditQuestionComponent implements OnInit {
+
   answers: any = [];
 
   question: Question = {
@@ -40,7 +41,7 @@ export class EditQuestionComponent implements OnInit {
   array = ['A', 'B', 'C', 'D'];
   arrayTF = ['True', 'False'];
 
-  // nextAnswer: Answer = {};
+  nextAnswer: Answer = {};
 
   constructor(private categoryService: CategoryService,
               private questionService: QuestionService,
@@ -56,6 +57,7 @@ export class EditQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCategories();
     this.getQuestionById(this.id);
+    console.log(this.question);
   }
 
   getAllCategories() {
@@ -100,11 +102,11 @@ export class EditQuestionComponent implements OnInit {
   //   this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
   // }
 
-  // deleteAnswer() {
-  //   for (let i = 0; i < this.question.answers.length; i++) {
-  //     this.answerService.deleteAnswer(this.question.answers[i].id).subscribe(answer => this.question.answers[i] = answer);
-  //   }
-  // }
+  deleteAnswer() {
+    for (let i = 0; i < this.question.answers.length; i++) {
+      this.answerService.deleteAnswer(this.question.answers[i].id).subscribe(answer => this.question.answers[i] = answer);
+    }
+  }
 
   // addAnswerToArray() {
   //   this.createNewAnswer();

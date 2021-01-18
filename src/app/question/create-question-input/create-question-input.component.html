@@ -16,7 +16,7 @@
       <div class="form-group">
         <label for="a"></label>
         <input type="text" class="form-control" id="a" name="content"
-               [(ngModel)]="nextAnswer.content">
+              (change)="getValue($event)">
         <button type="button" class="btn btn-block btn-primary" style="width: 10%;font-size: small;margin-top: 5px"
                 (click)="addAnswerToArray()">Add Answer
         </button>
