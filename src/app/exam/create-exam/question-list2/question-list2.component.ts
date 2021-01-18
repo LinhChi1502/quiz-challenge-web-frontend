@@ -39,7 +39,6 @@ export class QuestionList2Component implements OnInit {
     this.getAllQuestions();
     this.getAllCategories();
     this.getAllTypes();
-
   }
   getAllQuestions() {
     this.questionService.getAllQuestion().subscribe((questions) => {

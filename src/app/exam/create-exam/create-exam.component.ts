@@ -14,6 +14,8 @@ import {Exam} from '../../model/exam';
   styleUrls: ['./create-exam.component.scss']
 })
 export class CreateExamComponent implements OnInit {
+
+
   constructor(private questionService: QuestionService,
               private examService: ExamService,
               private typeService: TypeService,

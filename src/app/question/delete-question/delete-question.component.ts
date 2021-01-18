@@ -47,7 +47,7 @@ export class DeleteQuestionComponent implements OnInit {
 
   deleteQuestion(id: number) {
     if (confirm("Are you sure?")) {
-      this.questionService.deleteQuestion(id).subscribe(() => alert("Success"), () => alert("Cau hoi da co trong bai thi"))
+      this.questionService.deleteQuestion(id).subscribe(() => alert("Success"), () => alert("Cau hoi da co trong bai thi"));
     }
   }
 

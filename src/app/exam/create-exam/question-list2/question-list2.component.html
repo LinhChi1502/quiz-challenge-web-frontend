@@ -25,6 +25,8 @@
 
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions,let i =index">
 
+<div class="container mt-sm-5 my-1" *ngFor="let question of questions">
+
   <div *ngIf="question.active === true">
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 80%">
 
@@ -69,13 +71,7 @@
   </div>
 
   <div *ngIf="question.active === true">
-
-      <BUTTON class="btn bg-primary " style="margin-left: 150px; margin-top: 10px"><a (click)="andQuestionToExam($event,i)" ><i class="fas fa-plus">ADD THIS QUEST</i></a></BUTTON>
-
-
+      <BUTTON class="btn bg-primary " style="margin-left: 150px; margin-top: 10px"><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i class="fas fa-plus">ADD THIS QUEST</i></a></BUTTON>
   </div>
 
 </div>
-
-
-
