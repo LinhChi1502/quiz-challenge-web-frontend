@@ -18,6 +18,7 @@ export class CreateExamComponent implements OnInit {
               private examService: ExamService,
               private typeService: TypeService,
               private dataService: DataService) {
+
   }
 
   ngOnInit(): void {
@@ -27,6 +28,9 @@ export class CreateExamComponent implements OnInit {
   currentQuestion: any;
   questions: Question[] = [];
   check:Boolean = false;
+  time: number[] = [5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
+
+
   // @ts-ignore
   receiveMessage($event) {
     this.currentQuestion = $event;

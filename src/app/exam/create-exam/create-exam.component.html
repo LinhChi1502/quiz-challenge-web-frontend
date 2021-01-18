@@ -2,10 +2,22 @@
 
 
 <div class="row" >
-  <div class="col-md-5"  style="border: #1E90FF solid thick; margin-right: 20px; margin-left: 30px" >
-    <BUTTON class="btn bg-gradient-indigo " style="margin-left: 150px; margin-top: 10px"><a (click)="Submit($event)" ><i class="fas fa-registered">REGISTER EXAM</i></a></BUTTON>
-    <div class="container mt-sm-5 my-1" *ngFor="let question of questions,let i =index">
+  <div class="col-md-5"  style="border: #1E90FF solid; margin-right: 20px; margin-left: 30px" >
+    <BUTTON class="btn bg-gradient-indigo " style="margin-left: 150px; margin-top: 10px"><a (click)="Submit($event)" ><i class="fas fa-registered">REGISTER</i></a></BUTTON>
 
+    <div class="form-group">
+      <label>Time</label>
+      <select class="form-control" [(ngModel)]="time" style="width: 30%">
+        <option *ngFor="let i of time" [value]="i">{{i + ' minutes'}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Enter name" style="width: 50%">
+    </div>
+
+    <div class="container mt-sm-5 my-1" *ngFor="let question of questions,let i =index">
       <div *ngIf="question.active === true">
         <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 80%">
 
@@ -57,7 +69,7 @@
     </div>
 
   </div>
-  <div class="col-md-6" style="border: #1E90FF solid thick">
+  <div class="col-md-6" style="border: #1E90FF solid">
     <app-question-list2 (messageEvent)="receiveMessage($event)"></app-question-list2>
 
   </div >
