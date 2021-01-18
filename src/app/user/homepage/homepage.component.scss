@@ -1,0 +1,21 @@
+.main-container{
+  display: flex;
+  height: 94vh;
+  width: 100%;
+  flex: 1;
+  padding: 16px;
+}
+
+.material-icons.color_custom { color: #6495ED; }
+.material-icons.color_custom:hover { color: #1E90FF; }
+
+.sidenav {
+  padding: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .hidden-sm {
+    display: none;
+  }
+}
+
