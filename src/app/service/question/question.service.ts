@@ -3,8 +3,6 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Question} from '../../model/question';
-import {Category} from '../../model/category';
-
 const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
@@ -34,7 +32,7 @@ export class QuestionService {
   }
 
   getQuestionById(id: number): Observable<Question> {
-    return this.http.get<Question>(API_URL + `/api/questions/${id}`,{responseType:"json"});
+    return this.http.get<Question>(API_URL + `/api/questions/${id}`);
   }
 
   deleteQuestion(id: number): Observable<Question> {
@@ -51,7 +49,5 @@ export class QuestionService {
     return this.http.get<Question[]>(`http://localhost:8080/api/questions/quest-list/${id}`);
   }
 
-  transerQuest(question: any): Observable<Question> {
-    return this.http.put<Question>(`http://localhost:8080/api/questions/transer`, question);
-  }
+
 }
