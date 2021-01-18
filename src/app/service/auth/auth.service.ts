@@ -25,7 +25,7 @@ currentUser: Observable<UserToken> | undefined;
     return this.currentUserSubject.value;
   }
   login(username: string, password: string){
-    return this.http.post(API_URL + "/login", {username, password})
+    return this.http.post<any>(API_URL + "/login", {username, password})
       .pipe(map(user => {
         // @ts-ignore
         localStorage.setItem('user', JSON.stringify(user));

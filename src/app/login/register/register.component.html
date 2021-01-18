@@ -1,74 +1,99 @@
-<div class="card">
-  <div class="card-body register-card-body">
-   <h2>Register</h2>
-<!--    <form role="form" [formGroup]="registerForm" (ngSubmit)="register()" id="register-form">-->
-<!--      <div class="input-group mb-3">-->
-<!--        <input type="text" class="form-control" name="username" placeholder="User name" formControlName="username">-->
-<!--        <div class="input-group-append">-->
-<!--          <div class="input-group-text">-->
-<!--            <span class="fas fa-envelope"></span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <input type="password" class="form-control" name="password" placeholder="Password" formControlName="password">-->
-<!--        <div class="input-group-append">-->
-<!--          <div class="input-group-text">-->
-<!--            <span class="fas fa-lock"></span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <input type="password" class="form-control" name="confirmPassword" placeholder="confirmPassword" formControlName="confirmPassword"><br>-->
-<!--        <div class="input-group-append">-->
-<!--          <div class="input-group-text">-->
-<!--            <span class="fas fa-lock"></span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="input-group mb-3">-->
-<!--        <input type="text" class="form-control" name="fullname" placeholder="Fullname" formControlName="fullname">-->
-<!--        <div class="input-group-append">-->
-<!--          <div class="input-group-text">-->
-<!--            <span class="fas fa-user"></span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="row">-->
-<!--        <div class="col-8">-->
-<!--        </div>-->
-<!--        &lt;!&ndash; /.col &ndash;&gt;-->
-<!--        <div class="col-4">-->
-<!--          <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; /.col &ndash;&gt;-->
-<!--      </div>-->
-<!--    </form>-->
-    <div class="container">
-      <form action="" method="post" [formGroup]="registerForm" (ngSubmit)="register()"  id="register-form">
-        <div class="form-group">
-          <label>User Name</label>
-          <input type="text" name="username" class="form-control" formControlName="username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password"  class="form-control" id="password" formControlName="password" name="password">
-        </div>
-        <div class="form-group">
-          <label>Confirm Password</label>
-          <input  type="password"  class="form-control" formControlName="confirmPassword" name="confirmPassword">
-        </div>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="fullname" class="form-control" formControlName="fullname">
-        </div>
-        <div style="text-align: center">
-          <button type="submit" class="btn btn-default" >Register</button>
-        </div>
 
-      </form>
-      <a [routerLink]="['/login']">Tôi đã có tài khoản</a>
-    </div>
-  </div>
+<script src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<style>
+  body {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
+    font-family: "Didact Gothic", sans-serif;
+  }
+  .wrap {
+    margin: 0 auto;
+    width: 480px;
+  }
+  fieldset {
+    width: 400px;
+    border-radius: 10px;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+  }
+  legend {
+    background: #3a3d52;
+    width: 100px;
+    height: 100px;
+    margin-left: 150px;
+    border-radius: 50px;
+  }
+  h3 {
+    position: relative;
+    padding-top: 35px;
+    text-align: center;
+    color: #ff6d2e;
+  }
+  h2 {
+    text-align: center;
+    font-size: 0.9em;
+    color: lightgrey;
+    padding-top: 10px;
+  }
+  input {
+    width: 400px;
+    height: 50px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    color: #7d7769;
+    font-weight: bold;
+  }
+  input:focus {
+    border: 1px solid rgba(255, 109, 46, 0.6);
+    box-shadow: 0 0 3px rgba(255, 109, 46, 0.6);
+    outline: none;
+    font-size: 1.1em;
+  }
+  button {
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 120px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 15px;
+    color: #7d7769;
+  }
+  button:hover {
+    background: #fbf7ef;
+    border-radius: 10px;
+  }
+  button:focus {
+    border: 1px solid rgba(255, 109, 46, 0.6);
+    box-shadow: 0 0 3px rgba(255, 109, 46, 0.6);
+    outline: none;
+    font-size: 1.1em;
+  }
+
+  input[type="submit"] {
+    background: #ff9d73;
+    color: #3a3d52;
+    margin: 20px 0px 30px;
+  }
+  input[type="submit"]:hover {
+    background: #ff8652;
+  }
+
+</style>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="wrap">
+  <form action="#" method="post" [formGroup]="registerForm" (ngSubmit)="register()"  id="register-form">
+    <fieldset>
+      <legend><h3>Regiter</h3></legend>
+      <input type="text" name="username" formControlName="username" placeholder="User Name"/>
+      <input type="password" name="password" id="password" formControlName="password" placeholder="Password"/>
+      <input type="password" name="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password"/>
+      <input type="text" name="fullname" formControlName="fullname" placeholder="Full Name"/>
+      <input type="submit"  value="Regiter">
+      <a style="color: orangered;cursor: pointer !important;" [routerLink]="['/login']">Tôi đã có tài khoản</a>
+    </fieldset>
+  </form>
 </div>
-

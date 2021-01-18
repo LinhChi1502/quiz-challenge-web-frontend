@@ -22,45 +22,6 @@ export class RegisterComponent implements OnInit {
               private router: Router) {
   }
   ngOnInit(): void {
-    // $(document).ready(function() {
-    //   $('#register').validate({
-    //     rules: {
-    //       username: {
-    //         required: true,
-    //         minLength: 6
-    //       },
-    //    password: {
-    //         required: true,
-    //      minLength: 6
-    //   },    confirmPassword: {
-    //         required: true,
-    //         equalTo: '#password'
-    //       },
-    //       fullname: {
-    //         required: true,
-    //         minLength: 6
-    //       }
-    //     },
-    //     messages: {
-    //       username: {
-    //         required: "Nhập tên đăng nhập",
-    //         minLength: "Username phải có ít nhất 6 kí tự"
-    //       },
-    //       password: {
-    //         required: "Nhập password",
-    //         minLength: "Username phải có ít nhất 6 kí tự"
-    //       },
-    //       confirmPassword: {
-    //         required: "Nhập lại mật khẩu",
-    //         equalTo: "Mật khẩu không khớp"
-    //       },
-    //       fullname: {
-    //         required: "Nhập họ tên",
-    //         minLength: "Họ tên phải có ít nhật 6 kí tự"
-    //       }
-    //     }
-    //   })
-    // })
     $(document).ready(function() {
       $('#register-form').validate({
         rules: {
