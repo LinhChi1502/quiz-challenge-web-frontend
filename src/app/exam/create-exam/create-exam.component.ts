@@ -24,6 +24,8 @@ export class CreateExamComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  selectTime:number=0;
   exam:Exam={};
   currentQuestion: any;
   questions: Question[] = [];
@@ -48,7 +50,6 @@ export class CreateExamComponent implements OnInit {
     }
   }
 
-
   Submit($event: MouseEvent) {
     this.exam.examQuestions=this.questions;
     console.log(this.exam.examQuestions);
@@ -61,5 +62,10 @@ this.examService.saveExam(this.exam).subscribe(value =>
   REMOVE($event: MouseEvent, i: number) {
    this.questions.splice(i,1);
 
+  }
+
+  addExamTime(event: any,index:number) {
+    console.log(index)
+    console.log(event.target.value)
   }
 }

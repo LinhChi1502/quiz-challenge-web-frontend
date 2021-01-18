@@ -7,8 +7,8 @@
 
     <div class="form-group">
       <label>Time</label>
-      <select class="form-control" [(ngModel)]="time" style="width: 30%">
-        <option *ngFor="let i of time" [value]="i">{{i + ' minutes'}}</option>
+      <select class="form-control"  style="width: 30%" [(ngModel)]="selectTime">
+        <option *ngFor="let i of time,let id=index" [value]="i" (change)="addExamTime($event,id)">{{i + ' minutes'}}</option>
       </select>
     </div>
 
