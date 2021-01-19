@@ -5,6 +5,7 @@ import {Answer} from '../../model/answer';
 import {QuestionService} from '../../service/question/question.service';
 import {CategoryService} from '../../service/category/category.service';
 import {AnswerService} from '../../service/answer/answer.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-question-input',
@@ -18,7 +19,7 @@ export class CreateQuestionInputComponent implements OnInit {
   };
 
   answers: Answer[] = [];
-
+questions : any =[];
   question: Question = {
 
     active: true,
@@ -38,11 +39,13 @@ export class CreateQuestionInputComponent implements OnInit {
 
   constructor(private questionService: QuestionService,
               private categoryService: CategoryService,
-              private answerService: AnswerService) {
+              private answerService: AnswerService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.getAllCategories();
+    this.getAllQuestions();
   }
 
   getAllCategories() {
@@ -56,6 +59,13 @@ export class CreateQuestionInputComponent implements OnInit {
       this.question.answers.push(this.answers[i]);
     }
     this.question.active = true;
+    for (let i = 0; i < this.questions.length; i++) {
+      if(this.questions[i].type.id ==3 && this.questions[i].title == this.question.title){
+        alert("This question existed!");
+        this.router.navigate(['/admin/question',{outlets:{question:['create-question-input']}}])
+        break;
+      }
+    }
     this.questionService.createNewQuestion(this.question).subscribe(question => {
         this.question = question;
         alert('Success');
@@ -88,4 +98,8 @@ export class CreateQuestionInputComponent implements OnInit {
     this.onChangeValue = event.target.value;
     event.target.value = '';
   }
+  getAllQuestions() {
+    return this.questionService.getAllQuestion().subscribe(value => {
+      this.questions = value;
+    })}
 }

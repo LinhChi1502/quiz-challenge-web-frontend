@@ -70,7 +70,7 @@ questions: any = [];
     for (let i = 0; i < this.questions.length; i++) {
       if(this.questions[i].type.id ==1 && this.questions[i].title == this.question.title){
         alert("This question existed!");
-        this.router.navigate(['/admin/question/create-ques-mul-one'])
+        this.router.navigate(['/admin/question',{outlets:{question:['create-ques-mul-one']}}])
         break;
       }
     }
