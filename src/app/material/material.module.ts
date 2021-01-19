@@ -17,6 +17,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSortModule} from "@angular/material/sort";
 import {MatCardModule} from "@angular/material/card";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 const MaterialComponents = [
   MatTabsModule,
@@ -36,7 +38,9 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatTooltipModule,
   MatSortModule,
-  MatCardModule
+  MatCardModule,
+  MatRadioModule,
+  MatCheckboxModule
 ];
 
 @NgModule({
