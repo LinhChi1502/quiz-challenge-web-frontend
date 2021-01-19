@@ -45,7 +45,7 @@ totalItems: totalRecords}; let i = index">
           <i class="fa fa-user-plus" aria-hidden="true" (click)="addUser(appUser.id)"></i>
         </td>
         <td style="text-align: center">
-          <a [routerLink]="['/admin/list-user',{outlets:{listuser:['history-user',id]}}]"><i class="fa fa-history" aria-hidden="true"></i></a>
+          <a [routerLink]="['/admin/list-user',{outlets:{listuser:['history-user',appUser.id]}}]"><i class="fa fa-history" aria-hidden="true"></i></a>
         </td>
 
       </tr>

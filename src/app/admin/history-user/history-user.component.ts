@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppUser} from '../../model/app-user';
 import {any} from 'codelyzer/util/function';
 import {UserService} from '../../service/user/user.service';
@@ -20,6 +20,10 @@ export class HistoryUserComponent implements OnInit {
     fullname: ''
   };
 
+  exams: [] = [];
+
+  userExams: any[] = [];
+
   // @ts-ignore
   id: number;
 
@@ -32,10 +36,21 @@ export class HistoryUserComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(async paramMap => {
       // @ts-ignore
       this.id = +paramMap.get('id');
+      console.log(this.id);
     });
   }
 
   ngOnInit(): void {
+    this.getAllUserExamByUserId(this.id);
+    console.log(this.userExams);
   }
 
+  getAllUserExamByUserId(id: number) {
+    return this.userExamService.getAllUserExamsByUserId(id).subscribe(userExams => {
+      // for (let i = 0; i < this.userExams.length; i++) {
+      //   this.exams.push(this.userExams[i].exam);
+      // }
+      this.userExams = userExams;
+    });
+  }
 }
