@@ -4,4 +4,5 @@ export interface UserToken {
   password?: string;
   username?: string;
   token?: string;
+  roles?: any;
 }

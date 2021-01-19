@@ -1,21 +1,27 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {HomepageComponent} from './user/homepage/homepage.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NavbarComponent} from './user/homepage/navbar/navbar.component';
 import {LayoutComponent} from './login/layout/layout.component';
-import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
+import {SidebarComponent} from './user/homepage/sidebar/sidebar.component';
 import {LoginComponent} from './login/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './login/helper/jwt-interceptor';
 import {ErrorInterceptor} from './login/helper/error-interceptor';
+import {MatTabsModule} from "@angular/material/tabs";
+// @ts-ignore
+import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
 import {AdminNavbarComponent} from './admin/admin-navbar/admin-navbar.component';
 import {CategoryComponent} from './category/category/category.component';
 import {ListCategoryComponent} from './category/list-category/list-category.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {DashboardComponent} from './user/dashboard/dashboard.component';
 import {CreateCategoryComponent} from './category/create-category/create-category.component';
 import {EditCategoryComponent} from './category/edit-category/edit-category.component';
 import {DeleteCategoryComponent} from './category/delete-category/delete-category.component';
@@ -32,18 +38,23 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
+import {RegisterComponent} from "./login/register/register.component";
+
+
 import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomepageComponent,
+    NavbarComponent,
     LayoutComponent,
+    SidebarComponent,
     LayoutComponent,
     LoginComponent,
     AdminHomeComponent,
     AdminNavbarComponent,
     CategoryComponent,
     ListCategoryComponent,
-    DashboardComponent,
     CreateCategoryComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
@@ -60,13 +71,23 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
     CreateExamComponent,
     ExamDetailComponent,
     QuestionList2Component,
-    ProcessExamComponent
+    ProcessExamComponent,
 
+    QuestionList2Component,
+    // LogoutComponent,
+    RegisterComponent,
+    // ChangepassComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatTabsModule,
+    MatIconModule,
+    HttpClientModule,
+    FormsModule,
+    HttpClientModule, FormsModule,
+    MaterialModule,
     HttpClientModule,
     FormsModule,
     MaterialModule,
@@ -79,5 +100,4 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

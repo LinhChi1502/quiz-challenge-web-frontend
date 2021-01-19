@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {UserToken} from '../../model/user-token';
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {AppUser} from "../../model/app-user";
 
 const API_URL = environment.apiUrl;
 @Injectable({
@@ -24,10 +25,10 @@ currentUser: Observable<UserToken> | undefined;
     return this.currentUserSubject.value;
   }
   login(username: string, password: string){
-    return this.http.post(API_URL + "/login", {username, password})
+    return this.http.post<any>(API_URL + "/login", {username, password})
       .pipe(map(user => {
         // @ts-ignore
-        localStorage.setItem('user', user);
+        localStorage.setItem('user', JSON.stringify(user));
         // @ts-ignore
         this.currentUserSubject.next(user);
         this.update.emit('login');
@@ -39,4 +40,12 @@ currentUser: Observable<UserToken> | undefined;
     // @ts-ignore
     this.currentUserSubject.next('null');
   }
+  register(user: AppUser): Observable<AppUser> {
+    return this.http.post<AppUser>(API_URL + '/register', user);
+  }
+  newPassword(user: AppUser, id: number): Observable<AppUser> {
+    return this.http.put<AppUser>(API_URL + `/new-password/${id}`, user);
+  }
+
+
 }

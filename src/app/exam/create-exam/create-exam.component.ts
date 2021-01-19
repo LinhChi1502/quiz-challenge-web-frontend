@@ -1,12 +1,10 @@
 import {QuestionService} from '../../service/question/question.service';
-import {CategoryService} from '../../service/category/category.service';
 import {TypeService} from '../../service/type/type.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../../data.service';
 import {Question} from '../../model/question';
 import {ExamService} from '../../service/exam/exam.service';
 import {Exam} from '../../model/exam';
-
 
 @Component({
   selector: 'app-create-exam',
@@ -18,7 +16,6 @@ export class CreateExamComponent implements OnInit {
               private examService: ExamService,
               private typeService: TypeService,
               private dataService: DataService) {
-
   }
 
   ngOnInit(): void {
@@ -52,11 +49,20 @@ export class CreateExamComponent implements OnInit {
 
   Submit($event: MouseEvent) {
     this.exam.examQuestions=this.questions;
-    console.log(this.exam.examQuestions);
-this.examService.saveExam(this.exam).subscribe(value =>
-    alert("thanh cong"),error => alert("that bai")
-);
 
+    console.log(this.exam.countDown);
+this.examService.saveExam(this.exam).subscribe(value =>{ alert("thanh cong");
+
+    this.questionService.addQuestionListToExam(this.questions).subscribe(value =>
+    {
+      this.questions=value;
+      console.log(value);
+    })
+
+  }
+   ,error => alert("that bai")
+
+);
   }
 
   REMOVE($event: MouseEvent, i: number) {
@@ -64,8 +70,4 @@ this.examService.saveExam(this.exam).subscribe(value =>
 
   }
 
-  addExamTime(event: any,index:number) {
-    console.log(index)
-    console.log(event.target.value)
-  }
 }

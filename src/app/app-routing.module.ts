@@ -1,7 +1,9 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {LayoutComponent} from './login/layout/layout.component';
-import {LoginComponent} from './login/login/login.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from "./login/home/home.component";
+import {AuthGuard} from "./login/helper/auth-guard";
+import {LoginComponent} from "./login/login/login.component";
+import {RegisterComponent} from "./login/register/register.component";
 import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {HomepageComponent} from './user/homepage/homepage.component';
 import {CategoryComponent} from './category/category/category.component';
@@ -21,22 +23,30 @@ import {ExamComponent} from './exam/exam.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
+import {LayoutComponent} from "./login/layout/layout.component";
+import {AdminGuard} from "./login/helper/admin-guard";
+
 
 const routes: Routes = [
+
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: LayoutComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
 
   {
-    path: 'login', component: LoginComponent
-  },
+    path: 'register',
+    component: RegisterComponent},
 
   {
     path: 'admin', component: AdminHomeComponent,
+    canActivate: [AdminGuard],
+    canActivateChild: [AdminGuard],
     children: [
-
       {
         path: 'category', component: CategoryComponent,
         children: [
@@ -89,5 +99,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
