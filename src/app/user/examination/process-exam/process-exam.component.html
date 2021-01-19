@@ -19,7 +19,7 @@
         <mat-card-content class="box-card-custom" >
           <h2>Question {{i+1}}: {{question.question.title}}</h2>
           <section class="example-section" *ngFor="let answer of question.question.answers">
-            <mat-radio-button color="primary" name="{{question.question.id}}" >{{answer.content}}</mat-radio-button>
+            <textarea matInput color="primary" name="{{question.question.id}}" >{{answer.content}}</textarea>
             <br><br>
           </section>
         </mat-card-content>

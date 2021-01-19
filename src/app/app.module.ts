@@ -45,10 +45,7 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
-    NavbarComponent,
     LayoutComponent,
-    SidebarComponent,
     LayoutComponent,
     LoginComponent,
     AdminHomeComponent,
