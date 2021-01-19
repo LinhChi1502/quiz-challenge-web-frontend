@@ -26,51 +26,51 @@
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions,let i =index">
 
   <div *ngIf="question.active === true">
-    <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 80%">
+    <div class="question ml-sm-5 pl-sm-5 pt-2" style=" border-radius: 10px; width: 80%">
 
-      <div class="py-2 h5"><b>{{question.title}}</b></div>
+      <div class="py-2 h5" style="text-align: center"><b>{{question.title}}</b></div>
 
-      <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">
-        <div *ngFor="let answer of question.answers">
-          <!--      form multiplechoice &btruefalse-->
-          <div class="custom-control custom-radio">
-            <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
-                   disabled>
-            <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>
-          </div>
-          <!--      form multiplechoice &btruefalse finish-->
-        </div>
-      </div>
+<!--      <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">-->
+<!--        <div *ngFor="let answer of question.answers">-->
+<!--          &lt;!&ndash;      form multiplechoice &btruefalse&ndash;&gt;-->
+<!--          <div class="custom-control custom-radio">-->
+<!--            <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"-->
+<!--                   disabled>-->
+<!--            <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>-->
+<!--          </div>-->
+<!--          &lt;!&ndash;      form multiplechoice &btruefalse finish&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
 
 
-      <div *ngIf="question.type.name == 'multichoicemultianswer'">
-        <div *ngFor="let answer of question.answers">
-          <!--      form multiple choice with many answers-->
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
-            <label class="form-check-label">{{answer.content}}</label>
-          </div>
-          <!--     form multiple choice with many answers-->
-        </div>
-      </div>
+<!--      <div *ngIf="question.type.name == 'multichoicemultianswer'">-->
+<!--        <div *ngFor="let answer of question.answers">-->
+<!--          &lt;!&ndash;      form multiple choice with many answers&ndash;&gt;-->
+<!--          <div class="form-check">-->
+<!--            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>-->
+<!--            <label class="form-check-label">{{answer.content}}</label>-->
+<!--          </div>-->
+<!--          &lt;!&ndash;     form multiple choice with many answers&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div *ngIf="question.type.name == 'fillInBank'">
-        <div *ngFor="let answer of question.answers">
-          <!--      form multiple choice with many answers-->
-          <div class="form-group">
-            <textarea id="text-area" class="form-control" [value]="answer.content" disabled
-                      style="width: 50%"></textarea>
-          </div>
-          <!--     form multiple choice with many answers-->
-        </div>
-      </div>
+<!--      <div *ngIf="question.type.name == 'fillInBank'">-->
+<!--        <div *ngFor="let answer of question.answers">-->
+<!--          &lt;!&ndash;      form multiple choice with many answers&ndash;&gt;-->
+<!--          <div class="form-group">-->
+<!--            <textarea id="text-area" class="form-control" [value]="answer.content" disabled-->
+<!--                      style="width: 50%"></textarea>-->
+<!--          </div>-->
+<!--          &lt;!&ndash;     form multiple choice with many answers&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
-  </div>
+<!--    </div>-->
+<!--  </div>-->
 
   <div *ngIf="question.active === true">
 
-      <BUTTON class="btn bg-primary " style="margin-left: 150px; margin-top: 10px"><a (click)="andQuestionToExam($event,i)" ><i class="fas fa-plus">ADD THIS QUEST</i></a></BUTTON>
+      <BUTTON class="btn bg-primary " style="margin-left: 100px ;margin-top: 10px"><a (click)="andQuestionToExam($event,i)" ><i class="fas fa-plus">ADD THIS QUEST</i></a></BUTTON>
 
 
   </div>

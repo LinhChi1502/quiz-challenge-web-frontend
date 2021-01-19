@@ -29,14 +29,11 @@ export class ExamDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.questService.getAllQuestionByExamId(this.id).subscribe((value) =>
-      this.questions = value);
-    //
-    // this.getExamById(this.id);
+    this.questService.getAllQuestionByExamId(this.id).subscribe((value) =>{
+    console.log(this.id)
+     console.log(value);
+    this.questions=value
+  })
 
-  }
-
-  // getExamById(id: number) {
-  //   this.examService.getExamById(id).subscribe(exam => this.exam = exam);
-  // }
+}
 }
