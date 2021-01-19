@@ -39,6 +39,7 @@ import { ChangePassComponent } from './change-pass/change-pass.component';
 import { ListUserComponent } from './admin/list-user/list-user.component';
 import { HistoryUserComponent } from './admin/history-user/history-user.component';
 import { ListUser2Component } from './admin/list-user2/list-user2.component';
+import { UserExamComponent } from './service/userExam/user-exam/user-exam.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { ListUser2Component } from './admin/list-user2/list-user2.component';
     ListUserComponent,
     HistoryUserComponent,
     ListUser2Component,
+    UserExamComponent,
 
 
   ],
