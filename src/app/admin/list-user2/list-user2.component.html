@@ -1,0 +1,64 @@
+<h1 style="margin-left: 450px; margin-bottom: 50px; margin-top: 20px">User List</h1>
+
+<div class="card">
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th style="width: 10px; text-align: center">#</th>
+        <th style="text-align: center;">Username</th>
+        <th style="text-align: center;">Full name</th>
+        <th style="text-align: center">Roles</th>
+        <th style="text-align: center">Add Role</th>
+        <th style="text-align: center">History</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let appUser of appUsers | paginate: { id: 'listing_pagination',
+itemsPerPage: 5,
+currentPage: page,
+totalItems: totalRecords}; let i = index">
+        <td style="text-align: center" width="150px">{{i + 1}}</td>
+        <td style="text-align: center">{{appUser.username}}</td>
+        <td style="text-align: center">{{appUser.fullname}}</td>
+
+        <td style="text-align: center" *ngIf="appUser.roles.length ==  2">
+          <i class="fa fa-user inline" aria-hidden="true"
+             aria-hidden="true" data-toggle="tooltip"
+             data-placement="bottom" title="User"></i>
+          <i class="fa fa-cogs inline" aria-hidden="true" style="margin-left: 5px"
+             aria-hidden="true" data-toggle="tooltip"
+             data-placement="bottom" title="Admin"></i>
+        </td>
+
+        <td style="text-align: center" *ngIf="appUser.roles.length ==  1">
+          <i class="fa fa-user inline" aria-hidden="true" *ngIf="appUser.roles[0].name == 'ROLE_USER'"
+             aria-hidden="true" data-toggle="tooltip"
+             data-placement="bottom" title="User"></i>
+          <i class="fa fa-cogs inline" aria-hidden="true" *ngIf="appUser.roles[0].name == 'ROLE_ADMIN'"
+             aria-hidden="true" data-toggle="tooltip"
+             data-placement="bottom" title="Admin"></i>
+        </td>
+
+        <td style="text-align: center">
+          <i class="fa fa-user-plus" aria-hidden="true" (click)="addUser(appUser.id)"></i>
+        </td>
+        <td style="text-align: center">
+          <a [routerLink]="['/admin/list-user',{outlets:{listuser:['history-user',id]}}]"><i class="fa fa-history" aria-hidden="true"></i></a>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <router-outlet name="list-user"></router-outlet>
+  <!-- /.card-body -->
+  <div class="card-footer clearfix">
+    <ul class="pagination pagination-sm m-0 float-right">
+      <pagination-controls id="listing_pagination" (pageChange)="page = $event">
+      </pagination-controls>
+    </ul>
+  </div>
+</div>
+

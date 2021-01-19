@@ -23,6 +23,8 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {ChangePassComponent} from './change-pass/change-pass.component';
 import {ListUserComponent} from './admin/list-user/list-user.component';
+import {HistoryUserComponent} from './admin/history-user/history-user.component';
+import {ListUser2Component} from './admin/list-user2/list-user2.component';
 
 const routes: Routes = [
   {
@@ -64,18 +66,24 @@ const routes: Routes = [
         ]
       },
 
-      {path:'exam', component: ExamComponent,
-        children:[
-          {path: '',component: ExamListComponent,outlet: 'exam'},
-          {path: 'exam-list',component:ExamListComponent ,outlet: 'exam'},
-          {path: 'create-exam',component: CreateExamComponent,outlet: 'exam'},
-          {path: 'exam-detail/:id',component: ExamDetailComponent,outlet: 'exam'},
+      {
+        path: 'exam', component: ExamComponent,
+        children: [
+          {path: '', component: ExamListComponent, outlet: 'exam'},
+          {path: 'exam-list', component: ExamListComponent, outlet: 'exam'},
+          {path: 'create-exam', component: CreateExamComponent, outlet: 'exam'},
+          {path: 'exam-detail/:id', component: ExamDetailComponent, outlet: 'exam'},
 
         ]
 
       },
       {
-        path: 'list-user', component: ListUserComponent
+        path: 'list-user', component: ListUserComponent,
+        children: [
+          {path: 'list-user2', component: ListUser2Component, outlet: 'listuser'},
+          {path: 'history-user/:id', component: HistoryUserComponent, outlet: 'listuser'},
+
+        ]
       },
 
     ]

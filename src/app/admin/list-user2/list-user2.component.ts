@@ -1,18 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AppUser} from '../../model/app-user';
-import {CategoryService} from '../../service/category/category.service';
+import {any} from 'codelyzer/util/function';
 import {UserService} from '../../service/user/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {any} from 'codelyzer/util/function';
 
 @Component({
-  selector: 'app-list-user',
-  templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.scss']
+  selector: 'app-list-user2',
+  templateUrl: './list-user2.component.html',
+  styleUrls: ['./list-user2.component.scss']
 })
-export class ListUserComponent implements OnInit {
+export class ListUser2Component implements OnInit {
 
-  appUsers: any =[]
+  appUsers: any = []
 
   appUser: AppUser = {
     id: 0,
@@ -57,8 +56,8 @@ export class ListUserComponent implements OnInit {
       this.appUser.fullname = value.fullname;
       this.appUser.password = value.password;
     });
-  }
 
+  }
 
   addUser(id: any) {
     this.getUserById(id);
