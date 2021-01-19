@@ -51,8 +51,9 @@ export class QuestionService {
     return this.http.get<Question[]>(`http://localhost:8080/api/questions/quest-list/${id}`);
   }
 
-  transerQuest(question: any): Observable<Question> {
-    return this.http.put<Question>(`http://localhost:8080/api/questions/transer`, question);
+  addQuestionListToExam(questions: Question[]): Observable<Question[]> {
+    return this.http.post<Question[]>(`http://localhost:8080/api/questions/listquest`, questions);
+
   }
   insertQuestions(question: Question ): Observable<Question> {
     console.log(this.http.post<Question>(API_URL + `/api/questions`, question));
