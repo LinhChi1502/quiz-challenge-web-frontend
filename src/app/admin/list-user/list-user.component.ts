@@ -76,6 +76,7 @@ export class ListUserComponent implements OnInit {
             this.appUser.username = value.username;
             this.appUser.fullname = value.fullname;
             this.appUser.password = value.password;
+            this.getAllUsers();
           });
         }
       }
