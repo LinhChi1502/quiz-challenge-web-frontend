@@ -3,7 +3,9 @@ import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterSta
 import {AuthService} from "../../service/auth/auth.service";
 import {UserToken} from "../../model/user-token";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AdminGuard implements CanActivate, CanActivateChild {
   currentUser: UserToken ={};
   constructor(private router: Router,
@@ -30,12 +32,11 @@ export class AdminGuard implements CanActivate, CanActivateChild {
         return true;
       } else {
         this.authService.logout();
-        this.router.navigate(['/', 'admin', 'dashboard'], { queryParams: {login: true}, queryParamsHandling: 'merge' } );
+        this.router.navigate(['/','login'], { queryParams: {login: true}, queryParamsHandling: 'merge' } );
         return false;
       }
     } else {
-      // not logged in so redirect to login page with the return url
-      this.router.navigate(['/', 'admin', 'login'], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(['/',  'login'], { queryParams: { returnUrl: state.url } });
       return false;
     }
   }
@@ -51,8 +52,7 @@ export class AdminGuard implements CanActivate, CanActivateChild {
       }
       return hasRoleAdmin;
     } else {
-      // not logged in so redirect to login page with the return url
-      this.router.navigate(['/', 'admin', 'login'], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(['/', 'login'], { queryParams: { returnUrl: state.url } });
       return false;
     }
   }

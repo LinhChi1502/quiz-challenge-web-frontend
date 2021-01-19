@@ -40,6 +40,7 @@ import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 import {LogoutComponent} from "./login/logout/logout.component";
 import {RegisterComponent} from "./login/register/register.component";
+import {ChangepassComponent} from "./login/changepass/changepass.component";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import {RegisterComponent} from "./login/register/register.component";
     ExamDetailComponent,
     QuestionList2Component,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChangepassComponent
   ],
   imports: [
     BrowserModule,

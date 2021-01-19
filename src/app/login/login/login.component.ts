@@ -12,34 +12,6 @@ declare var $: any;
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  // // @ts-ignore
-  // currentUser: UserToken ;
-  // user: AppUser = {
-  //   username: '',
-  //   password: ''
-  // };
-  // returnUrl = '';
-  //
-  // constructor(private router: Router,
-  //             private activatedRoute: ActivatedRoute,
-  //             private authService: AuthService) {
-  //   // @ts-ignore
-  //   this.authService.currentUser.subscribe(value => this.currentUser = value);
-  // }
-  //
-  // ngOnInit() {
-  //   this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/home';
-  // }
-  //
-  // login() {
-  //   // @ts-ignore
-  //   this.authService.login(this.user.username, this.user.password)
-  //     .pipe(first())
-  //     .subscribe(data => {
-  //       this.router.navigate([this.returnUrl]);
-  //     });
-  // }
-
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
