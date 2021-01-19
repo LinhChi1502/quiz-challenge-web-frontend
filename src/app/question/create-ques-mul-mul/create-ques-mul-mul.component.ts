@@ -5,6 +5,8 @@ import {QuestionService} from '../../service/question/question.service';
 import {CategoryService} from '../../service/category/category.service';
 import {AnswerService} from '../../service/answer/answer.service';
 import {Answer} from '../../model/answer';
+import {forEachComment} from "tslint";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-ques-mul-mul',
@@ -12,7 +14,7 @@ import {Answer} from '../../model/answer';
   styleUrls: ['./create-ques-mul-mul.component.scss']
 })
 export class CreateQuesMulMulComponent implements OnInit {
-
+questions : any = [];
   question: Question = {
     category: {
       id: null
@@ -47,22 +49,32 @@ export class CreateQuesMulMulComponent implements OnInit {
 
   constructor(private questionService: QuestionService,
               private categoryService: CategoryService,
-              private answerService: AnswerService) {
+              private answerService: AnswerService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.getAllCategories();
     for (let i = 0; i < this.question.answers.length; i++) {
         this.question.answers[i].correct=false;
-    }
+    };
+    this.getAllQuestions();
+
   }
 
   createNewQuestion() {
     this.question.type.id = 4;
     this.question.active = true;
+    for (let i = 0; i < this.questions.length; i++) {
+      if(this.questions[i].type.id ==4 && this.questions[i].title == this.question.title){
+        alert("This question existed!");
+        this.router.navigate(['/admin/question/create-ques-mul-mul'])
+      }
+    }
     this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
       () => alert('Fail'));
     this.question = {};
+
   }
 
   getAllCategories() {
@@ -78,5 +90,10 @@ export class CreateQuesMulMulComponent implements OnInit {
 
   chooseCorrectAnswer(event:any, index:number) {
     this.question.answers[index].correct=!this.question.answers[index].correct;
+  }
+  getAllQuestions(){
+    return this.questionService.getAllQuestion().subscribe(value => {
+      this.questions =value;
+    })
   }
 }
