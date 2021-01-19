@@ -5,6 +5,7 @@ import {Answer} from '../../model/answer';
 import {QuestionService} from '../../service/question/question.service';
 import {CategoryService} from '../../service/category/category.service';
 import {AnswerService} from '../../service/answer/answer.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-ques-mul-one',
@@ -12,7 +13,7 @@ import {AnswerService} from '../../service/answer/answer.service';
   styleUrls: ['./create-ques-mul-one.component.scss']
 })
 export class CreateQuesMulOneComponent implements OnInit {
-
+questions: any = [];
   question: Question = {
     category: {
       id: null
@@ -45,7 +46,8 @@ export class CreateQuesMulOneComponent implements OnInit {
   array = ['A', 'B', 'C', 'D'];
 
   constructor(private questionService: QuestionService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class CreateQuesMulOneComponent implements OnInit {
     for (let i = 0; i < this.question.answers.length; i++) {
       this.question.answers[i].correct = false;
     }
+    this.getAllQuestions();
   }
 
   getAllCategories() {
@@ -64,6 +67,13 @@ export class CreateQuesMulOneComponent implements OnInit {
   createNewQuestion() {
     this.question.type.id = 1;
     this.question.active = true;
+    for (let i = 0; i < this.questions.length; i++) {
+      if(this.questions[i].type.id ==1 && this.questions[i].title == this.question.title){
+        alert("This question existed!");
+        this.router.navigate(['/admin/question/create-ques-mul-one'])
+        break;
+      }
+    }
     this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
       () => alert('Fail'));
     this.question = {};
@@ -79,5 +89,10 @@ export class CreateQuesMulOneComponent implements OnInit {
       this.question.answers[i].correct = false;
     }
     this.question.answers[index].correct = true;
+  }
+  getAllQuestions() {
+    return this.questionService.getAllQuestion().subscribe(value => {
+      this.questions = value;
+    })
   }
 }
