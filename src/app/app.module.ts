@@ -1,5 +1,5 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,6 +12,9 @@ import {LoginComponent} from './login/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './login/helper/jwt-interceptor';
 import {ErrorInterceptor} from './login/helper/error-interceptor';
+import {MatTabsModule} from "@angular/material/tabs";
+// @ts-ignore
+import {MatIconModule} from '@angular/material/icon';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {MaterialModule} from './material/material.module';
@@ -35,6 +38,9 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
+import {LogoutComponent} from "./login/logout/logout.component";
+import {RegisterComponent} from "./login/register/register.component";
+import {ChangepassComponent} from "./login/changepass/changepass.component";
 
 @NgModule({
   declarations: [
@@ -64,19 +70,26 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
     ExamListComponent,
     CreateExamComponent,
     ExamDetailComponent,
-    QuestionList2Component
-
+    QuestionList2Component,
+    LogoutComponent,
+    RegisterComponent,
+    ChangepassComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatTabsModule,
+    MatIconModule,
+    HttpClientModule,
+    FormsModule,
+    HttpClientModule, FormsModule,
+    MaterialModule,
     HttpClientModule,
     FormsModule,
     MaterialModule,
     NgxPaginationModule,
-    ReactiveFormsModule,
-
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
@@ -84,5 +97,4 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
