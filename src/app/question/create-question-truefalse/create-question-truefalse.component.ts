@@ -4,6 +4,7 @@ import {Category} from '../../model/category';
 import {Answer} from '../../model/answer';
 import {QuestionService} from '../../service/question/question.service';
 import {CategoryService} from '../../service/category/category.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-question-truefalse',
@@ -12,6 +13,7 @@ import {CategoryService} from '../../service/category/category.service';
 })
 export class CreateQuestionTruefalseComponent implements OnInit {
   currentIndex: Number = 0;
+  questions: any = [];
   question: Question = {
     category: {
       id: null
@@ -38,7 +40,8 @@ export class CreateQuestionTruefalseComponent implements OnInit {
   array = ['True', 'False'];
 
   constructor(private questionService: QuestionService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -46,6 +49,7 @@ export class CreateQuestionTruefalseComponent implements OnInit {
     for (let i = 0; i < this.question.answers.length; i++) {
       this.question.answers[i].correct = false;
     }
+    this.getAllQuestions();
   }
 
   getAllCategories() {
@@ -56,6 +60,13 @@ export class CreateQuestionTruefalseComponent implements OnInit {
 
   createNewQuestion() {
     this.question.active = true;
+    for (let i = 0; i < this.questions.length; i++) {
+      if(this.questions[i].type.id ==2 && this.questions[i].title == this.question.title){
+        alert("This question existed!");
+        this.router.navigate(['/admin/question',{outlets:{question:['create-question-input']}}])
+        break;
+      }
+    }
     this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
       () => alert('Fail'));
     this.question = {};
@@ -68,7 +79,7 @@ export class CreateQuestionTruefalseComponent implements OnInit {
 
 
   chooseCorrectAnswer(event: any, index: number) {
-    
+
     for (let i = 0; i < this.question.answers.length; i++) {
       this.question.answers[i].correct = false;
     }
@@ -76,4 +87,8 @@ export class CreateQuestionTruefalseComponent implements OnInit {
     this.question.answers[index].content = event.target.value;
 
   }
+  getAllQuestions() {
+    return this.questionService.getAllQuestion().subscribe(value => {
+      this.questions = value;
+    })}
 }
