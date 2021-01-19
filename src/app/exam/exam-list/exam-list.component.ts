@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './exam-list.component.html',
   styleUrls: ['./exam-list.component.scss']
 })
+
 export class ExamListComponent implements OnInit {
 
   examList: Exam[] = [];
