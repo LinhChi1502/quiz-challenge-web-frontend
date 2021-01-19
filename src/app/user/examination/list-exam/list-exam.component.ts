@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {ExamService} from '../../../service/exam/exam.service';
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-exam',
@@ -14,8 +15,9 @@ export class ListExamComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   displayedColumns = ['id', 'name', 'option'];
   filteredListExams!: MatTableDataSource<any>;
+  searchKey!: string;
 
-  constructor(private examService: ExamService) { }
+  constructor(private examService: ExamService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -35,6 +37,19 @@ export class ListExamComponent implements OnInit {
       this.filteredListExams.paginator = this.paginator;
       this.filteredListExams.sort = this.sort;
     });
+  }
+
+  onSearchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
+  applyFilter() {
+    this.filteredListExams.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  // @ts-ignore
+  processExam(id) {
+    this.router.navigate([`examination/process/${id}`]).then(r => r);
   }
 }
 

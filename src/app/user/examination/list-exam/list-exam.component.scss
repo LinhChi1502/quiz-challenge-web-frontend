@@ -8,6 +8,7 @@ table {
 .mat-form-field {
   font-size: 14px;
   width: 100%;
+  text-overflow: clip;
 }
 
 td, th {
@@ -25,5 +26,5 @@ mat-footer-row mat-footer-cell{
 /* filter controls */
 .search-div{
   margin: 10px;
+  text-overflow: clip;
 }
-

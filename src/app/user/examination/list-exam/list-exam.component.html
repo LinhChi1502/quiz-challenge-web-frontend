@@ -1,19 +1,28 @@
+<p style="text-align: center; font-size: 50px; margin-top: 40px" >List Exam </p> <br>
+<div class="search-div">
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
 <div class="example-container mat-elevation-z8">
   <mat-table [dataSource]="filteredListExams" matSort>
     <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
       <mat-cell *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Test Name</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="option">
       <mat-header-cell *matHeaderCellDef >Click to test</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-icon-button matTooltip="Click to start" class="iconbutton" color="primary">
-          <mat-icon aria-label="Start" >not_started</mat-icon>
-        </button>
+        <a mat-icon-button matTooltip="Click to start" class="iconbutton"  color="primary" (click)="processExam(element.id)">
+          <mat-icon aria-label="Start" >play_circle</mat-icon>
+        </a>
       </mat-cell>
     </ng-container>
 
@@ -32,6 +41,6 @@
     <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':filteredListExams!=null}"></mat-footer-row>
     <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(filteredListExams!=null && filteredListExams.data.length==0)}"></mat-footer-row>
   </mat-table>
-  <mat-paginator [pageSizeOptions]="[1, 2, 3]" [pageSize]="1" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
 </div>
 

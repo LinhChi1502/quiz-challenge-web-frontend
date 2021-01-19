@@ -32,7 +32,7 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
-
+import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +59,8 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
     ExamListComponent,
     CreateExamComponent,
     ExamDetailComponent,
-    QuestionList2Component
+    QuestionList2Component,
+    ProcessExamComponent
 
   ],
   imports: [
@@ -70,8 +71,7 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
     FormsModule,
     MaterialModule,
     NgxPaginationModule,
-    ReactiveFormsModule,
-
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
