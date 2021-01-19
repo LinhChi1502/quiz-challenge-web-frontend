@@ -38,9 +38,8 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
-import {LogoutComponent} from "./login/logout/logout.component";
 import {RegisterComponent} from "./login/register/register.component";
-import {ChangepassComponent} from "./login/changepass/changepass.component";
+
 
 @NgModule({
   declarations: [
@@ -71,9 +70,9 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
     CreateExamComponent,
     ExamDetailComponent,
     QuestionList2Component,
-    LogoutComponent,
+    // LogoutComponent,
     RegisterComponent,
-    ChangepassComponent
+    // ChangepassComponent
   ],
   imports: [
     BrowserModule,

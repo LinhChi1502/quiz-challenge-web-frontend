@@ -25,14 +25,10 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {LayoutComponent} from "./login/layout/layout.component";
 import {AdminGuard} from "./login/helper/admin-guard";
-import {ChangepassComponent} from "./login/changepass/changepass.component";
+
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
+
   {
     path: '',
     component: LayoutComponent
@@ -45,10 +41,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent},
-  {
-    path: 'changepass',
-    component: ChangepassComponent
-  },
+
   {
     path: 'admin', component: AdminHomeComponent,
     canActivate: [AdminGuard],
