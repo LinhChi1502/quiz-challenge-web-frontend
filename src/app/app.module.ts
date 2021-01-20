@@ -40,6 +40,8 @@ import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 import {RegisterComponent} from "./login/register/register.component";
 import {ChangepassComponent} from "./login/changepass/changepass.component";
+import { ChartComponent } from './chart/chart.component';
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -71,7 +73,8 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
     ExamDetailComponent,
     QuestionList2Component,
     RegisterComponent,
-    ChangepassComponent
+    ChangepassComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
     FormsModule,
     MaterialModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

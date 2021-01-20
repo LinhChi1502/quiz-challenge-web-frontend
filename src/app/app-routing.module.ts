@@ -26,6 +26,7 @@ import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {LayoutComponent} from "./login/layout/layout.component";
 import {AdminGuard} from "./login/helper/admin-guard";
 import {ChangepassComponent} from "./login/changepass/changepass.component";
+import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
   {
@@ -94,6 +95,10 @@ const routes: Routes = [
 
   {
     path: 'home', component: HomepageComponent
+  },
+  {
+    path: 'chart',
+    component: ChartComponent
   }
 ];
 
