@@ -67,16 +67,42 @@ questions: any = [];
   createNewQuestion() {
     this.question.type.id = 1;
     this.question.active = true;
+    let isExisted = false;
     for (let i = 0; i < this.questions.length; i++) {
       if(this.questions[i].type.id ==1 && this.questions[i].title == this.question.title){
-        alert("This question existed!");
-        this.router.navigate(['/admin/question',{outlets:{question:['create-ques-mul-one']}}])
+        isExisted = true;
         break;
       }
     }
+    if(isExisted){
+      alert("this question existed ")
+    }else {
     this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
       () => alert('Fail'));
-    this.question = {};
+    }
+    this.question = {
+      category: {
+        id: null
+      },
+
+      type: {
+        id: 1
+      },
+
+      answers: [
+        {
+          id: null
+        },
+        {
+          id: null
+        },
+        {
+          id: null
+        },
+        {
+          id: null
+        }
+      ]};
   }
 
   createAnswer(event: any, index: number) {
