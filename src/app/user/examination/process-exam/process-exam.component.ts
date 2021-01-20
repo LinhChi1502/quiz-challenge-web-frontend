@@ -48,7 +48,7 @@ export class ProcessExamComponent implements OnInit {
       },
     ]
   };
-  answerArr: UserAnswer [] = [];
+  answerArr: any [] = [];
   answerChoosed!: UserAnswer;
 
   constructor(private activatedRoute: ActivatedRoute, private examService: ExamService) {
@@ -61,9 +61,6 @@ export class ProcessExamComponent implements OnInit {
         await (this.id = +result.get('id'));
         await this.examService.getExamById(this.id).subscribe(receiveExam => {
           this.currentExam = receiveExam;
-          this.answerArr = new Array(this.currentExam.examQuestions.length);
-          console.log(this.currentExam);
-          console.log(this.answerArr);
         })
       }
     )
@@ -78,24 +75,38 @@ export class ProcessExamComponent implements OnInit {
     //Cũng là để cho vui đã
   }
 
-  selectAnswers(answer: any, type: any, i: number, event: any) {
+  selectAnswers(answer: any, question: any, i: number, event: any) {
     //Cái này để xử lý chọn đáp án
-    console.log(answer);
-    console.log(type);
-    console.log(i);
-    if (type.name == 'multipleChoice' || type.name == 'trueOrFalse'){
+    // console.log(answer);
+    // console.log(type);
+    // console.log(i);
+    if (question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'){
       this.answerChoosed = {
         content: answer.content,
-        questionIndex: i,
+        questionIndex: question.id,
       };
-    } else if (type.name == 'fillInBank'){
+      this.answerArr = this.answerArr.filter(result => (result.questionIndex !== this.answerChoosed.questionIndex))
+      this.answerArr.push(this.answerChoosed);
+    } else if (question.type.name == 'fillInBank'){
       this.answerChoosed = {
         content: event.target.value,
-        questionIndex: i,
+        questionIndex: question.id,
       };
-      console.log(event.target.value.toString());
+      this.answerArr = this.answerArr.filter(result => (result.questionIndex !== this.answerChoosed.questionIndex))
+      this.answerArr.push(this.answerChoosed);
+      // console.log(event.target.value.toString());
+    } else {
+      this.answerChoosed = {
+        content: answer.content,
+        questionIndex: question.id,
+      }
+      if (event.checked){
+        this.answerArr.push(this.answerChoosed);
+      } else {
+        this.answerArr = this.answerArr.filter(result => (result.content !== this.answerChoosed.content));
+      }
+      // console.log(event.checked);
     }
-    this.answerArr[i] = this.answerChoosed;
     console.log(this.answerArr);
   }
 }

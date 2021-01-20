@@ -9,7 +9,7 @@
           <mat-card-content class="box-card-custom" >
             <h2>Question {{i+1}}: {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
-              <mat-radio-button color="primary" name="{{question.question.id}}" (change)="selectAnswers(answer,question.question.type,question.question.id, this)">{{answer.content}}</mat-radio-button>
+              <mat-radio-button color="primary" name="{{question.question.id}}" (change)="selectAnswers(answer, question.question, i, this)">{{answer.content}}</mat-radio-button>
               <br><br>
             </section>
           </mat-card-content>
@@ -20,7 +20,8 @@
           <mat-card-content class="box-card-custom" >
             <h2>Question {{i+1}}: {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
-              <textarea style="max-width: 100%; resize: none; border: 1px solid black" cols="300" rows="5" autocomplete="off" name="{{question.question.id}}" (change)="selectAnswers(answer,question.question.type,question.question.id, $event)"></textarea>
+              <textarea style="max-width: 100%; resize: none; border: 1px solid black" cols="300" rows="5" autocomplete="off"
+                        name="{{question.question.id}}" (change)="selectAnswers(answer, question.question, i, $event)"></textarea>
               <br><br>
             </section>
           </mat-card-content>
@@ -31,7 +32,7 @@
           <mat-card-content class="box-card-custom" >
             <h2>Question {{i+1}}: {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
-              <mat-checkbox color="primary" name="{{question.question.id}}" >{{answer.content}}</mat-checkbox>
+              <mat-checkbox color="primary" name="{{question.question.id}}" (change)="selectAnswers(answer, question.question, i, $event)">{{answer.content}}</mat-checkbox>
               <br><br>
             </section>
           </mat-card-content>
