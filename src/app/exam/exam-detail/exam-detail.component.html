@@ -1,9 +1,9 @@
-<div class="container mt-sm-5 my-1" *ngFor="let question of questions">
+<div class="container mt-sm-5 my-1" *ngFor="let question of questions; let i = index">
 
-  <div *ngIf="question.active === true">
+  <div *ngIf="question.active === true" style="margin-left: 200px">
     <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
 
-      <div class="py-2 h5"><b>{{question.title}}</b></div>
+      <div class="py-2 h5"><b>Question {{i + 1 + ': '}} {{question.title}}</b></div>
 
       <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">
         <div *ngFor="let answer of question.answers">
