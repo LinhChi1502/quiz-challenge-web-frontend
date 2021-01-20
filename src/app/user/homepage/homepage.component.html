@@ -1,1 +1,14 @@
+<app-navbar (isExpandedPassOut)="isExpandedGet($event)"></app-navbar>
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" [(opened)]="sideNavOpened" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <app-sidebar [isExpanded]="isExpanded" [isShowing]="isShowing"></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content >
 
+
+
+    <main class="main-container">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

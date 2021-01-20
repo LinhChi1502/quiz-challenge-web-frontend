@@ -1,0 +1,16 @@
+.material-icons.color_custom { color: #6495ED; }
+//.material-icons.color_custom:hover { color: #1E90FF; }
+
+mat-list-item a{
+  margin: 10px;
+}
+.translate{
+  overflow-x: hidden;
+  transition: transform 300ms ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.translate.expanded{
+  transform: scaleX(1);
+}

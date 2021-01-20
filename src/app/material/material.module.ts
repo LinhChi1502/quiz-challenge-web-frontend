@@ -10,6 +10,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatSortModule} from "@angular/material/sort";
+import {MatCardModule} from "@angular/material/card";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 const MaterialComponents = [
   MatTabsModule,
@@ -22,7 +31,16 @@ const MaterialComponents = [
   MatSidenavModule,
   MatGridListModule,
   MatMenuModule,
-  MatListModule
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatTooltipModule,
+  MatSortModule,
+  MatCardModule,
+  MatRadioModule,
+  MatCheckboxModule
 ];
 
 @NgModule({

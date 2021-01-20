@@ -33,27 +33,22 @@ import {CreateQuestionTruefalseComponent} from './question/create-question-truef
 import {CreateQuestionInputComponent} from './question/create-question-input/create-question-input.component';
 import {CreateQuesMulOneComponent} from './question/create-ques-mul-one/create-ques-mul-one.component';
 import {CreateQuesMulMulComponent} from './question/create-ques-mul-mul/create-ques-mul-mul.component';
+import {ExamComponent} from './exam/exam.component';
 import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {CreateExamComponent} from './exam/create-exam/create-exam.component';
-
+import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
+import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 import {RegisterComponent} from "./login/register/register.component";
-import {ChangepassComponent} from "./login/changepass/changepass.component";
-
-import {ChartsModule} from "ng2-charts";
 import { ListUserComponent } from './admin/list-user/list-user.component';
 import { ListUser2Component } from './admin/list-user2/list-user2.component';
 import { HistoryUserComponent } from './admin/history-user/history-user.component';
 import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-exam.component';
-import {ExamComponent} from './exam/exam.component';
-import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
-import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 
 
+import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
-    NavbarComponent,
     LayoutComponent,
     SidebarComponent,
     LayoutComponent,
@@ -78,9 +73,11 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
     CreateExamComponent,
     ExamDetailComponent,
     QuestionList2Component,
+    ProcessExamComponent,
+
+    QuestionList2Component,
+    // LogoutComponent,
     RegisterComponent,
-    ChangepassComponent,
-    // ChartComponent,
     ListUserComponent,
     ListUser2Component,
     HistoryUserComponent,
@@ -101,8 +98,7 @@ import {QuestionList2Component} from './exam/create-exam/question-list2/question
     FormsModule,
     MaterialModule,
     NgxPaginationModule,
-    ReactiveFormsModule,
-    ChartsModule
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
