@@ -17,11 +17,9 @@ export class UserService {
   getUserProfile(id: string): Observable<AppUser> {
     return this.http.get<AppUser>(API_URL + `/users/${id}`);
   }
-  getAllUser(): Observable<AppUser[]>{
-    return  this.http.get<AppUser[]>( API_URL + `/api/users`);
-
-
-
+  getAllUser(): Observable<AppUser[]> {
+    return this.http.get<AppUser[]>(API_URL + `/api/users`);
+  }
   addUser(id: number, user: AppUser): Observable<AppUser> {
     return this.http.put<AppUser>(API_URL + `/api/users/${id}`, user);
   }
