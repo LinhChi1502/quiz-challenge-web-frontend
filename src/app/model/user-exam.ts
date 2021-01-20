@@ -4,4 +4,5 @@ export interface UserExam {
   appUser?: any;
   exam?: any;
   userAnswers?: any[];
+  mark?: any;
 }
