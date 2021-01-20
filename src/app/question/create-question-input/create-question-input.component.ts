@@ -55,23 +55,41 @@ questions : any =[];
   }
 
   createNewQuestion() {
-    for (let i = 0; i < this.answers.length; i++) {
-      this.question.answers.push(this.answers[i]);
-    }
     this.question.active = true;
+    let isExisted = false;
     for (let i = 0; i < this.questions.length; i++) {
       if(this.questions[i].type.id ==3 && this.questions[i].title == this.question.title){
-        alert("This question existed!");
-        this.router.navigate(['/admin/question',{outlets:{question:['create-question-input']}}])
+        isExisted = true;
         break;
       }
     }
-    this.questionService.createNewQuestion(this.question).subscribe(question => {
-        this.question = question;
-        alert('Success');
+    if(isExisted){
+      alert("This question existed!");
+      for (let i = 0; i < this.answers.length; i++) {
+        // @ts-ignore
+        this.deleteAnswer(this.answers[i].id);
+      }
+    }else {
+      for (let i = 0; i < this.answers.length; i++) {
+        this.question.answers.push(this.answers[i]);
+      }
+      this.questionService.createNewQuestion(this.question).subscribe(question => {
+          this.question = question;
+          alert('Success');
+        },
+        () => alert('Fail'));
+    }
+    this.question = {
+      active: true,
+      category: {
+        id: null
       },
-      () => alert('Fail'));
-    console.log(this.question);
+      type: {
+        id: 3
+      },
+      title: '',
+      answers: []
+    }
   }
 
   createNewAnswer() {
@@ -84,14 +102,22 @@ questions : any =[];
     // @ts-ignore
     answer1.content = this.onChangeValue;
     // @ts-ignore
-    this.answerService.createNewAnswer(this.answer).subscribe(answer => answer1 = answer);
-    // @ts-ignore
-    this.answer = answer1;
+    // answer1 = await this.createAnswerToPromise(this.answer);
+    this.answerService.createNewAnswer(this.answer).subscribe(answer =>{
+      // @ts-ignore
+      answer1.id = answer.id
+      // @ts-ignore
+      this.answer = answer1;
+      this.answers.push(this.answer);
+    });
+  }
+
+  createAnswerToPromise(answer: any){
+    return this.answerService.createNewAnswer(answer).toPromise();
   }
 
   addAnswerToArray() {
     this.createNewAnswer();
-    this.answers.push(this.answer);
   }
 
   getValue(event: any) {
@@ -102,4 +128,7 @@ questions : any =[];
     return this.questionService.getAllQuestion().subscribe(value => {
       this.questions = value;
     })}
+  deleteAnswer(id: number) {
+      this.answerService.deleteAnswer(id).subscribe(() => console.log('a'));
+  }
 }
