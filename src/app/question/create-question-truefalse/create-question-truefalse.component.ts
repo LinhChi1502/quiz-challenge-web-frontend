@@ -60,16 +60,36 @@ export class CreateQuestionTruefalseComponent implements OnInit {
 
   createNewQuestion() {
     this.question.active = true;
+    let isExist = false;
     for (let i = 0; i < this.questions.length; i++) {
       if(this.questions[i].type.id ==2 && this.questions[i].title == this.question.title){
-        alert("This question existed!");
-        this.router.navigate(['/admin/question',{outlets:{question:['create-question-input']}}])
+        isExist = true;
         break;
       }
     }
-    this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
-      () => alert('Fail'));
-    this.question = {};
+    if(isExist){
+      alert("This question existed!");
+    }else {
+      this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
+        () => alert('Fail'));
+    }
+    this.question = {
+      category: {
+        id: null
+      },
+
+      type: {
+        id: 2
+      },
+
+      answers: [
+        {
+          id: null
+        },
+        {
+          id: null
+        }
+      ]};
   }
 
   createAnswer(event: any, index: number) {
