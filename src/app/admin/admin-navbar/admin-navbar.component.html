@@ -21,7 +21,8 @@
 
       </mat-menu>
       <a mat-icon-button>
-        <mat-icon (click)="logout()" >Exit_to_app</mat-icon>
+        <mat-icon (click)="logout()" aria-hidden="true" data-toggle="tooltip"
+                  data-placement="bottom" title="Logout">exit_to_app</mat-icon>
       </a>
     </div>
   </mat-toolbar-row>

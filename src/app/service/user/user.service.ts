@@ -10,25 +10,24 @@ const API_URL = `${environment.apiUrl}`
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
-
-  getAllUsers(): Observable<AppUser[]> {
-    return this.http.get<AppUser[]>(API_URL + `/api/users`);
-  }
-
-  addUser(id: number, user: AppUser): Observable<AppUser> {
-    return this.http.put<AppUser>(API_URL + `/api/users/${id}`, user);
-  }
-
-  getUserById(id: number): Observable<AppUser> {
-    return this.http.get<AppUser>(API_URL + `/api/users/${id}`);
+  constructor(private http: HttpClient) {}
   newPassword(user: AppUser, id: number, token: string): Observable<AppUser> {
     return this.http.put<AppUser>(API_URL + `/new-password/${id}?token=` + token, user);
   }
   getUserProfile(id: string): Observable<AppUser> {
     return this.http.get<AppUser>(API_URL + `/users/${id}`);
   }
-  getAllUser(): Observable<AppUser[]>{
-    return  this.http.get<AppUser[]>( API_URL + `/api/users`);
+  getAllUser(): Observable<AppUser[]> {
+    return this.http.get<AppUser[]>(API_URL + `/api/users`);
   }
-}
+  addUser(id: number, user: AppUser): Observable<AppUser> {
+    return this.http.put<AppUser>(API_URL + `/api/users/${id}`, user);
+  }
+
+  getUserById(id: number): Observable<AppUser> {
+    return this.http.get<AppUser>(API_URL + `/api/users/${id}`);
+  }
+  }
+
+
+
