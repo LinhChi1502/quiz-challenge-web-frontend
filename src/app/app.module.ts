@@ -39,6 +39,9 @@ import {CreateExamComponent} from './exam/create-exam/create-exam.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {QuestionList2Component} from './exam/create-exam/question-list2/question-list2.component';
 import {RegisterComponent} from "./login/register/register.component";
+import { ListUserComponent } from './admin/list-user/list-user.component';
+import { ListUser2Component } from './admin/list-user2/list-user2.component';
+import { HistoryUserComponent } from './admin/history-user/history-user.component';
 
 
 @NgModule({
@@ -72,6 +75,9 @@ import {RegisterComponent} from "./login/register/register.component";
     QuestionList2Component,
     // LogoutComponent,
     RegisterComponent,
+    ListUserComponent,
+    ListUser2Component,
+    HistoryUserComponent,
     // ChangepassComponent
   ],
   imports: [
