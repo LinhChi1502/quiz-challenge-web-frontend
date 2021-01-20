@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from "./login/home/home.component";
-import {AuthGuard} from "./login/helper/auth-guard";
-import {LoginComponent} from "./login/login/login.component";
-import {RegisterComponent} from "./login/register/register.component";
+
+
 import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {HomepageComponent} from './user/homepage/homepage.component';
 import {CategoryComponent} from './category/category/category.component';
@@ -19,18 +17,22 @@ import {CreateQuestionTruefalseComponent} from './question/create-question-truef
 import {CreateQuestionInputComponent} from './question/create-question-input/create-question-input.component';
 import {CreateQuesMulOneComponent} from './question/create-ques-mul-one/create-ques-mul-one.component';
 import {CreateQuesMulMulComponent} from './question/create-ques-mul-mul/create-ques-mul-mul.component';
-import {ExamComponent} from './exam/exam.component';
-import {CreateExamComponent} from './exam/create-exam/create-exam.component';
-import {ExamListComponent} from './exam/exam-list/exam-list.component';
-import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
-import {LayoutComponent} from "./login/layout/layout.component";
-import {AdminGuard} from "./login/helper/admin-guard";
+
 import {ListUserComponent} from './admin/list-user/list-user.component';
 import {ListUser2Component} from './admin/list-user2/list-user2.component';
 import {HistoryUserComponent} from './admin/history-user/history-user.component';
 import {DetailUserExamComponent} from './admin/detail-user-exam/detail-user-exam.component';
+import {LayoutComponent} from './login/layout/layout.component';
+import {LoginComponent} from './login/login/login.component';
+import {AdminGuard} from './login/helper/admin-guard';
+import {ExamComponent} from './exam/exam.component';
+import {ExamListComponent} from './exam/exam-list/exam-list.component';
+import {CreateExamComponent} from './exam/create-exam/create-exam.component';
+import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
+import {RegisterComponent} from './login/register/register.component';
 
 
+// @ts-ignore
 const routes: Routes = [
 
   {
@@ -51,6 +53,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     canActivateChild: [AdminGuard],
     children: [
+      {path: '', redirectTo: 'question', pathMatch: 'full' },
       {
         path: 'category', component: CategoryComponent,
         children: [
