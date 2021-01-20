@@ -1,40 +1,49 @@
-<mat-card>
-  <mat-card-content>
-    <h1 class=" text-center">{{currentExam.name}}</h1>
-  </mat-card-content>
-  <div class="example-section" *ngFor="let question of currentExam.examQuestions; let i = index">
-    <ng-container *ngIf="question.question.type.name == 'multipleChoice' ||  question.question.type.name == 'trueOrFalse'">
-      <mat-card >
-        <mat-card-content class="box-card-custom" >
-          <h2>Question {{i+1}}: {{question.question.title}}</h2>
-          <section class="example-section" *ngFor="let answer of question.question.answers">
-            <mat-radio-button color="primary" name="{{question.question.id}}" >{{answer.content}}</mat-radio-button>
-            <br><br>
-          </section>
-        </mat-card-content>
-      </mat-card>
-    </ng-container>
-    <ng-container *ngIf="question.question.type.name == 'fillInBank'">
-      <mat-card >
-        <mat-card-content class="box-card-custom" >
-          <h2>Question {{i+1}}: {{question.question.title}}</h2>
-          <section class="example-section" *ngFor="let answer of question.question.answers">
-            <textarea cols="200" rows="5" matInput color="primary" autocomplete="off" name="{{question.question.id}}"></textarea>
-            <br><br>
-          </section>
-        </mat-card-content>
-      </mat-card>
-    </ng-container>
-    <ng-container *ngIf="question.question.type.name == 'multichoicemultianswer'">
-      <mat-card >
-        <mat-card-content class="box-card-custom" >
-          <h2>Question {{i+1}}: {{question.question.title}}</h2>
-          <section class="example-section" *ngFor="let answer of question.question.answers">
-            <mat-checkbox color="primary" name="{{question.question.id}}" >{{answer.content}}</mat-checkbox>
-            <br><br>
-          </section>
-        </mat-card-content>
-      </mat-card>
-    </ng-container>
-  </div>
-</mat-card>
+<form class="margin-bottom" (ngSubmit)="submit()">
+  <mat-card>
+    <mat-card-content>
+      <h1 class=" text-center">{{currentExam.name}}</h1>
+    </mat-card-content>
+    <div class="example-section" *ngFor="let question of currentExam.examQuestions; let i = index">
+      <ng-container *ngIf="question.question.type.name == 'multipleChoice' ||  question.question.type.name == 'trueOrFalse'">
+        <mat-card >
+          <mat-card-content class="box-card-custom" >
+            <h2>Question {{i+1}}: {{question.question.title}}</h2>
+            <section class="example-section" *ngFor="let answer of question.question.answers">
+              <mat-radio-button color="primary" name="{{question.question.id}}" (change)="selectAnswers(answer,question.question.type,question.question.id, this)">{{answer.content}}</mat-radio-button>
+              <br><br>
+            </section>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngIf="question.question.type.name == 'fillInBank'">
+        <mat-card >
+          <mat-card-content class="box-card-custom" >
+            <h2>Question {{i+1}}: {{question.question.title}}</h2>
+            <section class="example-section" *ngFor="let answer of question.question.answers">
+              <textarea style="max-width: 100%; resize: none; border: 1px solid black" cols="300" rows="5" autocomplete="off" name="{{question.question.id}}" (change)="selectAnswers(answer,question.question.type,question.question.id, $event)"></textarea>
+              <br><br>
+            </section>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+      <ng-container *ngIf="question.question.type.name == 'multichoicemultianswer'">
+        <mat-card >
+          <mat-card-content class="box-card-custom" >
+            <h2>Question {{i+1}}: {{question.question.title}}</h2>
+            <section class="example-section" *ngFor="let answer of question.question.answers">
+              <mat-checkbox color="primary" name="{{question.question.id}}" >{{answer.content}}</mat-checkbox>
+              <br><br>
+            </section>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </div>
+    <div class="text-center">
+      <button mat-raised-button color="primary" class="text-center" type="submit">Submit</button>
+      <button mat-raised-button color="warn" class="text-center" (click)="cancel()" >Cancel</button>
+    </div>
+  </mat-card>
+</form>
+<div style="height: 1px">
+
+</div>
