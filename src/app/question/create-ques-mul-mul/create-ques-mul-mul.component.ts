@@ -59,23 +59,54 @@ questions : any = [];
         this.question.answers[i].correct=false;
     };
     this.getAllQuestions();
-
   }
 
   createNewQuestion() {
     this.question.type.id = 4;
     this.question.active = true;
+    let isExisted = false;
     for (let i = 0; i < this.questions.length; i++) {
       if(this.questions[i].type.id ==4 && this.questions[i].title == this.question.title){
-        alert("This question existed!");
-        this.router.navigate(['/admin/question/create-ques-mul-mul'])
+        isExisted = true;
+        break;
       }
     }
-    this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
-      () => alert('Fail'));
-    this.question = {};
+    if(isExisted){
+      alert("This question existed!");
 
-  }
+    }else {
+      this.questionService.createNewQuestion(this.question).subscribe(() => alert('Success'),
+        () => alert('Fail'));
+    }
+    this.question = {
+      category: {
+        id: null
+      },
+
+      type: {
+        id: 4
+      },
+
+      answers: [
+        {
+          id: null,
+          correct: false
+        },
+        {
+          id: null,
+          correct: false
+        },
+        {
+          id: null,
+          correct: false
+        },
+        {
+          id: null,
+          correct: false
+        }
+      ]};
+
+      }
 
   getAllCategories() {
     this.categoryService.getAllCategories().subscribe((categories) => {
