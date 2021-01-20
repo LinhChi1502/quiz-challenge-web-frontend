@@ -31,6 +31,8 @@ import {HistoryUserComponent} from './admin/history-user/history-user.component'
 import {DetailUserExamComponent} from './admin/detail-user-exam/detail-user-exam.component';
 
 
+
+// @ts-ignore
 const routes: Routes = [
 
   {
@@ -51,6 +53,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     canActivateChild: [AdminGuard],
     children: [
+      {path: '', redirectTo: 'question', pathMatch: 'full' },
       {
         path: 'category', component: CategoryComponent,
         children: [
@@ -101,6 +104,10 @@ const routes: Routes = [
 
   {
     path: 'home', component: HomepageComponent
+  },
+
+  {
+    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule)
   }
 ];
 

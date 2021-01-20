@@ -17,9 +17,7 @@ export class CreateExamComponent implements OnInit {
               private typeService: TypeService,
               private dataService: DataService) {
   }
-
   ngOnInit(): void {
-
   }
 
   selectTime:number=0;
@@ -53,6 +51,7 @@ export class CreateExamComponent implements OnInit {
     console.log(this.exam.countDown);
 this.examService.saveExam(this.exam).subscribe(value =>{ alert("thanh cong");
 
+    // @ts-ignore
     this.questionService.addQuestionListToExam(this.questions).subscribe(value =>
     {
       this.questions=value;

@@ -41,7 +41,7 @@ export class ListUserComponent implements OnInit {
   }
 
   getAllUsers() {
-    this.userService.getAllUsers().subscribe((users) => {
+    this.userService.getAllUser().subscribe((users) => {
       this.appUsers = users;
       // @ts-ignore
       this.totalRecords = users.length;

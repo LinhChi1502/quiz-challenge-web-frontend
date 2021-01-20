@@ -1,0 +1,99 @@
+
+<script src="../../../assets/bootstrap/js/bootstrap.js"></script>
+<style>
+  body {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
+    font-family: "Didact Gothic", sans-serif;
+  }
+  .wrap {
+    margin: 0 auto;
+    width: 480px;
+  }
+  fieldset {
+    width: 400px;
+    border-radius: 10px;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+  }
+  legend {
+    background: #3a3d52;
+    width: 100px;
+    height: 100px;
+    margin-left: 150px;
+    border-radius: 50px;
+  }
+  h3 {
+    position: relative;
+    padding-top: 35px;
+    text-align: center;
+    color: #ff6d2e;
+  }
+  h2 {
+    text-align: center;
+    font-size: 0.9em;
+    color: lightgrey;
+    padding-top: 10px;
+  }
+  input {
+    width: 400px;
+    height: 50px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    color: #7d7769;
+    font-weight: bold;
+  }
+  input:focus {
+    border: 1px solid rgba(255, 109, 46, 0.6);
+    box-shadow: 0 0 3px rgba(255, 109, 46, 0.6);
+    outline: none;
+    font-size: 1.1em;
+  }
+  button {
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width: 120px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 15px;
+    color: #7d7769;
+  }
+  button:hover {
+    background: #fbf7ef;
+    border-radius: 10px;
+  }
+  button:focus {
+    border: 1px solid rgba(255, 109, 46, 0.6);
+    box-shadow: 0 0 3px rgba(255, 109, 46, 0.6);
+    outline: none;
+    font-size: 1.1em;
+  }
+
+  input[type="submit"] {
+    background: #ff9d73;
+    color: #3a3d52;
+    margin: 20px 0px 30px;
+  }
+  input[type="submit"]:hover {
+    background: #ff8652;
+  }
+
+</style>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="wrap">
+  <form [formGroup]="newPasswordForm" (ngSubmit)="changePassword()"  id="changpass">
+    <fieldset>
+      <legend><h3>Change password</h3></legend>
+      <input type="password" name="password" id="password" formControlName="password" placeholder="Password"/>
+      <input type="password" name="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password"/>
+      <input type="submit"  value="Change">
+      <a style="color: orangered;cursor: pointer !important;" [routerLink]="['/home']">Cancel</a>
+    </fieldset>
+  </form>
+</div>
+
+

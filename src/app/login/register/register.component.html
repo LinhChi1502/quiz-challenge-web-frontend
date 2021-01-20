@@ -53,14 +53,14 @@
     font-size: 1.1em;
   }
   button {
-    background: #fff;
+    /*background: #fff;*/
     border: 1px solid transparent;
     border-radius: 10px;
     width: 120px;
     height: 50px;
-    margin-left: 20px;
+    margin-left: 150px;
     margin-top: 15px;
-    color: #7d7769;
+    /*color: #7d7769;*/
   }
   button:hover {
     background: #fbf7ef;
@@ -84,16 +84,18 @@
 
 </style>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div style="height: 50px"></div>
 <div class="wrap">
   <form action="#" method="post" [formGroup]="registerForm" (ngSubmit)="register()"  id="register-form">
     <fieldset>
-      <legend><h3>Regiter</h3></legend>
+      <legend><h3>Register</h3></legend>
       <input type="text" name="username" formControlName="username" placeholder="User Name"/>
       <input type="password" name="password" id="password" formControlName="password" placeholder="Password"/>
       <input type="password" name="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password"/>
       <input type="text" name="fullname" formControlName="fullname" placeholder="Full Name"/>
-      <input type="submit"  value="Regiter">
-      <a style="color: orangered;cursor: pointer !important;" [routerLink]="['/login']">Tôi đã có tài khoản</a>
+      <input type="submit"  value="Register">
+<!--      <a style="color: orangered;cursor: pointer !important;" [routerLink]="['/login']">Login</a>-->
+      <button type="button" class="btn btn-dark" [routerLink]="['/login']">Login</button>
     </fieldset>
   </form>
 </div>

@@ -45,13 +45,11 @@ import { HistoryUserComponent } from './admin/history-user/history-user.componen
 import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-exam.component';
 
 
+import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
-    NavbarComponent,
     LayoutComponent,
-    SidebarComponent,
     LayoutComponent,
     LoginComponent,
     AdminHomeComponent,
@@ -73,6 +71,9 @@ import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-ex
     ExamListComponent,
     CreateExamComponent,
     ExamDetailComponent,
+    QuestionList2Component,
+    ProcessExamComponent,
+
     QuestionList2Component,
     // LogoutComponent,
     RegisterComponent,
