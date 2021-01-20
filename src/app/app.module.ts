@@ -42,6 +42,7 @@ import {RegisterComponent} from "./login/register/register.component";
 import { ListUserComponent } from './admin/list-user/list-user.component';
 import { ListUser2Component } from './admin/list-user2/list-user2.component';
 import { HistoryUserComponent } from './admin/history-user/history-user.component';
+import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-exam.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { HistoryUserComponent } from './admin/history-user/history-user.componen
     ListUserComponent,
     ListUser2Component,
     HistoryUserComponent,
+    DetailUserExamComponent,
     // ChangepassComponent
   ],
   imports: [
