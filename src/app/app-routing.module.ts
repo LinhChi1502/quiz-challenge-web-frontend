@@ -25,6 +25,11 @@ import {ExamListComponent} from './exam/exam-list/exam-list.component';
 import {ExamDetailComponent} from './exam/exam-detail/exam-detail.component';
 import {LayoutComponent} from "./login/layout/layout.component";
 import {AdminGuard} from "./login/helper/admin-guard";
+import {ListUserComponent} from './admin/list-user/list-user.component';
+import {ListUser2Component} from './admin/list-user2/list-user2.component';
+import {HistoryUserComponent} from './admin/history-user/history-user.component';
+import {DetailUserExamComponent} from './admin/detail-user-exam/detail-user-exam.component';
+
 import {ChangepassComponent} from "./login/changepass/changepass.component";
 import {ChartComponent} from "./chart/chart.component";
 
@@ -42,6 +47,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+
   {
     path: 'register',
     component: RegisterComponent},
@@ -88,6 +94,15 @@ const routes: Routes = [
 
         ]
 
+      },
+      {
+        path: 'list-user', component: ListUserComponent,
+        children: [
+          {path: 'list-user2', component: ListUser2Component, outlet: 'listuser'},
+          {path: 'history-user/:id', component: HistoryUserComponent, outlet: 'listuser'},
+          {path: 'detail-user-exam/:id', component: DetailUserExamComponent, outlet: 'listuser'},
+
+        ]
       }
 
     ]
