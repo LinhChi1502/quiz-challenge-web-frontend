@@ -1,4 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {AuthService} from '../../../service/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,8 @@ export class NavbarComponent implements OnInit {
 
   isExpanded = true;
 
-  constructor() {
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -20,4 +23,8 @@ export class NavbarComponent implements OnInit {
     this.isExpandedPassOut.emit(this.isExpanded);
   }
 
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['']);
+  }
 }

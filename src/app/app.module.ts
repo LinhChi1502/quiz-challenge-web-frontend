@@ -50,7 +50,6 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
   declarations: [
     AppComponent,
     LayoutComponent,
-    SidebarComponent,
     LayoutComponent,
     LoginComponent,
     AdminHomeComponent,
