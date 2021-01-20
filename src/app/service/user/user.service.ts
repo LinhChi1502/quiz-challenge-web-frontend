@@ -22,5 +22,13 @@ export class UserService {
 
   getUserById(id: number): Observable<AppUser> {
     return this.http.get<AppUser>(API_URL + `/api/users/${id}`);
+  newPassword(user: AppUser, id: number, token: string): Observable<AppUser> {
+    return this.http.put<AppUser>(API_URL + `/new-password/${id}?token=` + token, user);
+  }
+  getUserProfile(id: string): Observable<AppUser> {
+    return this.http.get<AppUser>(API_URL + `/users/${id}`);
+  }
+  getAllUser(): Observable<AppUser[]>{
+    return  this.http.get<AppUser[]>( API_URL + `/api/users`);
   }
 }
