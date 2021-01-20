@@ -28,14 +28,14 @@
   <div *ngFor="let question of questions | paginate: { id: 'listing_pagination',
 itemsPerPage: 5,
 currentPage: page,
-totalItems: totalRecords}" style="margin-left: 50px">
+totalItems: totalRecords}; let i = index" style="margin-left: 50px">
     <table>
       <tr>
         <td style="width: 400px;padding: 10px">
           <div *ngIf="question.active == true">
             <div style="border:  #1E90FF solid; border-radius: 10px">
 
-              <div style="margin-left: 20px"><b>{{question.title}}</b></div>
+              <div style="margin-left: 20px"><b>Question {{i + 1 + ':'}} {{question.title}}</b></div>
 
               <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'" style="">
                 <div *ngFor="let answer of question.answers" style="">
