@@ -1,4 +1,3 @@
-
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions">
 
   <div *ngIf="question.active === true">
@@ -6,18 +5,15 @@
 
       <div class="py-2 h5"><b>{{question.title}}</b></div>
 
-      <div *ngIf="question.type.name == ('multipleChoice' || question.type.name == 'trueOrFalse')">
+      <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">
         <div *ngFor="let answer of question.answers">
-
-
-
-
+          <!--      form multiplechoice &btruefalse-->
           <div class="custom-control custom-radio">
             <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
                    disabled>
             <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>
           </div>
-
+          <!--      form multiplechoice &btruefalse finish-->
         </div>
       </div>
 
@@ -40,12 +36,16 @@
             <textarea id="text-area" class="form-control" [value]="answer.content" disabled
                       style="width: 50%"></textarea>
           </div>
+          <!--     form multiple choice with many answers-->
         </div>
       </div>
-
     </div>
   </div>
+</div>
 
 
+<div *ngFor="let answer of userAnswers">
+
+  <div>{{answer.content}}</div>
 
 </div>

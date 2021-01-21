@@ -59,10 +59,11 @@ export class QuestionService {
   insertQuestions(question: Question ): Observable<Question> {
     console.log(this.http.post<Question>(API_URL + `/api/questions`, question));
     return  this.http.post<Question>(API_URL + `/api/questions`, question);
-
   }
 
-  getCurrentUserAnswer(userAnswers: UserAnswer[]):Observable<UserAnswer[]> {
-    return this.http.get<UserAnswer[]>(`http://localhost:8080/api/questions/useranswer/`);
+  getCurrentUserAnswer(iduser:number,idexam:number):Observable<UserAnswer[]> {
+    return this.http.get<UserAnswer[]>(`http://localhost:8080/api/answers/current-user/${iduser}/${idexam}`);
   }
+
+
 }
