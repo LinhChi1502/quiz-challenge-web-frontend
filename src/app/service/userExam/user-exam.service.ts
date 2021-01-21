@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserExam} from '../../model/user-exam';
+import {Data} from '../../model/data';
 import {environment} from '../../../environments/environment';
 const API_URL = `${environment.apiUrl}`
 @Injectable({
@@ -17,5 +18,9 @@ export class UserExamService {
 
   countMark(id: any): Observable<number> {
     return this.http.get<number>(API_URL +`/api/userexams/mark/${id}`);
+  }
+
+  getStatistics(): Observable<Data[]> {
+    return this.http.get<Data[]>(API_URL + `/api/userexams/statistics`);
   }
 }
