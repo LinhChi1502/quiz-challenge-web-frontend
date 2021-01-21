@@ -10,7 +10,7 @@ const API_URL = `${environment.apiUrl}`
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   newPassword(user: AppUser, id: number, token: string): Observable<AppUser> {
     return this.http.put<AppUser>(API_URL + `/new-password/${id}?token=` + token, user);
   }
@@ -27,4 +27,7 @@ export class UserService {
   getUserById(id: number): Observable<AppUser> {
     return this.http.get<AppUser>(API_URL + `/api/users/${id}`);
   }
-}
+  }
+
+
+

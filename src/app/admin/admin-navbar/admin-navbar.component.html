@@ -1,20 +1,20 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row >
-    <a mat-icon-button >
+    <a mat-icon-button (click)="toggleSidebar()">
       <mat-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
     </a>
     <a mat-icon-button style="margin-left: 20px">
       <mat-icon>home</mat-icon>
       <!--      <span class="mat-h2"> Home</span>-->
     </a>
-    <a class="text-center" [routerLink]="'/home'">Quizz Challenge</a>
+    <a class="text-center-custom" [routerLink]="'/admin/question'">Quizz Challenge</a>
     <!--    <span class="menu-spacer"></span>-->
     <div>
       <a class="hidden-sm" mat-icon-button [matMenuTriggerFor]="profile" style="margin-right: 20px">
         <mat-icon>account_circle</mat-icon>
       </a>
       <mat-menu #profile="matMenu" [overlapTrigger]="false">
-        <a mat-menu-item routerLink="/changepass">
+        <a mat-menu-item>
           <mat-icon>vpn_key</mat-icon>
           <span class="mat-body-strong" aria-hidden="true" data-toggle="tooltip"
                 data-placement="bottom" title="Change password">Change password</span>
@@ -29,34 +29,38 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" [(opened)]="sideNavOpened"
-               (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-    <mat-nav-list>
-      <mat-list-item routerLink="/admin/category">
-        <mat-icon class="color_custom">dashboard</mat-icon>
-        <a  *ngIf="isExpanded || isShowing" class="mat-h2"> Category </a>
-      </mat-list-item>
-      <mat-list-item routerLink="/admin/question">
-        <mat-icon mat-list-icon class="color_custom">question_answer</mat-icon>
-        <a *ngIf="isExpanded || isShowing" class="mat-h2"> Question </a>
-      </mat-list-item>
-      <mat-list-item routerLink="/admin/exam">
-        <mat-icon mat-list-icon  class="color_custom">speaker_notes</mat-icon>
-        <a  *ngIf="isExpanded || isShowing" class="mat-h2">Exam</a>
-      </mat-list-item>
-      <mat-list-item [routerLink]="['/admin/list-user',{outlets:{listuser:['list-user2']}}]">
-        <mat-icon mat-list-icon  class="color_custom">supervisor_account</mat-icon>
-        <a *ngIf="isExpanded || isShowing" class="mat-h2">Manage Account</a>
-      </mat-list-item>
+          <mat-sidenav-container>
+            <mat-sidenav #sidenav class="mat-elevation-z10 sidenav" mode="side" [(opened)]="sideNavOpened"
+                         (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+              <mat-nav-list>
+                <mat-list-item routerLink="/admin/category">
+                  <mat-icon class="color_custom">dashboard</mat-icon>
+                  <a  *ngIf="isExpanded || isShowing" class="mat-h2"> Category </a>
+                </mat-list-item>
+                <mat-list-item routerLink="/admin/question">
+                  <mat-icon mat-list-icon class="color_custom">question_answer</mat-icon>
+                  <a *ngIf="isExpanded || isShowing" class="mat-h2"> Question </a>
+                </mat-list-item>
+                <mat-list-item routerLink="/admin/exam">
+                  <mat-icon mat-list-icon  class="color_custom">speaker_notes</mat-icon>
+                  <a  *ngIf="isExpanded || isShowing" class="mat-h2">Exam</a>
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/admin/list-user',{outlets:{listuser:['list-user2']}}]">
+                  <mat-icon mat-list-icon  class="color_custom">supervisor_account</mat-icon>
+                  <a *ngIf="isExpanded || isShowing" class="mat-h2">Manage Account</a>
+                </mat-list-item>
+                <mat-list-item [routerLink]="['/admin/list-user',{outlets:{listuser:['list-user2']}}]">
+                  <mat-icon mat-list-icon  class="color_custom">supervisor_account</mat-icon>
+                  <a *ngIf="isExpanded || isShowing" class="mat-h2">Statistics</a>
+                </mat-list-item>
 
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="sidenav-properties">
-      <main class="main-container">
-        <router-outlet></router-outlet>
-      </main>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+              </mat-nav-list>
+            </mat-sidenav>
+            <mat-sidenav-content>
+              <div class="sidenav-properties">
+                <main class="main-container">
+                  <router-outlet></router-outlet>
+                </main>
+              </div>
+            </mat-sidenav-content>
+          </mat-sidenav-container>

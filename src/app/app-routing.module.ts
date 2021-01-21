@@ -33,6 +33,7 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
 import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
+
   {
     path: '',
     component: LayoutComponent
@@ -41,7 +42,6 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-
   {
     path: 'register',
     component: RegisterComponent},
@@ -54,6 +54,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     canActivateChild: [AdminGuard],
     children: [
+      {path: '', redirectTo: 'question', pathMatch: 'full' },
       {
         path: 'category', component: CategoryComponent,
         children: [

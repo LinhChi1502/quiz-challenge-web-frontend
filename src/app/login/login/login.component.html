@@ -69,14 +69,14 @@
     font-size: 1.1em;
   }
   button {
-    background: #fff;
+    /*background: #fff;*/
     border: 1px solid transparent;
     border-radius: 10px;
-    width: 120px;
+    width: 200px;
     height: 50px;
-    margin-left: 20px;
+    margin-left: 100px;
     margin-top: 15px;
-    color: #7d7769;
+    /*color: #7d7769;*/
   }
   button:hover {
     background: #fbf7ef;
@@ -100,6 +100,7 @@
 
 </style>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<div style="height: 50px"></div>
 <div class="wrap">
   <form action="#" [formGroup]="loginForm"  (ngSubmit)="login()"  id="login-form">
     <fieldset>
@@ -110,5 +111,8 @@
 
     </fieldset>
   </form>
-  <a style="color: orangered;cursor: pointer !important;" [routerLink]="['/register']">Register</a>
+<!--  <a style="color: orangered;cursor: pointer !important;" [routerLink]="['/register']">Register</a>-->
+  <button type="button" class="btn btn-dark" [routerLink]="['/register']">Register</button>
+
+
 </div>

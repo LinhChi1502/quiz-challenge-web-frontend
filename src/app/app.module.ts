@@ -43,15 +43,17 @@ import { ListUserComponent } from './admin/list-user/list-user.component';
 import { ListUser2Component } from './admin/list-user2/list-user2.component';
 import { HistoryUserComponent } from './admin/history-user/history-user.component';
 import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-exam.component';
-
 import {ChangepassComponent} from "./login/changepass/changepass.component";
 import { ChartComponent } from './chart/chart.component';
 import {ChartsModule} from "ng2-charts";
+
+
 
 import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent,
     LayoutComponent,
     LoginComponent,
     AdminHomeComponent,
@@ -77,6 +79,7 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
     ProcessExamComponent,
 
     QuestionList2Component,
+    // LogoutComponent,
     RegisterComponent,
     ChangepassComponent,
     ChartComponent,

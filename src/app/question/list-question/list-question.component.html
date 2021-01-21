@@ -1,97 +1,104 @@
+<div style="margin-left: 200px">
+  <div class="form-group inline" style="width: 20%">
+    <label for="title" style="margin-left: 100px">Title</label>
+    <input type="text" class="form-control rounded-0" id="title" placeholder="Enter title" [(ngModel)]="title"
+           (ngModelChange)="searchQuestion()">
+  </div>
+
+  <div class="form-group inline" style="width: 20%">
+    <label for="category" style="margin-left: 100px">Category</label>
+    <select id="category" class="form-control select2" style="width: 100%;" [(ngModel)]="selectedCategory"
+            (ngModelChange)="searchQuestion()">
+      <option selected="selected" value="">All</option>
+      <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group inline" style="width: 20%">
+    <label for="type" style="margin-left: 100px">Type</label>
+    <select class="form-control select2" style="width: 100%;" id="type" [(ngModel)]="selectedType"
+            (ngModelChange)="searchQuestion()">
+      <option selected="selected" value="">All</option>
+      <option *ngFor="let type of types" [value]="type.name">{{type.name}}</option>
+      <option></option>
+    </select>
+  </div>
 
 
-
-
-
-<div class="form-group inline" style="width: 20%">
-  <label for="title" style="margin-left: 100px">Title</label>
-  <input type="text" class="form-control rounded-0" id="title" placeholder="Enter title" [(ngModel)]="title"
-         (ngModelChange)="searchQuestion()">
-</div>
-
-<div class="form-group inline" style="width: 20%">
-  <label for="category" style="margin-left: 100px">Category</label>
-  <select id="category" class="form-control select2" style="width: 100%;" [(ngModel)]="selectedCategory"
-          (ngModelChange)="searchQuestion()">
-    <option selected="selected" value="">All</option>
-    <option *ngFor="let category of categories" [value]="category.name">{{category.name}}</option>
-  </select>
-</div>
-
-<div class="form-group inline" style="width: 20%">
-  <label for="type" style="margin-left: 100px">Type</label>
-  <select class="form-control select2" style="width: 100%;" id="type" [(ngModel)]="selectedType"
-          (ngModelChange)="searchQuestion()">
-    <option selected="selected" value="">All</option>
-    <option *ngFor="let type of types" [value]="type.name">{{type.name}}</option>
-    <option></option>
-  </select>
-</div>
-
-
-<div class="container mt-sm-5 my-1" *ngFor="let question of questions | paginate: { id: 'listing_pagination',
+  <div *ngFor="let question of questions | paginate: { id: 'listing_pagination',
 itemsPerPage: 5,
 currentPage: page,
-totalItems: totalRecords}">
+totalItems: totalRecords}; let i = index" style="margin-left: 50px">
+    <table>
+      <tr>
+        <td style="width: 400px;padding: 10px">
+          <div *ngIf="question.active == true">
+            <div style="border:  #1E90FF solid; border-radius: 10px">
 
-  <div *ngIf="question.active == true">
-    <div class="question ml-sm-5 pl-sm-5 pt-2" style="border:  #1E90FF solid; border-radius: 10px; width: 50%">
+              <div style="margin-left: 20px"><b>Question {{i + 1 + ':'}} {{question.title}}</b></div>
 
-      <div class="py-2 h5"><b>{{question.title}}</b></div>
-
-      <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'" style="">
-        <div *ngFor="let answer of question.answers" style="">
-          <!--      form multiplechoice &btruefalse-->
-          <div class="custom-control custom-radio">
-            <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
-                   disabled>
-            <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>
-          </div>
-          <!--      form multiplechoice &btruefalse finish-->
-        </div>
-      </div>
+              <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'" style="">
+                <div *ngFor="let answer of question.answers" style="">
+                  <!--      form multiplechoice &btruefalse-->
+                  <div class="custom-control custom-radio" style="margin-left: 10px">
+                    <input class="custom-control-input" type="radio" id="{{answer.id}}"
+                           [checked]="(answer.correct == true)"
+                           disabled>
+                    <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>
+                  </div>
+                  <!--      form multiplechoice &btruefalse finish-->
+                </div>
+              </div>
 
 
-      <div *ngIf="question.type.name == 'multichoicemultianswer'">
-        <div *ngFor="let answer of question.answers">
-          <!--      form multiple choice with many answers-->
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
-            <label class="form-check-label">{{answer.content}}</label>
-          </div>
-          <!--     form multiple choice with many answers-->
-        </div>
-      </div>
+              <div *ngIf="question.type.name == 'multichoicemultianswer'">
+                <div *ngFor="let answer of question.answers">
+                  <!--      form multiple choice with many answers-->
+                  <div class="form-check" style="margin-left: 10px">
+                    <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
+                    <label class="form-check-label">{{answer.content}}</label>
+                  </div>
+                  <!--     form multiple choice with many answers-->
+                </div>
+              </div>
 
-      <div *ngIf="question.type.name == 'fillInBank'">
-        <div>
-          <!--      form multiple choice with many answers-->
-          <div class="form-group">
-            <textarea  id="text-area" class="form-control" disabled
+              <div *ngIf="question.type.name == 'fillInBank'">
+                <div>
+                  <!--      form multiple choice with many answers-->
+                  <div class="form-group" style="margin-left: 10px">
+            <textarea id="text-area" class="form-control" disabled
                       style="width: 50%" *ngFor="let answer of question.answers" [value]="answer.content">
 
             </textarea>
+                  </div>
+                  <!--     form multiple choice with many answers-->
+                </div>
+              </div>
+
+            </div>
           </div>
-          <!--     form multiple choice with many answers-->
-        </div>
-      </div>
+        </td>
 
-    </div>
-  </div>
+        <td style="margin-left: 0px">
+          <div *ngIf="question.active === true">
+            <ul style="list-style: none">
+              <li><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i
+                class="fa fa-pencil" aria-hidden="true"></i></a></li>
+              <li><a
+                [routerLink]="['/admin/question',{outlets:{question:['delete-question', question.id]}}]"><i
+                class="fa fa-trash" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </table>
 
-  <div *ngIf="question.active === true">
-    <ul style="list-style: none">
-      <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['edit-question', question.id]}}]"><i
-        class="fa fa-pencil" aria-hidden="true"></i></a></li>
-      <li class="inline"><a [routerLink]="['/admin/question',{outlets:{question:['delete-question', question.id]}}]"><i
-        class="fa fa-trash" aria-hidden="true"></i></a></li>
-    </ul>
+
   </div>
 </div>
-
 <div class="card-footer clearfix">
   <ul class="pagination pagination-sm m-0 float-right">
-    <pagination-controls id="listing_pagination"  (pageChange)="page = $event">
+    <pagination-controls id="listing_pagination" (pageChange)="page = $event">
     </pagination-controls>
   </ul>
 </div>
