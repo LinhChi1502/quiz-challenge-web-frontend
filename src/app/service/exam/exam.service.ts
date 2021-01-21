@@ -31,11 +31,11 @@ export class ExamService {
     return this.httpClient.get<Exam[]>(API_URL + `/api/exams/tested`);
   }
 
-  get50UpUserCountByExamId(id: number): Observable<number> {
+  get50UpUserCountByExamId(id: any): Observable<any> {
     return this.httpClient.get<number>(API_URL + `/api/exams/up50/${id}`);
   }
 
-  get50DownUserCountByExamId(id: number): Observable<number> {
+  get50DownUserCountByExamId(id: any): Observable<any> {
     return this.httpClient.get<number>(API_URL + `/api/exams/down50/${id}`);
   }
 }

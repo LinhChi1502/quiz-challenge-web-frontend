@@ -47,6 +47,7 @@ import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-ex
 
 import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 import { ChartComponent } from './admin/chart/chart.component';
+import {GoogleChartsModule} from 'angular-google-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +99,8 @@ import { ChartComponent } from './admin/chart/chart.component';
     FormsModule,
     MaterialModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
