@@ -55,4 +55,9 @@ export class ListComponent implements OnInit {
   applyFilter() {
     this.filteredListHistory.filter = this.searchKey.trim().toLowerCase();
   }
+
+  // @ts-ignore
+  goDetail(id) {
+    this.router.navigate([`history/detail/${id}`]).then(r => r);
+  }
 }

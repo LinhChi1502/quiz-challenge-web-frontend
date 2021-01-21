@@ -104,7 +104,8 @@ const routes: Routes = [
   },
 
   {
-    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule)
+    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule),
+    canActivate: [AuthGuard]
   },
 
 ];
