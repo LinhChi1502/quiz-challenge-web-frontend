@@ -31,4 +31,8 @@ export class UserExamService {
   getAllUserExams(): Observable<UserExam[]> {
     return this.http.get<UserExam[]>(API_URL + `/api/userexams/`);
   }
+
+  getUserExamById(id: any): Observable<UserExam> {
+    return this.http.get<UserExam>(API_URL + `/api/userexams/${id}`);
+  }
 }

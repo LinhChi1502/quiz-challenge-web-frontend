@@ -18,11 +18,11 @@
       <mat-cell *matCellDef="let element"> {{element.exam.name}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="mark">
-      <mat-header-cell *matHeaderCellDef > Mark </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Mark </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.mark ? element.mark : "0"}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="date">
-      <mat-header-cell *matHeaderCellDef >Date Completed </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Date Completed </mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.date | date:'HH:mm dd-MM-yyyy '}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="action">
