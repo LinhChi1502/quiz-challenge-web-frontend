@@ -8,11 +8,51 @@
       <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">
         <div *ngFor="let answer of question.answers">
           <!--      form multiplechoice &btruefalse-->
-          <div class="custom-control custom-radio">
-            <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
-                   disabled>
-            <label for="{{answer.id}}" class="custom-control-label">{{answer.content}}</label>
+          <div *ngFor="let userAnswer of userAnswers">
+            <div *ngIf="userAnswer.questionIndex==question.id">
+                  <div *ngIf="userAnswer.content==answer.content&&answer.correct==false ">
+                    <div class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
+                             disabled>
+                      <label for="{{answer.id}}" class="custom-control-label bg-danger" >{{answer.content}}/ your choice</label>
+                    </div>
+
+                  </div>
+              <div *ngIf="userAnswer.content==answer.content&&answer.correct==true ">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="{{answer.id}}1" [checked]="(answer.correct == true)"
+                         disabled>
+                  <label for="{{answer.id}}1" class="custom-control-label bg-primary" >{{answer.content}}/ your choice</label>
+                </div>
+              </div>
+              <div *ngIf="userAnswer.content!=answer.content ">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="{{answer.id}}3" [checked]="(answer.correct == true)"
+                         disabled>
+                  <label for="{{answer.id}}3" class="custom-control-label " >{{answer.content}}</label>
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
           </div>
+
+
+
+
+
+
           <!--      form multiplechoice &btruefalse finish-->
         </div>
       </div>
@@ -44,8 +84,4 @@
 </div>
 
 
-<div *ngFor="let answer of userAnswers">
 
-  <div>{{answer.content}}</div>
-
-</div>

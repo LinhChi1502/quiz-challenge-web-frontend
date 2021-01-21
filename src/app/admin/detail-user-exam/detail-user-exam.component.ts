@@ -51,10 +51,7 @@ export class DetailUserExamComponent implements OnInit {
         )
       }
     );
-
     console.log(this.questions);
     console.log(this.userAnswers);
   }
-
-
 }
