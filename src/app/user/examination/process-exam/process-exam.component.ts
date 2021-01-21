@@ -56,6 +56,7 @@ export class ProcessExamComponent implements OnInit {
   answerChoosed!: UserAnswer;
   currentUser: AppUser = {};
   currentUserExam: UserExam = {};
+  allUserExam: UserExam[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private examService: ExamService,
               private authService: AuthService, private userExamService: UserExamService,
@@ -72,6 +73,16 @@ export class ProcessExamComponent implements OnInit {
       }
     );
     this.currentUser.id = this.authService.currentUserValue.id;
+    // this.currentUserExam.exam = this.currentExam;
+    // this.currentUserExam.appUser = this.currentUser;
+    // this.userExamService.submitUserExam(this.currentUserExam).subscribe();
+    this.userExamService.getAllUserExams().subscribe( result => {
+      this.allUserExam = result;
+      let ids = this.allUserExam.map((id) => id.id);
+      // @ts-ignore
+      let maxId = Math.max.apply(null, ids);
+      this.currentUserExam.id = maxId +1;
+    })
   }
 
 
@@ -103,7 +114,7 @@ export class ProcessExamComponent implements OnInit {
       this.answerChoosed = {
         content: answer.content,
         questionIndex: question.id,
-        userExam: {id: this.currentExam.id}
+        userExam: {id: this.currentUserExam.id}
       };
       this.answerArr = this.answerArr.filter(result => (result.questionIndex !== this.answerChoosed.questionIndex))
       this.answerArr.push(this.answerChoosed);
@@ -111,7 +122,7 @@ export class ProcessExamComponent implements OnInit {
       this.answerChoosed = {
         content: event.target.value,
         questionIndex: question.id,
-        userExam: {id: this.currentExam.id}
+        userExam: {id: this.currentUserExam.id}
       };
       this.answerArr = this.answerArr.filter(result => (result.questionIndex !== this.answerChoosed.questionIndex))
       this.answerArr.push(this.answerChoosed);
@@ -120,7 +131,7 @@ export class ProcessExamComponent implements OnInit {
       this.answerChoosed = {
         content: answer.content,
         questionIndex: question.id,
-        userExam: {id: this.currentExam.id}
+        userExam: {id: this.currentUserExam.id}
       }
       if (event.checked){
         this.answerArr.push(this.answerChoosed);
