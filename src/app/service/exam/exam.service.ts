@@ -26,4 +26,16 @@ export class ExamService {
   getExamById(id: number): Observable<Exam> {
     return this.httpClient.get<Question>(API_URL + `/api/exams/${id}`);
   }
+
+  getAllTestedExams(): Observable<Exam[]> {
+    return this.httpClient.get<Exam[]>(API_URL + `/api/exams/tested`);
+  }
+
+  get50UpUserCountByExamId(id: number): Observable<number> {
+    return this.httpClient.get<number>(API_URL + `/api/exams/up50/${id}`);
+  }
+
+  get50DownUserCountByExamId(id: number): Observable<number> {
+    return this.httpClient.get<number>(API_URL + `/api/exams/down50/${id}`);
+  }
 }

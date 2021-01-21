@@ -75,7 +75,6 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
     ProcessExamComponent,
 
     QuestionList2Component,
-    // LogoutComponent,
     RegisterComponent,
     ListUserComponent,
     ListUser2Component,

@@ -113,6 +113,10 @@
                   <mat-icon mat-list-icon  class="color_custom">supervisor_account</mat-icon>
                   <a *ngIf="isExpanded || isShowing" class="mat-h2">Manage Account</a>
                 </mat-list-item>
+                <mat-list-item [routerLink]="['/admin/list-user',{outlets:{listuser:['list-user2']}}]">
+                  <mat-icon mat-list-icon  class="color_custom">supervisor_account</mat-icon>
+                  <a *ngIf="isExpanded || isShowing" class="mat-h2">Manage Account</a>
+                </mat-list-item>
 
               </mat-nav-list>
             </mat-sidenav>
