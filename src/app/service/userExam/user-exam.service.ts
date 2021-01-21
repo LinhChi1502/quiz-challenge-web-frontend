@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UserExam} from '../../model/user-exam';
 import {environment} from '../../../environments/environment';
+import {UserAnswer} from "../../model/user-answer";
 const API_URL = `${environment.apiUrl}`
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,13 @@ export class UserExamService {
 
   countMark(id: any): Observable<number> {
     return this.http.get<number>(API_URL +`/api/userexams/mark/${id}`);
+  }
+
+  submitUserExam(userExam: UserExam): Observable<UserExam>{
+    return this.http.post<UserExam>(API_URL + `/api/userexams`, userExam);
+  }
+
+  submitUserAnswer(userAnswers: UserAnswer[]): Observable<UserAnswer[]>{
+    return this.http.post<UserAnswer[]>(API_URL + `/api/useranswer`, userAnswers);
   }
 }

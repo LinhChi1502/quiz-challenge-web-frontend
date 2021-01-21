@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ExamService} from "../../../service/exam/exam.service";
 import {Exam} from "../../../model/exam";
 import {UserAnswer} from "../../../model/user-answer";
+import {UserExam} from "../../../model/user-exam";
+import {AuthService} from "../../../service/auth/auth.service";
+import {AppUser} from "../../../model/app-user";
+import {UserExamService} from "../../../service/userExam/user-exam.service";
 
 @Component({
   selector: 'app-process-exam',
@@ -50,9 +54,12 @@ export class ProcessExamComponent implements OnInit {
   };
   answerArr: any [] = [];
   answerChoosed!: UserAnswer;
+  currentUser: AppUser = {};
+  currentUserExam: UserExam = {};
 
-  constructor(private activatedRoute: ActivatedRoute, private examService: ExamService) {
-
+  constructor(private activatedRoute: ActivatedRoute, private examService: ExamService,
+              private authService: AuthService, private userExamService: UserExamService,
+              private route: Router) {
   }
 
   ngOnInit(): void {
@@ -63,16 +70,28 @@ export class ProcessExamComponent implements OnInit {
           this.currentExam = receiveExam;
         })
       }
-    )
+    );
+    this.currentUser.id = this.authService.currentUserValue.id;
   }
 
 
   submit() {
-    //đang để cho vui
+    //Cái này đang để cho vui
+    if (confirm("Are you sure submit the Quiz??") == true){
+      this.currentUserExam.exam = this.currentExam;
+      this.currentUserExam.appUser = this.currentUser;
+      this.currentUserExam.userAnswers = this.answerArr;
+      this.userExamService.submitUserAnswer(this.answerArr).subscribe();
+      this.userExamService.submitUserExam(this.currentUserExam).subscribe();
+    }
+    console.log(this.currentUserExam);
   }
 
   cancel() {
     //Cũng là để cho vui đã
+    if (confirm("Are you sure abort the Quiz?? Current result will not be saved!") == true){
+      this.route.navigate(['examination/list']);
+    }
   }
 
   selectAnswers(answer: any, question: any, i: number, event: any) {
@@ -84,6 +103,7 @@ export class ProcessExamComponent implements OnInit {
       this.answerChoosed = {
         content: answer.content,
         questionIndex: question.id,
+        userExam: {id: this.currentExam.id}
       };
       this.answerArr = this.answerArr.filter(result => (result.questionIndex !== this.answerChoosed.questionIndex))
       this.answerArr.push(this.answerChoosed);
@@ -91,6 +111,7 @@ export class ProcessExamComponent implements OnInit {
       this.answerChoosed = {
         content: event.target.value,
         questionIndex: question.id,
+        userExam: {id: this.currentExam.id}
       };
       this.answerArr = this.answerArr.filter(result => (result.questionIndex !== this.answerChoosed.questionIndex))
       this.answerArr.push(this.answerChoosed);
@@ -99,6 +120,7 @@ export class ProcessExamComponent implements OnInit {
       this.answerChoosed = {
         content: answer.content,
         questionIndex: question.id,
+        userExam: {id: this.currentExam.id}
       }
       if (event.checked){
         this.answerArr.push(this.answerChoosed);
@@ -107,6 +129,7 @@ export class ProcessExamComponent implements OnInit {
       }
       // console.log(event.checked);
     }
-    console.log(this.answerArr);
+    // console.log(this.answerArr);
+    // console.log(this.authService.currentUserValue);
   }
 }
