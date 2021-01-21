@@ -51,7 +51,12 @@ export class DetailUserExamComponent implements OnInit {
         )
       }
     );
-    console.log(this.questions);
-    console.log(this.userAnswers);
+  }
+
+  checkTrueAnswer(questionIndex: any, id: any) {
+    console.log("adfadsfasdfadsf")
+    console.log(questionIndex);
+    console.log(id);
+
   }
 }

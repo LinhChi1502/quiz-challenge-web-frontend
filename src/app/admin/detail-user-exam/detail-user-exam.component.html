@@ -10,13 +10,12 @@
           <!--      form multiplechoice &btruefalse-->
           <div *ngFor="let userAnswer of userAnswers">
             <div *ngIf="userAnswer.questionIndex==question.id">
-                  <div *ngIf="userAnswer.content==answer.content&&answer.correct==false ">
+                  <div *ngIf="(userAnswer.content==answer.content)&&(answer.correct==false )">
                     <div class="custom-control custom-radio">
                       <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
                              disabled>
                       <label for="{{answer.id}}" class="custom-control-label bg-danger" >{{answer.content}}/ your choice</label>
                     </div>
-
                   </div>
               <div *ngIf="userAnswer.content==answer.content&&answer.correct==true ">
                 <div class="custom-control custom-radio">
@@ -31,7 +30,6 @@
                          disabled>
                   <label for="{{answer.id}}3" class="custom-control-label " >{{answer.content}}</label>
                 </div>
-
               </div>
 
 
@@ -67,16 +65,21 @@
 
       <div *ngIf="question.type.name == 'fillInBank'">
         <div *ngFor="let answer of question.answers">
+          <div *ngIf="answer.correct==true">
+            <div class="form-group">
+                     <textarea  id="text-area" class="form-control" [value]="answer.content" disabled
+                                style="width: 50%"></textarea>
+            </div>
+          </div>
+
           <div *ngFor="let userAnswer of userAnswers">
             <div *ngIf="userAnswer.questionIndex==question.id">
-              <div class="form-group">
-            <textarea *ngIf="userAnswer.content==answer.content&&answer.correct==true" id="text-area" class="form-control" [value]="answer.content" disabled
-                      style="width: 50%"></textarea>
-              </div>
-              <div class="bg-primary">True</div>
+                <div *ngIf="userAnswer.content==answer.content&&answer.correct==true" >
+                  <div class="form-group">
+                  <div class="bg-primary">Correct</div>
+                </div>
+                </div>
             </div>
-
-
         </div>
       </div>
     </div>
