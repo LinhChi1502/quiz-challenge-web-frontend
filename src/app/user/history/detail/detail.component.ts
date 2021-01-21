@@ -13,7 +13,42 @@ import {UserExam} from "../../../model/user-exam";
 })
 export class DetailComponent implements OnInit {
   idDetail:any;
-  currentExam!: Exam;
+  currentExam: Exam = {
+    id: 1,
+    name: "kiem tra Toan",
+    countDown: 10,
+    // date: null,
+    examQuestions: [
+      {
+        id: 2,
+        question: {
+          id: 2,
+          title: "tam giac vuong co 1 goc vuong ?",
+          active: true,
+          category: {
+            id: 1,
+            name: "math"
+          },
+          type: {
+            id: 2,
+            name: "trueOrFalse"
+          },
+          answers: [
+            {
+              id: 5,
+              content: "true",
+              correct: true
+            },
+            {
+              id: 6,
+              content: "false",
+              correct: false
+            }
+          ]
+        }
+      },
+    ]
+  };
   userAnswers: UserAnswer[] = [];
   userAnswerIdArr = [];
   userExam!: UserExam;

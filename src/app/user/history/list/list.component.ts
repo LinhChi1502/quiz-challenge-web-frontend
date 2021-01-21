@@ -26,26 +26,28 @@ export class ListComponent implements OnInit {
   constructor(private userExamService: UserExamService, private router: Router,
               private activatedRoute: ActivatedRoute, private authService: AuthService) {
     this.currentUserId = this.authService.currentUserValue.id;
+    this.getAllUserExamByUserId();
   }
 
 
   ngOnInit(): void {
-    this.getAllUserExamByUserId();
   }
 
   getAllUserExamByUserId(){
     this.userExamService.getAllUserExamsByUserId(this.currentUserId).subscribe( async result => {
-      this.filteredListHistory.data = result;
+      let arr = result;
+      arr = arr.filter(data => data.exam !== null);
+      this.filteredListHistory.data = arr;
       this.filteredListHistory.paginator = this.paginator;
       this.filteredListHistory.sort = this.sort;
-      for (let i = 0; i < this.filteredListHistory.data.length; i++) {
+
+      console.log(arr);
+      for (let i = 0; i < arr.length; i++) {
         this.userExamService.countMark(this.filteredListHistory.data[i].id).subscribe(async result => {
           this.filteredListHistory.data[i].mark = result;
-          console.log(result);
-        })
+          })
       }
     });
-    console.log(this.filteredListHistory);
   }
 
   onSearchClear() {

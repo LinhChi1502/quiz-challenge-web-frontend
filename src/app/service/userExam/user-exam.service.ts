@@ -35,4 +35,8 @@ export class UserExamService {
   getUserExamById(id: any): Observable<UserExam> {
     return this.http.get<UserExam>(API_URL + `/api/userexams/${id}`);
   }
+
+  deleteNewestUserExamById(id: number) {
+    return this.http.delete<UserExam>(API_URL + `/api/userexams/${id}`, {});
+  }
 }
