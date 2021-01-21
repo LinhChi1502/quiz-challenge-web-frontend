@@ -25,10 +25,12 @@ export class CreateQuestionTruefalseComponent implements OnInit {
 
     answers: [
       {
-        id: null
+        id: null,
+        content: 'True'
       },
       {
-        id: null
+        id: null,
+        content: 'False'
       }
     ]
   };

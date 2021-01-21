@@ -1,39 +1,10 @@
-<!--<section class="content-header">-->
-<!--  <div class="container-fluid">-->
-<!--    <div class="row mb-2">-->
-<!--      <div class="col-sm-6">-->
-<!--        <h1>Biểu đồ thống kê kết quả bài thi</h1>-->
-<!--      </div>-->
-<!--      <div class="col-sm-6">-->
-<!--        <ol class="breadcrumb float-sm-right">-->
-<!--          <li class="breadcrumb-item"><a routerLink="/admin">Trang chủ</a></li>-->
-<!--          <li class="breadcrumb-item active">Biểu đồ thống kê kết quả bài thi</li>-->
-<!--        </ol>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
-<!--</section>-->
-<!--<section class="content">-->
-<!--  <div class="card">-->
-<!--    <div class="card-header">-->
-<!--      <h3 class="card-title">Biểu đồ thống kê kết quả bài thi</h3>-->
-<!--    </div>-->
-<!--    <div class="card-body">-->
-<!--      <div class="chart">-->
-<!--        <canvas id="stackedBarChart"-->
-<!--                style="min-height: 700px; height: 700px; max-height: 700px; max-width: 100%;"></canvas>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
 
-<h1>Thống kê các kết quả bài thi</h1>
-<table>
-  <tr>
-    <th>#</th>
-    <th>tên bài thi</th>
-    <th>số bài có điểm < 50</th>
-    <th>số bài có điểm > 50</th>
-  </tr>
-  <ng-container *ngFor=""></ng-container>
-</table>
+<google-chart #chart
+              [title]="title"
+              [type]="type"
+              [data]="data"
+              [columns]="columnNames"
+              [options]="options"
+              [width]="width"
+              [height]="height">
+</google-chart>

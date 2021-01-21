@@ -105,11 +105,14 @@ questions : any =[];
     // answer1 = await this.createAnswerToPromise(this.answer);
     this.answerService.createNewAnswer(this.answer).subscribe(answer =>{
       // @ts-ignore
-      answer1.id = answer.id
+      answer1 = answer;
       // @ts-ignore
-      this.answer = answer1;
-      this.answers.push(this.answer);
+
+
     });
+    // @ts-ignore
+    this.answer = answer1;
+    // this.answers.push(this.answer);
   }
 
   createAnswerToPromise(answer: any){
@@ -118,6 +121,7 @@ questions : any =[];
 
   addAnswerToArray() {
     this.createNewAnswer();
+    this.answers.push(this.answer);
   }
 
   getValue(event: any) {

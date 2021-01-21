@@ -57,6 +57,10 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'question', pathMatch: 'full' },
       {
+        path: 'chart',
+        component: ChartComponent
+      },
+      {
         path: 'category', component: CategoryComponent,
         children: [
           {path: '', component: ListCategoryComponent, outlet: 'category'},
@@ -111,12 +115,10 @@ const routes: Routes = [
   },
 
   {
-    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule)
+    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule),
+    canActivate: [AuthGuard]
   },
-  {
-    path: 'chart',
-    component: ChartComponent
-  }
+
 ];
 
 @NgModule({

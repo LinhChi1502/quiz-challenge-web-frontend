@@ -42,6 +42,7 @@ export class EditQuestionComponent implements OnInit {
   arrayTF = ['True', 'False'];
 
   nextAnswer: Answer = {};
+  onChangeValue: string = '';
 
   constructor(private categoryService: CategoryService,
               private questionService: QuestionService,
@@ -50,14 +51,29 @@ export class EditQuestionComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(async paramMap => {
       // @ts-ignore
       this.id = +paramMap.get('id');
-      this.questionService.getQuestionById(this.id);
+
+      this.questionService.getQuestionById(this.id).subscribe(value => {
+          this.question.id = value.id;
+          this.question.title = value.title;
+          this.question.type = value.type;
+          this.question.answers = value.answers;
+          this.question.category = value.category;
+          this.question.active = value.active;
+          if (this.question.type.id === 3) {
+            for (let i = 0; i < this.question.answers.length; i++) {
+              this.deleteAnswer(this.question.answers[i].id);
+            }
+          }
+        }
+      );
+
+
     });
   }
 
   ngOnInit(): void {
     this.getAllCategories();
     this.getQuestionById(this.id);
-    console.log(this.question);
   }
 
   getAllCategories() {
@@ -71,6 +87,13 @@ export class EditQuestionComponent implements OnInit {
   }
 
   editQuestion(id: number) {
+    if (this.question.type.id == 3) {
+      this.question.answers = [];
+      for (let i = 0; i < this.answers.length; i++) {
+        this.question.answers.push(this.answers[i]);
+      }
+    }
+
     this.questionService.editQuestion(id, this.question).subscribe(() => alert('Success'),
       () => alert('Fail'));
   }
@@ -94,8 +117,13 @@ export class EditQuestionComponent implements OnInit {
     for (let i = 0; i < this.question.answers.length; i++) {
       this.question.answers[i].correct = false;
     }
+    console.log(this.question)
     this.question.answers[index].correct = true;
+    console.log(this.question)
+
     this.question.answers[index].content = event.target.value;
+    console.log(this.question)
+
   }
 
   // createNewAnswer() {
@@ -103,11 +131,11 @@ export class EditQuestionComponent implements OnInit {
   //   this.answerService.createNewAnswer(this.answer).subscribe(answer => this.answer = answer);
   // }
 
-  deleteAnswer() {
-    for (let i = 0; i < this.question.answers.length; i++) {
-      this.answerService.deleteAnswer(this.question.answers[i].id).subscribe(answer => this.question.answers[i] = answer);
-    }
-  }
+  // deleteAnswer() {
+  //   for (let i = 0; i < this.question.answers.length; i++) {
+  //     this.answerService.deleteAnswer(this.question.answers[i].id).subscribe(answer => this.question.answers[i] = answer);
+  //   }
+  // }
 
   // addAnswerToArray() {
   //   this.createNewAnswer();
@@ -117,4 +145,33 @@ export class EditQuestionComponent implements OnInit {
   //   }
   //   this.nextAnswer.content = '';
   // }
+
+  deleteAnswer(id: number) {
+    this.answerService.deleteAnswer(id).subscribe(() => console.log('a'));
+  }
+
+  createNewAnswer() {
+    // this.answer.content = this.nextAnswer.content;
+    let answer1 = {
+      id: null,
+      content: '',
+      correct: true
+    };
+    // @ts-ignore
+    answer1.content = this.onChangeValue;
+    // @ts-ignore
+    this.answerService.createNewAnswer(this.answer).subscribe(answer => answer1 = answer);
+    // @ts-ignore
+    this.answer = answer1;
+  }
+
+  addAnswerToArray() {
+    this.createNewAnswer();
+    this.answers.push(this.answer);
+  }
+
+  getValue(event: any) {
+    this.onChangeValue = event.target.value;
+    event.target.value = '';
+  }
 }
