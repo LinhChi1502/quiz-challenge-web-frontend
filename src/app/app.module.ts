@@ -77,8 +77,6 @@ import {GoogleChartsModule} from "angular-google-charts";
     CreateExamComponent,
     ExamDetailComponent,
     QuestionList2Component,
-    ProcessExamComponent,
-
     QuestionList2Component,
     // LogoutComponent,
     RegisterComponent,
