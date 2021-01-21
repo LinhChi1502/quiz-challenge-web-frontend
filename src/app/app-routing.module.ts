@@ -111,6 +111,10 @@ const routes: Routes = [
   {
     path: 'home', component: HomepageComponent
   },
+
+  {
+    path: '', loadChildren: () => import('./user/user.module').then(result => result.UserModule)
+  },
   {
     path: 'chart',
     component: ChartComponent

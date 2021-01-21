@@ -48,6 +48,7 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
 import { ChartComponent } from './chart/chart.component';
 import {ChartsModule} from "ng2-charts";
 
+import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,13 +78,16 @@ import {ChartsModule} from "ng2-charts";
     CreateExamComponent,
     ExamDetailComponent,
     QuestionList2Component,
+    ProcessExamComponent,
+
+    QuestionList2Component,
     RegisterComponent,
     ChangepassComponent,
     ChartComponent,
     ListUserComponent,
     ListUser2Component,
     HistoryUserComponent,
-    DetailUserExamComponent,
+    DetailUserExamComponent
   ],
   imports: [
     BrowserModule,
