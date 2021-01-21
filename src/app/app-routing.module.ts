@@ -30,6 +30,7 @@ import {ListUser2Component} from './admin/list-user2/list-user2.component';
 import {HistoryUserComponent} from './admin/history-user/history-user.component';
 import {DetailUserExamComponent} from './admin/detail-user-exam/detail-user-exam.component';
 import {ChartComponent} from './admin/chart/chart.component';
+import {ChangepassComponent} from './login/changepass/changepass.component';
 
 
 
@@ -48,6 +49,9 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent},
+  {
+    path: 'changepass',
+    component: ChangepassComponent},
 
   {
     path: 'admin', component: AdminHomeComponent,

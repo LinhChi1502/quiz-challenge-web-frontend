@@ -48,6 +48,7 @@ import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-ex
 import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
 import { ChartComponent } from './admin/chart/chart.component';
 import {GoogleChartsModule} from 'angular-google-charts';
+import {ChangepassComponent} from './login/changepass/changepass.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,7 @@ import {GoogleChartsModule} from 'angular-google-charts';
     HistoryUserComponent,
     DetailUserExamComponent,
     ChartComponent,
-    // ChangepassComponent
+    ChangepassComponent
   ],
   imports: [
     BrowserModule,
