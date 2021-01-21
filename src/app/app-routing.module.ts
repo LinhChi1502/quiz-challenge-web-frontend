@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from "./login/home/home.component";
 import {AuthGuard} from "./login/helper/auth-guard";
 import {LoginComponent} from "./login/login/login.component";
 import {RegisterComponent} from "./login/register/register.component";
@@ -34,11 +33,6 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
 import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
-  },
   {
     path: '',
     component: LayoutComponent
@@ -109,7 +103,9 @@ const routes: Routes = [
   },
 
   {
-    path: 'home', component: HomepageComponent
+    path: 'home',
+    component: HomepageComponent,
+    canActivate: [AuthGuard]
   },
 
   {
