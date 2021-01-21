@@ -2,6 +2,7 @@
   <mat-card>
     <mat-card-content>
       <h1 class=" text-center">{{currentExam.name}}</h1>
+      <h2 class="text-center">Mark: {{userExam.mark}}</h2>
     </mat-card-content>
     <div class="example-section" *ngFor="let question of currentExam.examQuestions; let i = index">
       <ng-container *ngIf="question.question.type.name == 'multipleChoice' ||  question.question.type.name == 'trueOrFalse'">
@@ -9,10 +10,19 @@
           <mat-card-content class="box-card-custom" >
             <h2>Question {{i+1}}. {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
-              <mat-radio-button color="primary" name="{{question.question.id}}">{{answer.content}}</mat-radio-button>
+              <mat-radio-button color="primary" name="{{question.question.id}}" [disabled]="true"
+                                [checked]="(answer.correct == true)" >{{answer.content}}</mat-radio-button>
               <br><br>
             </section>
           </mat-card-content>
+          <ng-container *ngFor="let userAnswer of userAnswers">
+            <mat-card *ngIf="userAnswer.questionIndex == question.question.id">
+              <ng-container *ngFor="let corAnswer of correctAnswers">
+                <h3 *ngIf="corAnswer.questionIndex == userAnswer.questionIndex" >
+                  Your answer: <span [ngClass] = "((userAnswer.content == corAnswer.content)) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
+              </ng-container>
+            </mat-card>
+          </ng-container>
         </mat-card>
       </ng-container>
       <ng-container *ngIf="question.question.type.name == 'fillInBank'">
@@ -21,10 +31,18 @@
             <h2>Question {{i+1}}. {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
               <textarea style="max-width: 100%; resize: none; border: 1px solid black" cols="300" rows="5" autocomplete="off"
-                        name="{{question.question.id}}"></textarea>
+                        name="{{question.question.id}}" [disabled]="true"></textarea>
               <br><br>
             </section>
           </mat-card-content>
+          <ng-container *ngFor="let userAnswer of userAnswers">
+            <mat-card *ngIf="userAnswer.questionIndex == question.question.id">
+              <ng-container>
+                <h3>
+                  Your answer: <span [ngClass] = "checkMulti(userAnswer) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
+              </ng-container>
+            </mat-card>
+          </ng-container>
         </mat-card>
       </ng-container>
       <ng-container *ngIf="question.question.type.name == 'multichoicemultianswer'">
@@ -32,10 +50,18 @@
           <mat-card-content class="box-card-custom" >
             <h2>Question {{i+1}}. {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
-              <mat-checkbox color="primary" name="{{question.question.id}}">{{answer.content}}</mat-checkbox>
+              <mat-checkbox color="primary" name="{{question.question.id}}" [disabled]="true" [checked]="(answer.correct == true)">{{answer.content}}</mat-checkbox>
               <br><br>
             </section>
           </mat-card-content>
+          <ng-container *ngFor="let userAnswer of userAnswers">
+            <mat-card *ngIf="userAnswer.questionIndex == question.question.id">
+              <ng-container>
+                <h3>
+                  Your answer: <span [ngClass] = "checkMulti(userAnswer) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
+              </ng-container>
+            </mat-card>
+          </ng-container>
         </mat-card>
       </ng-container>
     </div>

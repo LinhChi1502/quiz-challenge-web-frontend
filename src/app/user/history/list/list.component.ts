@@ -40,8 +40,6 @@ export class ListComponent implements OnInit {
       this.filteredListHistory.data = arr;
       this.filteredListHistory.paginator = this.paginator;
       this.filteredListHistory.sort = this.sort;
-
-      console.log(arr);
       for (let i = 0; i < arr.length; i++) {
         this.userExamService.countMark(this.filteredListHistory.data[i].id).subscribe(async result => {
           this.filteredListHistory.data[i].mark = result;

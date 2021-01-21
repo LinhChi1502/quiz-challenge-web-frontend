@@ -106,6 +106,7 @@ export class ProcessExamComponent implements OnInit {
       this.currentUserExam.userAnswers = this.answerArr;
       this.userExamService.submitUserAnswer(this.answerArr).subscribe();
       this.userExamService.submitUserExam(this.currentUserExam).subscribe();
+      this.router.navigate([`history/detail/${this.currentUserExam.id}`])
     }
     console.log(this.currentUserExam);
   }
