@@ -46,6 +46,7 @@ import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-ex
 
 
 import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
+import { ChartComponent } from './admin/chart/chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +81,7 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
     ListUser2Component,
     HistoryUserComponent,
     DetailUserExamComponent,
+    ChartComponent,
     // ChangepassComponent
   ],
   imports: [
