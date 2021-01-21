@@ -23,6 +23,10 @@ const routes: Routes = [
       {
         path: 'examination',
         loadChildren: () => import('./examination/examination.module').then(result => result.ExaminationModule)
+      },
+      {
+        path: 'history',
+        loadChildren: () => import('./history/history.module').then(result => result.HistoryModule)
       }
     ]
   }
