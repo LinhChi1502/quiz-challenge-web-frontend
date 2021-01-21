@@ -50,6 +50,7 @@ import {ChartsModule} from "ng2-charts";
 
 
 import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
+import {GoogleChartsModule} from "angular-google-charts";
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,8 @@ import { ProcessExamComponent } from './user/examination/process-exam/process-ex
     MaterialModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    GoogleChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
