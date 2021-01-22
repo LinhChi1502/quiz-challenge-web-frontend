@@ -33,6 +33,7 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
 import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
+
   {
     path: '',
     component: LayoutComponent
@@ -100,7 +101,7 @@ const routes: Routes = [
         children: [
           {path: 'list-user2', component: ListUser2Component, outlet: 'listuser'},
           {path: 'history-user/:id', component: HistoryUserComponent, outlet: 'listuser'},
-          {path: 'detail-user-exam/:id/:id2', component: DetailUserExamComponent, outlet: 'listuser'},
+          {path: 'detail-user-exam/:id2', component: DetailUserExamComponent, outlet: 'listuser'},
 
         ]
       }
@@ -112,6 +113,10 @@ const routes: Routes = [
     path: 'home',
     component: HomepageComponent,
     canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'user', redirectTo: 'examination'
   },
 
   {

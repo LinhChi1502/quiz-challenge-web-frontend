@@ -36,4 +36,16 @@ export class UserExamService {
   getStatistics(): Observable<Data[]> {
     return this.http.get<Data[]>(API_URL + `/api/userexams/statistics`);
   }
+
+  getUserExamById(id: any): Observable<UserExam> {
+    return this.http.get<UserExam>(API_URL + `/api/userexams/${id}`);
+  }
+
+  deleteNewestUserExamById(id: number) {
+    return this.http.delete<UserExam>(API_URL + `/api/userexams/${id}`, {});
+  }
+
+  notNullUserExamList(id: number): Observable<UserExam[]> {
+    return this.http.get<UserExam[]>(API_URL + `/api/userexams/notnull-exam-list/${id}`);
+  }
 }

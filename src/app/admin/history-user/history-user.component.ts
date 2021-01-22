@@ -43,7 +43,7 @@ export class HistoryUserComponent implements OnInit {
       this.id = +paramMap.get('id');
 
 
-      this.getAllUserExamsByUserId(this.id);
+      this.notNullUserExamList(this.id);
 
       // this.getExamByUserId(this.id);
     });
@@ -60,8 +60,21 @@ export class HistoryUserComponent implements OnInit {
   //   });
   // }
 
-  getAllUserExamsByUserId(id: number) {
-    this.userExamService.getAllUserExamsByUserId(id).subscribe((userExams) => {
+  // getAllUserExamsByUserId(id: number) {
+  //   this.userExamService.getAllUserExamsByUserId(id).subscribe((userExams) => {
+  //     this.userExams = userExams;
+  //     for (let i = 0; i < this.userExams.length; i++) {
+  //       this.userExamService.countMark(this.userExams[i].id).subscribe(mark => {
+  //           // @ts-ignore
+  //           this.userExams[i].mark = mark;
+  //         }
+  //       );
+  //     }
+  //   });
+  // }
+
+  notNullUserExamList(id: number) {
+    this.userExamService.notNullUserExamList(id).subscribe((userExams) => {
       this.userExams = userExams;
       for (let i = 0; i < this.userExams.length; i++) {
         this.userExamService.countMark(this.userExams[i].id).subscribe(mark => {
@@ -70,7 +83,9 @@ export class HistoryUserComponent implements OnInit {
           }
         );
       }
-    });
+    })
   }
+
+
 
 }
