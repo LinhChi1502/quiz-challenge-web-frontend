@@ -11,14 +11,14 @@ const routes: Routes = [
     path: '',
     component: HomepageComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'dashboard'
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-      },
+      // {
+      //   path: '',
+      //   redirectTo: 'dashboard'
+      // },
+      // {
+      //   path: 'dashboard',
+      //   component: DashboardComponent,
+      // },
       {
         path: 'examination',
         loadChildren: () => import('./examination/examination.module').then(result => result.ExaminationModule)

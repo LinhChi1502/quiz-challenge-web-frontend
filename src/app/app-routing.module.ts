@@ -100,7 +100,11 @@ const routes: Routes = [
   },
 
   {
-    path: 'home', component: HomepageComponent
+    path: 'home', redirectTo: 'examination'
+  },
+
+  {
+    path: 'user', redirectTo: 'examination'
   },
 
   {
