@@ -105,4 +105,8 @@ export class DetailComponent implements OnInit {
     }
     return false;
   }
+
+  backToList() {
+    this.router.navigate([`/history/list`]);
+  }
 }

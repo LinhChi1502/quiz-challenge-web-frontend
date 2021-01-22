@@ -58,6 +58,8 @@ export class ProcessExamComponent implements OnInit {
   currentUser: AppUser = {};
   currentUserExam: UserExam = {};
   allUserExam: UserExam[] = [];
+  countDown: any;
+  countTime = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private examService: ExamService,
               private authService: AuthService, private userExamService: UserExamService,
@@ -92,10 +94,29 @@ export class ProcessExamComponent implements OnInit {
         // @ts-ignore
         let maxId = Math.max.apply(null, ids);
         this.currentUserExam.id = maxId;
-        console.log(maxId);
       })
     });
+    // @ts-ignore
+    this.countTime = 1 * 60;
+    setInterval(() => {
+      let minute = Math.floor(this.countTime/60);
+      let seconds = this.countTime % 60;
+      this.countDown = minute + " : " + seconds;
+      this.countTime--;
+      if (this.countTime == 0){
+        this.currentUserExam.exam = this.currentExam;
+        this.currentUserExam.appUser = this.currentUser;
+        this.currentUserExam.userAnswers = this.answerArr;
+        this.userExamService.submitUserAnswer(this.answerArr).subscribe();
+        this.userExamService.submitUserExam(this.currentUserExam).subscribe();
+        this.router.navigate([`history/detail/${this.currentUserExam.id}`]);
+        clearInterval();
+      }
+      console.log(this.countTime);
+    },1000)
+
   }
+
 
 
   submit() {

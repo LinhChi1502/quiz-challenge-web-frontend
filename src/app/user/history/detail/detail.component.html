@@ -30,8 +30,8 @@
           <mat-card-content class="box-card-custom" >
             <h2>Question {{i+1}}. {{question.question.title}}</h2>
             <section class="example-section" *ngFor="let answer of question.question.answers">
-              <textarea style="max-width: 100%; resize: none; border: 1px solid black" cols="300" rows="5" autocomplete="off"
-                        name="{{question.question.id}}" [disabled]="true"></textarea>
+              <textarea style="max-width: 100%; resize: none; border: 1px solid black; font-size: 20px; font-weight: bold"
+                        cols="300" rows="5" autocomplete="off" name="{{question.question.id}}" [disabled]="true">{{answer.content}}</textarea>
               <br><br>
             </section>
           </mat-card-content>
@@ -66,8 +66,7 @@
       </ng-container>
     </div>
     <div class="text-center">
-      <button mat-raised-button color="primary" class="text-center" type="submit">Submit</button>
-      <button mat-raised-button color="warn" class="text-center" >Cancel</button>
+      <button mat-raised-button color="accent" class="text-center" type="submit" (click)="backToList()">Back</button>
     </div>
   </mat-card>
 </form>
