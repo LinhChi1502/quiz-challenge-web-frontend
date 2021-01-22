@@ -4,6 +4,7 @@ import {MediaObserver, MediaChange} from '@angular/flex-layout';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../service/auth/auth.service';
 import {Router} from '@angular/router';
+import {Data} from "../../model/data";
 
 @Component({
   selector: 'app-admin-navbar',
@@ -67,5 +68,11 @@ export class AdminNavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.router.navigate(['']);
+  }
+
+  reloadChart($event: MouseEvent) {
+
+
+
   }
 }

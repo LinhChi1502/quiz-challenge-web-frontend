@@ -51,7 +51,7 @@
                 </mat-list-item>
                 <mat-list-item [routerLink]="['/admin/chart']">
                   <mat-icon mat-list-icon  class="color_custom">bar_chart</mat-icon>
-                  <a *ngIf="isExpanded || isShowing" class="mat-h2">Statistics</a>
+                  <a *ngIf="isExpanded || isShowing" class="mat-h2" (click)="reloadChart($event)">Statistics</a>
                 </mat-list-item>
 
               </mat-nav-list>

@@ -33,6 +33,12 @@ export class ChartComponent implements OnInit {
         // @ts-ignore
         this.data.push(this.item);
         this.item = [];
+        this.title = 'Statistics  in Exam Result';
+        this.type= 'ColumnChart';
+        this.columnNames = ['Exam Name', '> 50 point', '<= 50 point'];
+        this.width = 1000;
+        this.height = 400;
+        this.options = {};
       });
     })
   }
