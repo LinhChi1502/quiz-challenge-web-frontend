@@ -37,26 +37,19 @@ export class DetailUserExamComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.questService.getAllQuestionByExamId(this.id).subscribe((value) => {
+    this.questService.toan_getAllQuestionByExamId(this.id).subscribe((value) => {
       value.forEach(value1 =>
         this.questions.push(value1)
       )
     });
     this.currentUser = this.authService.currentUserValue;
     // @ts-ignore
-    this.questService.getCurrentUserAnswer(this.used,this.id).subscribe((value) => {
+    this.questService.toan_getCurrentUserAnswer(this.used,this.id).subscribe((value) => {
         value.forEach(value1 =>{
             this.userAnswers.push(value1)
           }
         )
       }
     );
-  }
-
-  checkTrueAnswer(questionIndex: any, id: any) {
-    console.log("adfadsfasdfadsf")
-    console.log(questionIndex);
-    console.log(id);
-
   }
 }
