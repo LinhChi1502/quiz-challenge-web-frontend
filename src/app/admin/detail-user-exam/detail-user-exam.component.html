@@ -1,3 +1,5 @@
+
+
 <div class="container mt-sm-5 my-1" *ngFor="let question of questions">
 
   <div *ngIf="question.active === true">
@@ -31,22 +33,8 @@
                   <label for="{{answer.id}}3" class="custom-control-label " >{{answer.content}}</label>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
             </div>
-
-
-
           </div>
-
-
           <!--      form multiplechoice &btruefalse finish-->
         </div>
       </div>
@@ -54,12 +42,39 @@
 
       <div *ngIf="question.type.name == 'multichoicemultianswer'">
         <div *ngFor="let answer of question.answers">
-          <!--      form multiple choice with many answers-->
+
+          <div *ngFor="let userAnswer of userAnswers">
+            <div *ngIf="userAnswer.questionIndex==question.id">
+              <div *ngIf="(userAnswer.content==answer.content)&&(answer.correct==true )">
+
           <div class="form-check">
             <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
-            <label class="form-check-label">{{answer.content}}</label>
+            <label class="form-check-label bg-primary">{{answer.content}}/you choice</label>
           </div>
-          <!--     form multiple choice with many answers-->
+        </div>
+              <div *ngIf="(userAnswer.content==answer.content)&&(answer.correct==false );">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
+            <label class="form-check-label bg-danger ">{{answer.content}}</label>
+          </div>
+
+        </div>
+<!--              <div *ngIf="(userAnswer.content!=answer.content);">-->
+<!--          <div class="form-check">-->
+<!--            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>-->
+<!--            <label class="form-check-label ">{{answer.content}}</label>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--              <ng-template #thenBlock><div class="form-check">-->
+<!--                <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>-->
+<!--                <label class="form-check-label  ">{{answer.content}}</label>-->
+<!--              </div></ng-template>-->
+
+
+        </div>
+        </div>
         </div>
       </div>
 
