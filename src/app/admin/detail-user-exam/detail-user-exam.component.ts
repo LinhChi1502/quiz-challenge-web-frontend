@@ -4,6 +4,7 @@ import {QuestionService} from '../../service/question/question.service';
 import {ExamService} from '../../service/exam/exam.service';
 import {AuthService} from '../../service/auth/auth.service';
 import {UserToken} from '../../model/user-token';
+import { Exam } from 'src/app/model/exam';
 
 @Component({
   selector: 'app-detail-user-exam',
@@ -19,6 +20,7 @@ export class DetailUserExamComponent implements OnInit {
   questions: any[] = [];
   userAnswers: any[] = [];
   currentUser: UserToken = {};
+  exam:Exam={} ;
 
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -37,6 +39,13 @@ export class DetailUserExamComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.examService.getExamById(this.id).subscribe(value =>
+
+    {
+
+      this.exam.name=value.name;
+      console.log(this.exam)
+    })
     this.questService.toan_getAllQuestionByExamId(this.id).subscribe((value) => {
       value.forEach(value1 =>
         this.questions.push(value1)
