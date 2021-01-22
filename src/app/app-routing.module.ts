@@ -33,7 +33,6 @@ import {ChangepassComponent} from "./login/changepass/changepass.component";
 import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
-
   {
     path: '',
     component: LayoutComponent
@@ -45,7 +44,8 @@ const routes: Routes = [
 
   {
     path: 'register',
-    component: RegisterComponent},
+    component: RegisterComponent
+  },
   {
     path: 'changepass',
     component: ChangepassComponent

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { ChartType } from 'chart.js';
 import {Data} from '../model/data';
 import {UserExamService} from '../service/userExam/user-exam.service';
 
@@ -10,7 +11,8 @@ import {UserExamService} from '../service/userExam/user-exam.service';
 })
 export class ChartComponent implements OnInit {
   title = 'Statistics  in Exam Result';
-  type= 'ColumnChart';
+  // @ts-ignore
+  type: string  = 'ColumnChart';
   data = [];
   item: Data[] = [];
   columnNames = ['Exam Name', '> 50 point', '<= 50 point'];
@@ -34,7 +36,8 @@ export class ChartComponent implements OnInit {
         this.data.push(this.item);
         this.item = [];
         this.title = 'Statistics  in Exam Result';
-        this.type= 'ColumnChart';
+        // @ts-ignore
+        this.type =  'ColumnChart';
         this.columnNames = ['Exam Name', '> 50 point', '<= 50 point'];
         this.width = 1000;
         this.height = 400;

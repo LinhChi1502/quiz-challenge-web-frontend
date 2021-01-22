@@ -27,11 +27,17 @@ export class LoginComponent implements OnInit {
               private authService: AuthService) {
     // @ts-ignore
     this.authService.currentUser.subscribe(value => this.currentUser = value);
-    if (this.currentUser) {
-      const roleList = this.currentUser.roles;
-      for (const role of roleList) {
-        if (role.authority === 'ROLE_ADMIN') {
-          this.hasRoleAdmin = true;
+    if (!this.currentUser ||  this.currentUser == 'null' ) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    if (this.currentUser  ) {
+      if(this.currentUser != 'null'){
+        const roleList = this.currentUser.roles;
+        for (const role of roleList) {
+          if (role.authority === 'ROLE_ADMIN') {
+            this.hasRoleAdmin = true;
+          }
         }
       }
     }

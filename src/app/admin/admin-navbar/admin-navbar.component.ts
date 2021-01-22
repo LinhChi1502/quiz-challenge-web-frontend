@@ -66,8 +66,7 @@ export class AdminNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
   reloadChart($event: MouseEvent) {
