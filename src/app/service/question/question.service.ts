@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Question} from '../../model/question';
 import {Category} from '../../model/category';
+import { UserAnswer } from 'src/app/model/user-answer';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -59,5 +60,8 @@ export class QuestionService {
     console.log(this.http.post<Question>(API_URL + `/api/questions`, question));
     return  this.http.post<Question>(API_URL + `/api/questions`, question);
 
+  }
+  getCurrentUserAnswer(iduser:number,idexam:number):Observable<UserAnswer[]> {
+    return this.http.get<UserAnswer[]>(`http://localhost:8080/api/answers/current-user/${iduser}/${idexam}`);
   }
 }

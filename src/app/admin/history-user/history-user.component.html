@@ -24,7 +24,7 @@ totalItems: totalRecords}; let i = index">
         <td style="text-align: center">{{userExam.date}}</td>
         <td style="text-align: center">{{userExam.mark}}</td>
         <td style="text-align: center">
-          <a [routerLink]="['/admin/list-user',{outlets:{listuser:['detail-user-exam',id]}}]"><i class="fa fa-eye" aria-hidden="true"></i>
+          <a [routerLink]="['/admin/list-user',{outlets:{listuser:['detail-user-exam',userExam.exam.id,userExam.appUser.id]}}]"><i class="fa fa-eye" aria-hidden="true"></i>
           </a>
         </td>
 
