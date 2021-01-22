@@ -12,7 +12,7 @@ import {UserExamService} from '../service/userExam/user-exam.service';
 export class ChartComponent implements OnInit {
   title = 'Statistics  in Exam Result';
   // @ts-ignore
-  type: string  = 'ColumnChart';
+  type= 'ColumnChart';
   data = [];
   item: Data[] = [];
   columnNames = ['Exam Name', '> 50 point', '<= 50 point'];
