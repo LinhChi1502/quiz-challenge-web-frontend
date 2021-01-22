@@ -97,8 +97,8 @@ export class ProcessExamComponent implements OnInit {
       })
     });
     // @ts-ignore
-    this.countTime = 1 * 60;
-    setInterval(() => {
+    this.countTime = this.currentExam.countDown * 60;
+    let x = setInterval(() => {
       let minute = Math.floor(this.countTime/60);
       let seconds = this.countTime % 60;
       this.countDown = minute + " : " + seconds;
@@ -110,7 +110,7 @@ export class ProcessExamComponent implements OnInit {
         this.userExamService.submitUserAnswer(this.answerArr).subscribe();
         this.userExamService.submitUserExam(this.currentUserExam).subscribe();
         this.router.navigate([`history/detail/${this.currentUserExam.id}`]);
-        clearInterval();
+        clearInterval(x);
       }
       console.log(this.countTime);
     },1000)

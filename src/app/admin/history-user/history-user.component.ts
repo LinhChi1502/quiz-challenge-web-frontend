@@ -73,4 +73,6 @@ export class HistoryUserComponent implements OnInit {
     });
   }
 
+
+
 }

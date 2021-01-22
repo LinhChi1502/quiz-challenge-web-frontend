@@ -15,11 +15,12 @@
               <br><br>
             </section>
           </mat-card-content>
+          <h3>Your answer: </h3>
           <ng-container *ngFor="let userAnswer of userAnswers">
             <mat-card *ngIf="userAnswer.questionIndex == question.question.id">
               <ng-container *ngFor="let corAnswer of correctAnswers">
-                <h3 *ngIf="corAnswer.questionIndex == userAnswer.questionIndex" >
-                  Your answer: <span [ngClass] = "((userAnswer.content == corAnswer.content)) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
+                <h3>
+                  <span *ngIf="corAnswer.questionIndex == userAnswer.questionIndex" [ngClass] = "((userAnswer.content == corAnswer.content)) ? 'blue':'red'">{{userAnswer.content}}</span></h3>
               </ng-container>
             </mat-card>
           </ng-container>
@@ -35,11 +36,12 @@
               <br><br>
             </section>
           </mat-card-content>
+          <h3>Your answer: </h3>
           <ng-container *ngFor="let userAnswer of userAnswers">
             <mat-card *ngIf="userAnswer.questionIndex == question.question.id">
               <ng-container>
                 <h3>
-                  Your answer: <span [ngClass] = "checkMulti(userAnswer) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
+                  <span [ngClass] = "checkMulti(userAnswer) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
               </ng-container>
             </mat-card>
           </ng-container>
@@ -54,11 +56,12 @@
               <br><br>
             </section>
           </mat-card-content>
+          <h3>Your answer: </h3>
           <ng-container *ngFor="let userAnswer of userAnswers">
             <mat-card *ngIf="userAnswer.questionIndex == question.question.id">
               <ng-container>
                 <h3>
-                  Your answer: <span [ngClass] = "checkMulti(userAnswer) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
+                  <span [ngClass] = "checkMulti(userAnswer) ? 'blue':'red'">{{userAnswer.content}}</span> </h3>
               </ng-container>
             </mat-card>
           </ng-container>
