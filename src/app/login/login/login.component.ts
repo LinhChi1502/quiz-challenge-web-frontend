@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
             if (role.authority === 'ROLE_ADMIN') {
               this.returnUrl = "/admin/question";
             }else {
-              this.returnUrl= "/home"
+              this.returnUrl= "/examination/list"
             }
           }
           this.router.navigate([this.returnUrl]).finally(() => {

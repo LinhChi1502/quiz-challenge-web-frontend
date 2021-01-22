@@ -30,7 +30,7 @@ export class UserExamService {
   }
 
   getAllUserExams(): Observable<UserExam[]> {
-    return this.http.get<UserExam[]>(API_URL + `/api/userexams/`);
+    return this.http.get<UserExam[]>(API_URL + `/api/userexams`);
   }
 
   getStatistics(): Observable<Data[]> {

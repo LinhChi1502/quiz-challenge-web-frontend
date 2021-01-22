@@ -13,7 +13,7 @@ export class ChartComponent implements OnInit {
   title = 'Statistics  in Exam Result';
   // @ts-ignore
   type= 'ColumnChart';
-  data = [];
+  data= [];
   item: Data[] = [];
   columnNames = ['Exam Name', '> 50 point', '<= 50 point'];
   options = {};
