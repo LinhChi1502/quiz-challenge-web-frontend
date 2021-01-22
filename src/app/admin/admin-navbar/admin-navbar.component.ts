@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
-import { Subscription } from 'rxjs';
-import {AuthService} from "../../service/auth/auth.service";
-import {Router} from "@angular/router";
+import {MediaObserver, MediaChange} from '@angular/flex-layout';
+import {Subscription} from 'rxjs';
+import {AuthService} from '../../service/auth/auth.service';
+import {Router} from '@angular/router';
+import {Data} from "../../model/data";
 
 @Component({
   selector: 'app-admin-navbar',
@@ -18,6 +19,9 @@ export class AdminNavbarComponent implements OnInit {
   sideNavOpened = true;
   // sideNavMode: 'side' | 'over' = 'side';
   toolBarHeight = 64;
+
+  @Output() isExpandedPassOut = new EventEmitter<boolean>();
+
   private readonly mediaWatcher: Subscription;
 
   mouseenter() {
@@ -31,7 +35,9 @@ export class AdminNavbarComponent implements OnInit {
       this.isShowing = false;
     }
   }
-  constructor(media: MediaObserver, private authService: AuthService,
+
+  constructor(media: MediaObserver,
+              private authService: AuthService,
               private router: Router) {
     this.mediaWatcher = media.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'sm' || change.mqAlias === 'xs') {
@@ -52,11 +58,21 @@ export class AdminNavbarComponent implements OnInit {
     });
   }
 
+  toggleSidebar() {
+    this.isExpandedPassOut.emit(this.isExpanded);
+  }
+
   ngOnInit(): void {
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
     this.router.navigate(['']);
+  }
+
+  reloadChart($event: MouseEvent) {
+
+
+
   }
 }

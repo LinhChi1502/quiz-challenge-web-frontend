@@ -29,7 +29,7 @@ export class ExamDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.questService.getAllQuestionByExamId(this.id).subscribe((value) =>{
+    this.questService.toan_getAllQuestionByExamId(this.id).subscribe((value) =>{
     console.log(this.id)
      console.log(value);
     this.questions=value

@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {HomepageComponent} from './user/homepage/homepage.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NavbarComponent} from './user/homepage/navbar/navbar.component';
 import {LayoutComponent} from './login/layout/layout.component';
+import {SidebarComponent} from './user/homepage/sidebar/sidebar.component';
 import {LoginComponent} from './login/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './login/helper/jwt-interceptor';
@@ -40,8 +43,14 @@ import { ListUserComponent } from './admin/list-user/list-user.component';
 import { ListUser2Component } from './admin/list-user2/list-user2.component';
 import { HistoryUserComponent } from './admin/history-user/history-user.component';
 import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-exam.component';
+import {ChangepassComponent} from "./login/changepass/changepass.component";
+import { ChartComponent } from './chart/chart.component';
+import {ChartsModule} from "ng2-charts";
 
 
+
+import { ProcessExamComponent } from './user/examination/process-exam/process-exam.component';
+import {GoogleChartsModule} from "angular-google-charts";
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,16 +77,15 @@ import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-ex
     CreateExamComponent,
     ExamDetailComponent,
     QuestionList2Component,
-
     QuestionList2Component,
     // LogoutComponent,
     RegisterComponent,
+    ChangepassComponent,
+    ChartComponent,
     ListUserComponent,
     ListUser2Component,
     HistoryUserComponent,
-    DetailUserExamComponent,
-
-    // ChangepassComponent
+    DetailUserExamComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +101,9 @@ import { DetailUserExamComponent } from './admin/detail-user-exam/detail-user-ex
     FormsModule,
     MaterialModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule,
+    GoogleChartsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},

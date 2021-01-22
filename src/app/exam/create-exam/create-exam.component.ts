@@ -5,6 +5,7 @@ import {DataService} from '../../data.service';
 import {Question} from '../../model/question';
 import {ExamService} from '../../service/exam/exam.service';
 import {Exam} from '../../model/exam';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-exam',
@@ -15,11 +16,10 @@ export class CreateExamComponent implements OnInit {
   constructor(private questionService: QuestionService,
               private examService: ExamService,
               private typeService: TypeService,
-              private dataService: DataService) {
+              private dataService: DataService,
+              private router: Router) {
   }
-
   ngOnInit(): void {
-
   }
 
   selectTime:number=0;
@@ -53,10 +53,12 @@ export class CreateExamComponent implements OnInit {
     console.log(this.exam.countDown);
 this.examService.saveExam(this.exam).subscribe(value =>{ alert("thanh cong");
 
+    // @ts-ignore
     this.questionService.addQuestionListToExam(this.questions).subscribe(value =>
     {
       this.questions=value;
       console.log(value);
+      this.router.navigate(['admin/exam'])
     })
 
   }

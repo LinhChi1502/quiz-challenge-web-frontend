@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from "./login/home/home.component";
 import {AuthGuard} from "./login/helper/auth-guard";
 import {LoginComponent} from "./login/login/login.component";
 import {RegisterComponent} from "./login/register/register.component";
@@ -30,6 +29,8 @@ import {ListUser2Component} from './admin/list-user2/list-user2.component';
 import {HistoryUserComponent} from './admin/history-user/history-user.component';
 import {DetailUserExamComponent} from './admin/detail-user-exam/detail-user-exam.component';
 
+import {ChangepassComponent} from "./login/changepass/changepass.component";
+import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
 
@@ -45,12 +46,20 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent},
-
+  {
+    path: 'changepass',
+    component: ChangepassComponent
+  },
   {
     path: 'admin', component: AdminHomeComponent,
     canActivate: [AdminGuard],
     canActivateChild: [AdminGuard],
     children: [
+      {path: '', redirectTo: 'question', pathMatch: 'full' },
+      {
+        path: 'chart',
+        component: ChartComponent
+      },
       {
         path: 'category', component: CategoryComponent,
         children: [
@@ -91,7 +100,7 @@ const routes: Routes = [
         children: [
           {path: 'list-user2', component: ListUser2Component, outlet: 'listuser'},
           {path: 'history-user/:id', component: HistoryUserComponent, outlet: 'listuser'},
-          {path: 'detail-user-exam/:id', component: DetailUserExamComponent, outlet: 'listuser'},
+          {path: 'detail-user-exam/:id/:id2', component: DetailUserExamComponent, outlet: 'listuser'},
 
         ]
       }
@@ -100,7 +109,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'home', redirectTo: 'examination'
+    path: 'home',
+    redirectTo: 'examination'
   },
 
   {

@@ -1,1 +1,118 @@
-<p>detail-user-exam works!</p>
+
+
+<div class="container mt-sm-5 my-1" *ngFor="let question of questions">
+
+  <div *ngIf="question.active === true">
+    <div class="question ml-sm-5 pl-sm-5 pt-2" style="border: 1px solid gray; border-radius: 10px; width: 50%">
+
+      <div class="py-2 h5"><b>{{question.title}}</b></div>
+
+      <div *ngIf="question.type.name == 'multipleChoice' || question.type.name == 'trueOrFalse'">
+        <div *ngFor="let answer of question.answers">
+          <!--      form multiplechoice &btruefalse-->
+          <div *ngFor="let userAnswer of userAnswers">
+            <div *ngIf="userAnswer.questionIndex==question.id">
+              <div *ngIf="(userAnswer.content==answer.content)&&(answer.correct==false )">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="{{answer.id}}" [checked]="(answer.correct == true)"
+                         disabled>
+                  <label for="{{answer.id}}" class="custom-control-label bg-danger" >{{answer.content}}/ your choice</label>
+                </div>
+              </div>
+              <div *ngIf="userAnswer.content==answer.content&&answer.correct==true ">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="{{answer.id}}1" [checked]="(answer.correct == true)"
+                         disabled>
+                  <label for="{{answer.id}}1" class="custom-control-label bg-primary" >{{answer.content}}/ your choice</label>
+                </div>
+              </div>
+              <div *ngIf="userAnswer.content!=answer.content ">
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="{{answer.id}}3" [checked]="(answer.correct == true)"
+                         disabled>
+                  <label for="{{answer.id}}3" class="custom-control-label " >{{answer.content}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--      form multiplechoice &btruefalse finish-->
+        </div>
+      </div>
+
+
+      <div *ngIf="question.type.name == 'multichoicemultianswer'">
+        <div *ngFor="let answer of question.answers">
+
+          <div *ngFor="let userAnswer of userAnswers">
+            <div *ngIf="userAnswer.questionIndex==question.id">
+              <div *ngIf="(userAnswer.content==answer.content)&&(answer.correct==true )">
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
+            <label class="form-check-label bg-primary">{{answer.content}}/you choice</label>
+          </div>
+        </div>
+              <div *ngIf="(userAnswer.content==answer.content)&&(answer.correct==false );">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>
+            <label class="form-check-label bg-danger ">{{answer.content}}</label>
+          </div>
+
+        </div>
+<!--              <div *ngIf="(userAnswer.content!=answer.content);">-->
+<!--          <div class="form-check">-->
+<!--            <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>-->
+<!--            <label class="form-check-label ">{{answer.content}}</label>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--              <ng-template #thenBlock><div class="form-check">-->
+<!--                <input class="form-check-input" type="checkbox" [checked]="(answer.correct == true)" disabled>-->
+<!--                <label class="form-check-label  ">{{answer.content}}</label>-->
+<!--              </div></ng-template>-->
+
+
+        </div>
+        </div>
+        </div>
+      </div>
+
+      <div *ngIf="question.type.name == 'fillInBank'">
+        <div *ngFor="let answer of question.answers">
+          <div *ngIf="answer.correct==true">
+            <div class="form-group">
+                     <textarea  id="text-area" class="form-control" [value]="answer.content" disabled
+style="width: 50%"></textarea>
+</div>
+</div>
+<div *ngFor="let userAnswer of userAnswers">
+  <div *ngIf="userAnswer.questionIndex==question.id">
+    <div *ngIf="userAnswer.content==answer.content&&answer.correct==true" >
+      <div class="form-group">
+        <div class="bg-primary">Correct</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--          <div *ngFor="let userAnswer of userAnswers">-->
+<!--            <div *ngIf="userAnswer.questionIndex==question.id">-->
+<!--              <div *ngIf="userAnswer.content==answer.content&&answer.correct==true" >-->
+<!--                <div class="form-group">-->
+<!--                  <div class="bg-primary">Correct</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div>{{userAnswers.length}}</div>

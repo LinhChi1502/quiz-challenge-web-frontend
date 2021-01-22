@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
           const roleList = data.roles;
           for (const role of roleList) {
             if (role.authority === 'ROLE_ADMIN') {
-              this.returnUrl = "/admin";
+              this.returnUrl = "/admin/question";
             }else {
               this.returnUrl= "/home"
             }

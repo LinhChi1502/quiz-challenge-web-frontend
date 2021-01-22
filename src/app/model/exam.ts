@@ -7,4 +7,6 @@ export interface Exam {
   name?: string;
   examQuestions?: any;
   userExams?: UserExam[];
+  up50?: number;
+  down50?: number;
 }

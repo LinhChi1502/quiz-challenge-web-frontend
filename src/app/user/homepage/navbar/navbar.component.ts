@@ -22,8 +22,7 @@ export class NavbarComponent implements OnInit {
   toggleSidebar(){
     this.isExpandedPassOut.emit(this.isExpanded);
   }
-
-  logout() {
+  logout(){
     this.authService.logout();
     this.router.navigate(['']);
   }

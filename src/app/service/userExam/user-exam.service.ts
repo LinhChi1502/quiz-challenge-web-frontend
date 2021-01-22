@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {UserExam} from '../../model/user-exam';
 import {environment} from '../../../environments/environment';
 import {UserAnswer} from "../../model/user-answer";
+import { Data } from 'src/app/model/data';
 const API_URL = `${environment.apiUrl}`
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ export class UserExamService {
 
   getAllUserExams(): Observable<UserExam[]> {
     return this.http.get<UserExam[]>(API_URL + `/api/userexams/`);
+  }
+
+  getStatistics(): Observable<Data[]> {
+    return this.http.get<Data[]>(API_URL + `/api/userexams/statistics`);
   }
 
   getUserExamById(id: any): Observable<UserExam> {
